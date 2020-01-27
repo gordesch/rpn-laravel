@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Wrappers\Allocine;
+namespace App\Services\ShowsProvider\Allocine;
 
 use App\Show;
 use GuzzleHttp\Client;
@@ -8,19 +8,18 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use SimpleXMLElement;
+use App\Services\ShowsProvider\ShowsProviderInterface;
 
 /**
  * Class Allocine
  *
  * Allocine.fr API wrapper, access their movies database
  */
-class Allocine
+class Allocine implements ShowsProviderInterface
 {
     use CastsToShow;
 
-    protected string $endpoint;
-    protected string $partner_code;
-    protected string $return_type;
+    protected array $config;
     protected Client $client;
 
     /**
@@ -30,9 +29,9 @@ class Allocine
      */
     public function __construct(string $return_type = 'xml')
     {
-        $this->endpoint = config('services.allocine.endpoint');
-        $this->partner_code = config('services.allocine.partner_code');
-        $this->return_type = $return_type;
+        $this->config['endpoint'] = config('services.allocine.endpoint');
+        $this->config['partner_code'] = config('services.allocine.partner_code');
+        $this->config['return_type'] = $return_type;
         $this->client = new Client();
     }
 
@@ -66,7 +65,7 @@ class Allocine
      *
      * @throws GuzzleException
      */
-    public static function movie(string $code): Show
+    public static function show(string $code): Show
     {
         $allocine = new static('xml');
         $query = [
@@ -88,11 +87,11 @@ class Allocine
      */
     private function _call(string $service, array $query): SimpleXMLElement
     {
-        $uri = $this->endpoint . $service;
+        $uri = $this->config['endpoint'] . $service;
         $options = [
             'query' => [
-                'partner' => $this->partner_code,
-                'format' => $this->return_type,
+                'partner' => $this->config['partner_code'],
+                'format' => $this->config['return_type'],
             ]
         ];
         foreach ($query as $key => $value) {

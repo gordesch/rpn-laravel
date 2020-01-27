@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Alaouy\Youtube\Facades\Youtube;
 use App\Http\Controllers\Controller;
-use App\Show;
-use App\Wrappers\Allocine\Allocine;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use SimpleXMLElement;
+use App\Services\ShowsProvider\ShowsProviderInterface;
+use App\Services\VideosProvider\VideosProviderInterface;
 
 class ShowsImportController extends Controller
 {
@@ -17,12 +15,14 @@ class ShowsImportController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function create()
-    {
+    public function create(
+        ShowsProviderInterface $showsProvider,
+        VideosProviderInterface $videosProvider
+    ) {
         $code = request('code');
-        $show = Allocine::movie($code);
-        //ddd($show);
-        //$show = Allocine::movie($code);
-        return view('admin.shows.import.create', compact('show'));
+        $show = $showsProvider::show($code);
+        $videos = $videosProvider::search($show);
+
+        return view('admin.shows.import.create', compact('show', 'videos'));
     }
 }

@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+        Alaouy\Youtube\YoutubeServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -175,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        App\Providers\TicketingServiceProvider::class,
+        App\Providers\ShowsServiceProvider::class,
+        App\Providers\VideosServiceProvider::class,
 
     ],
 
@@ -227,6 +233,30 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+
+    ],
+
+    'ticketing' =>
+    [
+        'driver' => env('TICKETING_PROVIDER'),
+        'username' => env('TICKETING_USERNAME'),
+        'password' => env('TICKETING_PASSWORD'),
+        'endpoint' => env('TICKETING_ENDPOINT'),
+    ],
+
+    'online_ticketing' =>
+    [
+        'open' => env('ONLINE_TICKETING_ENABLE'),
+        'base_url' => env('ONLINE_TICKETING_BASE_URL'),
+        'stop_selling_at' => env('ONLINE_TICKETING_STOP_SELLING_AT'),
+    ],
+
+    'shows_db' =>
+    [
+        'driver' => env('SHOWS_PROVIDER'),
+        'partner_code' => env('ALLOCINE_PARTNER_CODE'),
+        'endpoint' => env('ALLOCINE_ENDPOINT'),
     ],
 
 ];

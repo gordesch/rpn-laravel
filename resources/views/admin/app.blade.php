@@ -105,6 +105,7 @@
     </div>
 </nav>
 <div class="container">
+    @include('flash::message')
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -127,12 +128,19 @@
         ·
         <a href="{{ config('app.url') }}">Retour au site public</a>
         <span style="float:right">
-					<a href="#">Revenir en haut &uarr;</a>
-				</span>
+            <a href="#">Revenir en haut &uarr;</a>
+        </span>
     </p>
 </footer>
 
 </div>
+@include('admin.vuecomponents.slugcheck')
+@include('admin.vuecomponents.autocomplete')
+<script>
+    let vm = new Vue({
+        el: '#app',
+    })
+</script>
 @yield('scripts')
 </body>
 

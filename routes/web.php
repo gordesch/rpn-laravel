@@ -13,6 +13,7 @@
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('shows', 'ShowsController@index')->name('shows.index');
+    Route::get('shows/create', 'ShowsController@create')->name('shows.create');
     Route::post('shows', 'ShowsController@store')->name('shows.store');
     Route::get('shows/{show}', 'ShowsController@edit')->name('shows.edit');
     Route::put('shows/{show}', 'ShowsController@update')->name('shows.update');
@@ -27,4 +28,15 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('showings-import/create', 'ShowingsImportController@create')->name('showings.import.create');
     Route::post('showings-import', 'ShowingsImportController@store')->name('showings.import.store');
 });
+
+Route::get('a-l-affiche/cette-semaine', function() {
+    return (new \App\Http\Controllers\ShowingsByWeekController())
+        ->show(\Gordesch\CineCarbon::now()->programmingWeek());
+})->name('showing.this-week');
+Route::get('a-l-affiche/semaine-prochaine', function() {
+    return (new \App\Http\Controllers\ShowingsByWeekController())
+        ->show(\Gordesch\CineCarbon::now()->modify('+1 week')->programmingWeek());
+})->name('showing.next-week');
+Route::get('a-l-affiche/ce-soir/{date?}', 'ShowingsTonightController')->name('showing.tonight');
+Route::get('a-l-affiche/maintenant/{from?}', 'ShowingsNowController')->name('showing.now');
 

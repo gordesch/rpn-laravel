@@ -16,7 +16,8 @@ class CreateShowsTable extends Migration
         Schema::create('shows', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug')->unique();
-            $table->string('ticketing_provider_id')->nullable();
+            $table->string('ticketing_provider_id')->nullable()->unique();
+            $table->string('shows_provider_id')->nullable();
             $table->string('title');
             $table->string('genre')->nullable();
             $table->unsignedInteger('duration_in_seconds')->nullable();

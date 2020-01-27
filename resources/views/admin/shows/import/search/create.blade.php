@@ -19,7 +19,7 @@
                autofocus />
     </div>
 
-    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Rechercher sur Allociné" />
+    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Rechercher" />
 </form>
 
 @endsection

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Wrappers\Allocine\Allocine;
+use App\Services\ShowsProvider\ShowsProviderInterface;
+use GuzzleHttp\Exception\GuzzleException;
 
 class ShowsImportSearchController extends Controller
 {
@@ -13,10 +14,14 @@ class ShowsImportSearchController extends Controller
         return view('admin.shows.import.search.create');
     }
 
-    public function show()
+    public function show(ShowsProviderInterface $showsProvider)
     {
         $title = request('searched_show');
-        $shows = Allocine::search($title);
+        try {
+            $shows = $showsProvider::search($title);
+        } catch (GuzzleException $e) {
+            flash("Erreur lors de l'importation, veuillez réessayer")->error();
+        }
 
         return view('admin.shows.import.search.show', compact('shows'));
     }

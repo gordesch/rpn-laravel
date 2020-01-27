@@ -21,7 +21,7 @@
             <ul class="dropdown-menu" style="position: initial;">
                 @foreach ($shows as $show)
                     <li>
-                        <a href="{{ route('admin.shows.import.create') }}?code={{ $show->allocine_id }}">
+                        <a href="{{ route('admin.shows.import.create') }}?code={{ $show->shows_provider_id }}">
                             <strong>{{ $show->title }}</strong>
                             @if ($show->director)
                                 de {{ $show->director }}

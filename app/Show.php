@@ -24,6 +24,8 @@ class Show extends Model
         'cast',
         'synopsis',
         'audience',
+        'ticketing_provider_id',
+        'shows_provider_id',
     ];
 
     public function getDurationAttribute(): CarbonInterval

@@ -4,13 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShowingForm;
-use App\Programming;
+use App\Services\TicketingProvider\TicketingProviderInterface;
 use App\Showing;
-use App\Week;
-use App\Wrappers\EMS\EMS;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ShowingsImportController extends Controller
@@ -19,52 +15,34 @@ class ShowingsImportController extends Controller
     {
         return view('admin.showings-import.index');
     }
-    public function create()
+    public function create(TicketingProviderInterface $ticketing)
     {
-        $shows = EMS::showsForMatching();
+        session(['shows_to_import' => $ticketing->getShowsWithShowings()]);
+        $shows = $ticketing->getShowsToMatch();
+
         return view('admin.showings-import.create', compact('shows'));
     }
 
-    public function store(Request $request)
+    public function store(TicketingProviderInterface $ticketing)
     {
-        $ticketing_shows = session('shows_to_import');
-        $ticketing_shows = EMS::matchShows($ticketing_shows);
+        $ticketing->setShowsWithShowings(session('shows_to_import'));
 
         DB::beginTransaction();
+        try {
+            // Delete showings to come, because we will import them again
+            $showings_start_after = Carbon::now()->modify('- 10 minutes');
+            Showing::where('datetime', '>=', $showings_start_after)->delete();
 
-        // Delete showings to come, because we will import them again
-        $showings_start_after = Carbon::now()->modify('- 10 minutes');
-        Showing::where('datetime', '>=', $showings_start_after)->delete();
-
-        $weeks = Week::where('end', '>=', $showings_start_after)->get();
-
-        $programmings = Programming::whereIn(
-            'week_id',
-            array_values($weeks->pluck('id')->all())
-        )->get();
-
-        $showings = new Collection;
-
-        $showings_total_number = 0;
-        foreach ($ticketing_shows as $show) {
-            foreach ($show->sessions as $ems_showing) {
-                $showing = EMS::toShowing(
-                    $ems_showing,
-                    $show,
-                    $weeks,
-                    $programmings
-                );
-
-                $showings->push($showing);
-                $showings_total_number++;
-            }
+            $showings = $ticketing->getAllShowings();
+            $form = new ShowingForm;
+            $form->persistMultiple($showings);
+            DB::commit();
+            flash("{$showings->count()} séances importées")->success();
+        } catch (\Exception $e) {
+            DB::rollback();
+            flash("Erreur lors de l'importation, veuillez réessayer")->error();
         }
-        $form = new ShowingForm;
-        $form->persistMultiple($showings);
 
-        DB::commit();
-
-        //echo $showings_total_number . ' showings created';
         return view('admin.showings-import.index');
     }
 }

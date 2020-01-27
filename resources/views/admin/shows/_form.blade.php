@@ -1,4 +1,11 @@
 @csrf
+
+<input
+    type="hidden"
+    name="shows_provider_id"
+    value="{{ old('shows_provider_id', $show->shows_provider_id) }}"
+>
+
 <div class="form-group has-success has-feedback">
     <label for="title" class="control-label">Titre complet</label>
     <input
@@ -17,27 +24,7 @@
     </span>
 </div>
 
-<div class="form-group has-feedback" id="filmcontrol">
-    <label for="slug" class="control-label">Titre simplifié</label>
-    <input
-        class="form-control"
-        id="slug"
-        maxlength="255"
-        name="slug"
-        pattern="[a-z0-9-]+"
-        required
-        size="30"
-        title="minuscules, chiffres et tirets uniquement"
-        type="text"
-        value="{{ old('slug', $show->slug) }}"
-        v-model="slug"
-        @input="slugCheck"
-    />
-    <span class="form-control-feedback">
-        <i id="ctrlfeedback" class="fa fa-check"></i>
-    </span>
-    <span id="slugControl" class="help-block">Ce titre simplifié est disponible</span>
-</div>
+<slug-check id="slug" label="Titre simplifé" name="slug" v-bind:shouldexist="false" value="{{ old('slug', $show->slug) }}"></slug-check>
 
 <div class="form-group has-feedback {{ $show->poster_url ? 'has-success' : 'has-warning' }}">
     <label for="poster_url" class="control-label">Affiche</label><br/>
@@ -133,11 +120,11 @@
 </div>
 
 <div class="form-group has-feedback {{ $show->cast ? 'has-success' : 'has-warning' }}">
-    <label for="casting" class="control-label">Casting</label>
+    <label for="cast" class="control-label">Casting</label>
     <input
         type="text"
-        name="casting"
-        id="casting"
+        name="cast"
+        id="cast"
         class="form-control"
         size="30"
         maxlength="255"

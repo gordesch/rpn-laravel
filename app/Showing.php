@@ -16,6 +16,12 @@ class Showing extends Model
         'auditorium_number',
     ];
 
+    protected $casts = [
+        'datetime' => 'datetime',
+        'is_original_version' => 'boolean',
+        'is_3d' => 'boolean',
+    ];
+
     public function programming()
     {
         return $this->belongsTo(Programming::class);

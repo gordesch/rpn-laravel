@@ -24,6 +24,7 @@ class CreateShowingsTable extends Migration
             $table->tinyInteger('auditorium_number');
             $table->timestamps();
 
+            $table->index('datetime');
             $table->foreign('programming_id')->references('id')->on('programmings')->onDelete('cascade');
         });
     }

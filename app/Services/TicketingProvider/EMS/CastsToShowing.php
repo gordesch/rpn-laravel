@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Wrappers\EMS;
+namespace App\Services\TicketingProvider\EMS;
 
 use App\Programming;
-use App\Show;
 use App\Showing;
 use App\Week;
-use Carbon\Carbon;
 use Gordesch\CineCarbon;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use SimpleXMLElement;
 
 
 /**
@@ -23,9 +18,12 @@ Trait CastsToShowing
     /**
      * Returns a showing
      *
-     * @param SimpleXMLElement $ems_showing the element to cast
+     * @param $ems_showing
+     * @param $show
+     * @param $weeks
+     * @param $programmings
      *
-     * @return Show
+     * @return Showing
      */
     static function toShowing(
         $ems_showing,
@@ -42,12 +40,11 @@ Trait CastsToShowing
         $showing->datetime = CineCarbon::parse($ems_showing->date);
 
         $showing->week_number
-            = $showing->datetime->programmingWeek();
+            = CineCarbon::parse($ems_showing->date)->programmingWeek();
 
         $week = $weeks->where('number', $showing->week_number)->first();
         if ($week) {
-            $showing->week
-                = $week;
+            $showing->week = $week;
         } else {
             $showing->week = Week::create(
                 ['number' => $showing->week_number]
@@ -59,7 +56,6 @@ Trait CastsToShowing
             ->where('show_id', $show->id)
             ->where('week_id', $showing->week->id)
             ->first();
-
         if ($programming) {
             $showing->programming = $programming;
         } else {
@@ -74,10 +70,10 @@ Trait CastsToShowing
         $showing->programming_id = $showing->programming->id;
 
         $showing->is_original_version
-            = in_array('vo', $ems_showing->features);
+            = in_array('vo', (array) $ems_showing->features);
 
         $showing->is_3d
-            = in_array('video_3d', $ems_showing->features);
+            = in_array('video_3d', (array) $ems_showing->features);
 
         $showing->auditorium_number = $ems_showing->hall_id;
 

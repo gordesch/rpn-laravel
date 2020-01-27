@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Wrappers\Allocine;
+namespace App\Services\ShowsProvider\Allocine;
 
 use App\Show;
 use Carbon\Carbon;
@@ -25,21 +25,21 @@ Trait CastsToShow
      */
     protected function toShow(SimpleXMLElement $allocine_show): Show
     {
-        $show = new Show();
+        $show = new Show;
 
-        $show->allocine_id = $allocine_show['code'];
+        $show->shows_provider_id = $allocine_show['code'];
 
         $show->title
             = isset($allocine_show->title)
-                ? (string) $allocine_show->title
-                : (string) $allocine_show->originalTitle;
+            ? (string) $allocine_show->title
+            : (string) $allocine_show->originalTitle;
 
         $show->slug = Str::slug($show->title);
 
         $show->poster_url
             = isset($allocine_show->poster['href'])
-                ? (string) $allocine_show->poster['href']
-                : null;
+            ? (string) $allocine_show->poster['href']
+            : null;
 
         if (isset($allocine_show->genreList->genre)) {
             if (count($allocine_show->genreList->genre) === 1) {
@@ -47,9 +47,9 @@ Trait CastsToShow
             } else {
                 $show->genre
                     = (string) implode(
-                        ', ',
-                        Arr::flatten($allocine_show->genreList->genre)
-                    );
+                    ', ',
+                    Arr::flatten($allocine_show->genreList->genre)
+                );
             }
         } else {
             $show->genre = null;
@@ -57,56 +57,50 @@ Trait CastsToShow
 
         $show->duration_in_seconds
             = isset($allocine_show->runtime)
-                ? (int) $allocine_show->runtime
-                : null;
+            ? (int) $allocine_show->runtime
+            : null;
 
         $show->country
             = isset($allocine_show->nationalityList->nationality[0])
-                ?  (string) $allocine_show->nationalityList->nationality[0]
-                : null;
+            ?  (string) $allocine_show->nationalityList->nationality[0]
+            : null;
 
         $show->year
             = isset($allocine_show->productionYear)
-                ? (int) $allocine_show->productionYear
-                : null;
+            ? (int) $allocine_show->productionYear
+            : null;
 
         $show->release_date
             = $allocine_show->release->releaseDate
-                ? Carbon::parse($allocine_show->release->releaseDate)
-                        ->format('d/m/Y')
-                : null;
+            ? Carbon::parse(
+                $allocine_show->release->releaseDate
+            )->format('d/m/Y')
+            : null;
 
         $show->director
             = isset($allocine_show->castingShort->directors)
-                ? (string) $allocine_show->castingShort->directors
-                : null;
+            ? (string) $allocine_show->castingShort->directors
+            : null;
 
         $show->cast
             = isset($allocine_show->castingShort->actors)
-                ? (string) $allocine_show->castingShort->actors
-                : null;
+            ? (string) $allocine_show->castingShort->actors
+            : null;
 
+        $synopsis = null;
         if ($allocine_show->synopsis) {
-            $synopsis = preg_replace(
-                "/<br.*>/U", "\r\n",
-                $allocine_show->synopsis->asXML()
-            );
+            $synopsis = $allocine_show->synopsis->asXML();
+        } elseif ($allocine_show->synopsisShort) {
+            $allocine_show->synopsisShort->asXML();
+        }
+        if ($synopsis) {
             $synopsis = strip_tags($synopsis);
-            $synopsisArray = explode("\n", $synopsis);
-            $synopsisArray = array_map('trim', $synopsisArray);
-            $show->synopsis = (string) implode("\n", $synopsisArray);
-        } else if ($allocine_show->synopsisShort) {
-            $synopsis = preg_replace(
-                "/<br.*>/U", "\r\n",
-                $allocine_show->synopsis->asXML()
-            );
-            $synopsis = strip_tags($synopsis);
-            $synopsisArray = explode("\n", $synopsis);
-            $synopsisArray = array_map('trim', $synopsisArray);
-            $show->synopsis = (string) implode("\n", $synopsisArray);
+            $synopsis = preg_replace('/\s\s+/u', ' ', $synopsis);
+            $show->synopsis = trim($synopsis);
         } else {
             $show->synopsis = null;
         }
+
 
         if (isset($allocine_show->movieCertificate->certificate)) {
             $audience = $allocine_show->movieCertificate->certificate;

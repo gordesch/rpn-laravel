@@ -30,13 +30,16 @@ class ShowForm extends FormRequest
         {
             // Update operation, exclude the record from the validation:
             $slug_rule = 'required|string|max:255|unique:shows,slug,' . $this->route('show')->id;
+            $ticketing_provider_id_rule = 'string|max:255|unique:shows,ticketing_provider_id,' . $this->route('show')->id;
         } else {
             // Create operation. There is no ID yet.
             $slug_rule = 'required|string|max:255|unique:shows,slug';
+            $ticketing_provider_id_rule = 'string|max:255|unique:shows,ticketing_provider_id';
         }
         return [
             'title' => 'required|string|max:255',
             'slug' => $slug_rule,
+            'ticketing_provider_id' => $ticketing_provider_id_rule,
             'genre' => 'string|max:255|nullable',
             'duration_in_seconds' => 'numeric|nullable',
             'country' => 'string|max:255|nullable',
@@ -48,8 +51,8 @@ class ShowForm extends FormRequest
         ];
     }
 
-    public function persist(Show $show) {
-        Show::create($this->only($show->getFillable()));
+    public function persist(Show $show): Show {
+        return Show::create($this->only($show->getFillable()));
     }
 
     public function update(Show $show) {
