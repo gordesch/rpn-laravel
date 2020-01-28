@@ -4,51 +4,67 @@
 
 @section('content')
 
-<h1>Fiches-film</h1>
+<div class="page-header">
+    <h1>
+        Fiches-film
+        <a class="btn btn-primary" href="{{ route('admin.shows.import.search.create') }}">
+            <i class="fa fa-plus-circle"></i>
+            Importer une fiche
+        </a>
+        <a class="btn btn-default" href="{{ route('admin.shows.create') }}">
+            <i class="fa fa-plus-circle"></i>
+            Créer manuellement une fiche
+        </a>
+    </h1>
+</div>
 
-<a class="btn btn-primary" href="{{ route('admin.shows.import.search.create') }}">Importer une fiche</a>
-<a class="btn btn-default" href="{{ route('admin.shows.create') }}">Créer manuellement une fiche</a>
-
-<show-autocomplete></show-autocomplete>
-
-<table class="table table-striped table-responsive">
-    <thead>
-    <tr>
-        <th>Titre</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-        @foreach($shows as $show)
-            <tr>
-                <td>
-                    <a href="{{ route('admin.shows.edit', [$show]) }}">
-                        {{ $show->title }}
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-search"></i>
+                    Recherche
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <show-autocomplete v-on:input="setSearch"></show-autocomplete>
+                    </div>
+                    <a v-bind:href="showUrl" class="btn btn-default">
+                        Fiche
+                        <i class="fa fa-arrow-circle-right"></i>
                     </a>
-                </td>
-                <td>
-                    <a
-                        class="btn btn-link"
-                        href="{{ route('admin.shows.edit', [$show]) }}"
-                        title="Modifier la fiche-film"
-                    >
-                        <i class="fa fa-pencil-square-o fa-fw"></i> Modifier
+                    <a v-bind:href="videosUrl" class="btn btn-default">
+                        Bandes-annonces
+                        <i class="fa fa-arrow-circle-right"></i>
                     </a>
-                    <form
-                        style="display:inline;"
-                        action="{{ route('admin.shows.destroy', [$show]) }}"
-                        method="POST"
-                    >
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-link" title="Supprimer la fiche-film">
-                            <i class="fa fa-trash-o fa-fw"></i> Supprimer
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="page-header">
+            <h3>
+                <i class="fa fa-sort-numeric-asc"></i>
+                Dernières fiches-films créées
+            </h3>
+        </div>
+
+        <div class="list-group">
+            @foreach($shows as $show)
+                <a href="{{ route('admin.shows.edit', [$show]) }}" class="list-group-item">
+                    {{ $show->title }}
+                </a>
+            @endforeach
+        </div>
+    </div>
+</div>
+
 
 @endsection

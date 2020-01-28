@@ -2,7 +2,7 @@
     Vue.component('show-autocomplete', {
         template: `
             <div class="form-group">
-                <label class="control-label">Titre du film :</label>
+                <label class="control-label">Titre du film</label>
                 <input
                     type="text"
                     @input="onChange"
@@ -13,11 +13,10 @@
                     class="form-control"
                 >
                 <input type="hidden" v-model="result_id" name="result_id">
-                <div class="open">
+                <div class="open" style="position: absolute;">
                     <ul
                         v-show="isOpen"
                         class="dropdown-menu"
-                        style="position: initial;"
                     >
                         <li
                             class="loading"
@@ -45,6 +44,7 @@
                 </div>
             </div>
         `,
+        props: ['key'],
         data() {
             return {
                 items: [],
@@ -59,9 +59,6 @@
 
         methods: {
             onChange() {
-                // Let's warn the parent that a change was made
-                this.$emit('input', this.search);
-
                 this.filterResults();
                 this.isOpen = true;
             },
@@ -70,12 +67,14 @@
                 // first uncapitalize all the things
                 this.results = this.items.filter((item) => {
                     return item.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
-                });
+                }).slice(0, 9);
             },
             setResult(result) {
                 this.search = result.title;
                 this.result_id = result.id;
                 this.isOpen = false;
+                // Let's warn the parent that a change was made
+                this.$emit('input', this.result_id);
             },
             onArrowDown() {
                 if (this.arrowCounter < this.results.length) {
@@ -92,6 +91,8 @@
                 this.result_id = this.results[this.arrowCounter].id;
                 this.isOpen = false;
                 this.arrowCounter = -1;
+                // Let's warn the parent that a change was made
+                this.$emit('input', this.result_id);
             },
             handleClickOutside(evt) {
                 if (!this.$el.contains(evt.target)) {
@@ -100,22 +101,12 @@
                 }
             }
         },
-        watch: {
-            items: function (val, oldValue) {
-                // actually compare them
-                if (val.length !== oldValue.length) {
-                    this.results = val;
-                    this.isLoading = false;
-                }
-            },
-        },
         mounted() {
             document.addEventListener('click', this.handleClickOutside);
             axios
                 .get('/api/admin/shows/for-autocomplete')
                 .then((response) => {
                     this.items = response.data;
-                    console.log(response.data);
                 });
         },
         destroyed() {

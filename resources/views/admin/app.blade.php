@@ -11,7 +11,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/underscore@1.9.2/underscore-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+
+
 
     <script src="/admin/js/admin-1.2.0.js"></script>
     <script src="/admin/js/tablesorter.js"></script>
@@ -53,10 +56,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('admin.showings.import.create') }}"><i class="fa fa-fw fa-upload"></i> Importation</a></li>
                         <li><a href="programmation-semaine.php"><i class="fa fa-fw fa-cog"></i> Réglages</a></li>
-                        <li><a href="correction-seances.php"><i class="fa fa-fw fa-pencil-square-o"></i> Correction</a></li>
                         <li><a href="etat-fiches-film.php"><i class="fa fa-fw fa-tasks"></i> État des fiches-film</a></li>
-                        <li><a href="export-programmation.php"><i class="fa fa-fw fa-download"></i> Exportation</a></li>
-                        <li><a href="ressources-newsletter.php"><i class="fa fa-fw fa-send"></i> Ressources Newsletter</a></li>
                         <li><a href="liste-seances.php"><i class="fa fa-fw fa-list-ol"></i> Liste et ID des séances</a></li>
                     </ul>
                 </li>
@@ -139,6 +139,18 @@
 <script>
     let vm = new Vue({
         el: '#app',
+        data() {
+            return {
+                showUrl: '',
+                videosUrl: '',
+            }
+        },
+        methods: {
+            setSearch(event) {
+                this.showUrl = '/admin/shows/' + event;
+                this.videosUrl = '/admin/shows/' +  event + '/videos/create';
+            }
+        }
     })
 </script>
 @yield('scripts')

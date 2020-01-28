@@ -2,12 +2,15 @@
 
 namespace App;
 
-use Carbon\Carbon;
+use Illuminate\Support\Arr;
+use Laravel\Scout\Searchable;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
 
 class Show extends Model
 {
+    use Searchable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +30,19 @@ class Show extends Model
         'ticketing_provider_id',
         'shows_provider_id',
     ];
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return Arr::only(
+            $this->toArray(),
+            ['id', 'slug', 'title', 'year', 'director', 'cast', 'updated_at']
+        );
+    }
 
     public function getDurationAttribute(): CarbonInterval
     {

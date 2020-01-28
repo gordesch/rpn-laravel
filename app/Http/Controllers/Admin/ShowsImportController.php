@@ -21,6 +21,7 @@ class ShowsImportController extends Controller
     ) {
         $code = request('code');
         $show = $showsProvider::show($code);
+        $show->ticketing_provider_id = request('ticketing_provider_id');
         $videos = $videosProvider::search($show);
 
         return view('admin.shows.import.create', compact('show', 'videos'));

@@ -1,6 +1,6 @@
 <script>
     Vue.component('slug-check', {
-        props: ['id', 'label', 'name', 'shouldexist', 'value'],
+        props: ['id', 'label', 'name', 'shouldexist', 'value', 'ticketing_provider_id'],
         data() {
             return {
                 slug: '',
@@ -40,7 +40,7 @@
                         }"
                     ></i>
                 </span>
-                <span class="help-block">@{{ message }}</span>
+                <span class="help-block" v-html="message"></span>
             </div>
         `,
         methods: {
@@ -61,26 +61,10 @@
                         this.pending = false;
                         if (response.data) {
                             this.exists = true;
-                            if (this.shouldexist) {
-                                this.error = false;
-                                this.success = true;
-                                this.message = 'eeee';
-                            } else {
-                                this.error = true;
-                                this.success = false;
-                                this.message = 'Ce titre simplifié n\'est pas disponible';
-                            }
+                            this.doExists();
                         } else {
                             this.exists = false;
-                            if (this.shouldexist) {
-                                this.error = true;
-                                this.success = false;
-                                this.message = 'eeee';
-                            } else {
-                                this.error = false;
-                                this.success = true;
-                                this.message = 'Ce titre simplifié est disponible';
-                            }
+                            this.dontExists();
                         }
                     })
                     .catch(function (error) {
@@ -107,9 +91,14 @@
                     this.success = false;
                     this.message = 'Aucune correspondance. ';
                     this.message +=
-                        '<a href="{{ route('admin.shows.import.search.create') }}?searched_show='
-                        + this.slug
-                        + '">Créer ce film</a>';
+                        '<a href="{{ route('admin.shows.import.search') }}?searched_show='
+                        + this.label
+                        + '&ticketing_provider_id='
+                        + this.ticketing_provider_id
+                        + '">'
+                        + 'Créer ce film'
+                        + '<i class="fa fa-fw fa-arrow-circle-right"></i>'
+                        + '</a>';
                 } else {
                     this.error = false;
                     this.success = true;
