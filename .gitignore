@@ -21,3 +21,8 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+# Editor
+.idea/
+.editorconfig
+_ide_helper.php
