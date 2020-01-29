@@ -2,37 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7312507-43a0-43f9-b962-8f5bcdc883d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Providers/HorizonServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/horizon.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/scout-shows.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/scout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/app-dark.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/img/horizon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/img/sprite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/horizon/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/weekly-programmings.blade.php/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/admin/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/AlgoliaAutocomplete.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/ShowAutocomplete.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/admin/components/SlugCheck.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/rpn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rpn.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ShowsImportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ShowsImportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ShowsImportSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ShowsImportSearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Show.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Show.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/showings-import/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/showings-import/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/shows/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shows/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/shows/import/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shows/import/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/shows/import/search/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shows/import/search/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/shows/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/shows/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/vuecomponents/autocomplete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/vuecomponents/autocomplete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/vuecomponents/slugcheck.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/vuecomponents/slugcheck.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -183,6 +172,7 @@
       <path value="$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php" />
       <path value="$PROJECT_DIR$/vendor/riimu/kit-phpencoder" />
       <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" port="9000" />
@@ -274,7 +264,7 @@
       <workItem from="1579822501168" duration="26736000" />
       <workItem from="1580081327957" duration="1624000" />
       <workItem from="1580123917729" duration="867000" />
-      <workItem from="1580124806409" duration="19312000" />
+      <workItem from="1580124806409" duration="22693000" />
     </task>
     <servers />
   </component>
@@ -321,6 +311,10 @@
       <screen x="38" y="23" width="1402" height="877" />
     </state>
     <state x="477" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/38.23.1402.877@38.23.1402.877" timestamp="1580123979344" />
+    <state x="477" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580225414007">
+      <screen x="38" y="23" width="1402" height="877" />
+    </state>
+    <state x="477" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/38.23.1402.877@38.23.1402.877" timestamp="1580225414007" />
     <state x="477" y="223" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1580128853470">
       <screen x="38" y="23" width="1402" height="877" />
     </state>

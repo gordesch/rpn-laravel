@@ -9,13 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/admin/css/admin-1.2.10.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" integrity="sha256-CCsHNqNAiVDlD9ZaCQkhAD/oPYnsbjCEVJoB1d+p6FQ=" crossorigin="anonymous" />
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
-
-
-
     <script src="/admin/js/admin-1.2.0.js"></script>
     <script src="/admin/js/tablesorter.js"></script>
 </head>
@@ -134,25 +127,8 @@
 </footer>
 
 </div>
-@include('admin.vuecomponents.slugcheck')
-@include('admin.vuecomponents.autocomplete')
-<script>
-    let vm = new Vue({
-        el: '#app',
-        data() {
-            return {
-                showUrl: '',
-                videosUrl: '',
-            }
-        },
-        methods: {
-            setSearch(event) {
-                this.showUrl = '/admin/shows/' + event;
-                this.videosUrl = '/admin/shows/' +  event + '/videos/create';
-            }
-        }
-    })
-</script>
+
+<script src="{{ mix('/js/admin/app.js') }}"></script>
 @yield('scripts')
 </body>
 

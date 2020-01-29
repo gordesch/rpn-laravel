@@ -17,7 +17,7 @@
         </a>
     </h1>
 </div>
-
+<algolia-autocomplete></algolia-autocomplete>
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-default">
@@ -68,3 +68,9 @@
 
 
 @endsection
+<script>
+    import AlgoliaAutocomplete from "../../../js/admin/components/AlgoliaAutocomplete";
+    export default {
+        components: {AlgoliaAutocomplete}
+    }
+</script>

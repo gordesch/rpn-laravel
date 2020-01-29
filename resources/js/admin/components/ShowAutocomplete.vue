@@ -1,9 +1,52 @@
-<script>
-    Vue.component('show-autocomplete', {
-        template: `
+<template>
+    <div class="form-group">
+        <label class="control-label">Titre du film</label>
+        <input
+            type="text"
+            @input="onChange"
+            v-model="search"
+            @keydown.down="onArrowDown"
+            @keydown.up="onArrowUp"
+            @keydown.enter="onEnter"
+            class="form-control"
+        >
+        <input type="hidden" v-model="result_id" name="result_id">
+        <div class="open" style="position: absolute;">
+            <ul
+                v-show="isOpen"
+                class="dropdown-menu"
+            >
+                <li
+                    class="loading"
+                    v-if="isLoading"
+                >
+                    <a>Recherche en cours...</a>
+                </li>
+                <li
+                    v-else
+                    v-for="(result, i) in results"
+                    :searchKey="i"
+                    @click="setResult(result)"
+                    class="autocomplete-result"
+                    :class="{ 'is-active': i === arrowCounter }"
+                >
+                    <a href="#">{{ result.title }} ({{ result.year }})</a>
+                </li>
+                <li
+                    class="loading"
+                    v-if="!results.length"
+                >
+                    <a><i class="fa fa-warning"></i> Aucun résultat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
 
-        `,
-        props: ['key'],
+<script>
+    export default {
+        name: "ShowAutocomplete",
+        props: ['searchKey'],
         data() {
             return {
                 items: [],
@@ -15,7 +58,6 @@
                 arrowCounter: 0,
             };
         },
-
         methods: {
             onChange() {
                 this.filterResults();
@@ -71,5 +113,9 @@
         destroyed() {
             document.removeEventListener('click', this.handleClickOutside)
         },
-    });
+    }
 </script>
+
+<style scoped>
+
+</style>
