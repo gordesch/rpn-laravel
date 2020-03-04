@@ -14,7 +14,7 @@ class CreateProgrammingsTable extends Migration
     public function up()
     {
         Schema::create('programmings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('week_id');
             $table->unsignedBigInteger('show_id');
             $table->unsignedTinyInteger('order')->nullable();

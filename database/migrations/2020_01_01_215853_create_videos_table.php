@@ -14,7 +14,7 @@ class CreateVideosTable extends Migration
     public function up()
     {
         Schema::create('videos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('show_id');
             $table->boolean('is_original_version')->default(false);
             $table->string('youtube_id');

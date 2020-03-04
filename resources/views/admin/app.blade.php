@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:x-on="http://www.w3.org/1999/xhtml" xmlns:x-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,10 @@
 
     <script src="/admin/js/admin-1.2.0.js"></script>
     <script src="/admin/js/tablesorter.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+    @livewireStyles
+
 </head>
 
 <body style="padding-top: 70px;">
@@ -44,9 +48,9 @@
                         <li><a href="dernieres-fiches-film.php"><i class="fa fa-fw fa-sort-numeric-desc"></i> Dernières fiches-film</a></li>
                     </ul>--}}
                 </li>
-                <li class="dropdown">
-                    <a href="{{ route('admin.showings.import.index') }}" class="dropdown-toggle" data-toggle="dropdown">Programmation <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                <li x-data="{ open: false }" class="dropdown" x-bind:class="{ 'open': open }">
+                    <a x-on:click="open = true" x-on:click.prevent href="{{ route('admin.showings.import.index') }}" class="dropdown-toggle" >Programmation <b class="caret"></b></a>
+                    <ul x-on:click.away="open = false" class="dropdown-menu">
                         <li><a href="{{ route('admin.showings.import.create') }}"><i class="fa fa-fw fa-upload"></i> Importation</a></li>
                         <li><a href="programmation-semaine.php"><i class="fa fa-fw fa-cog"></i> Réglages</a></li>
                         <li><a href="etat-fiches-film.php"><i class="fa fa-fw fa-tasks"></i> État des fiches-film</a></li>
@@ -129,6 +133,7 @@
 </div>
 
 <script src="{{ mix('/js/admin/app.js') }}"></script>
+@livewireScripts
 @yield('scripts')
 </body>
 

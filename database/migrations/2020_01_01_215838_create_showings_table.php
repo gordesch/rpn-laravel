@@ -14,7 +14,7 @@ class CreateShowingsTable extends Migration
     public function up()
     {
         Schema::create('showings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('ticketing_provider_id');
             $table->unsignedBigInteger('programming_id');
             $table->datetime('datetime');

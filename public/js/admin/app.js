@@ -9891,6 +9891,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AlgoliaAutocomplete",
@@ -37464,35 +37465,45 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("ais-hits", {
-        attrs: {
-          "class-names": {
-            "ais-Hits": "open absolute"
-          }
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "default",
-            fn: function(ref) {
-              var items = ref.items
-              return _c(
-                "ul",
-                { staticClass: "dropdown-menu" },
-                _vm._l(items, function(item) {
-                  return _c("li", { key: item.id }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _vm._v(
-                        _vm._s(item.title) + " (" + _vm._s(item.year) + ")"
-                      )
-                    ])
-                  ])
-                }),
-                0
-              )
-            }
-          }
-        ])
-      })
+      _vm.currentRefinement
+        ? _c("ais-hits", {
+            attrs: {
+              "class-names": {
+                "ais-Hits": "open absolute"
+              }
+            },
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "default",
+                  fn: function(ref) {
+                    var items = ref.items
+                    return _c(
+                      "ul",
+                      { staticClass: "dropdown-menu" },
+                      _vm._l(items, function(item) {
+                        return _c("li", { key: item.id }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v(
+                              _vm._s(item.title) +
+                                " (" +
+                                _vm._s(item.year) +
+                                ")"
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  }
+                }
+              ],
+              null,
+              false,
+              3182835406
+            )
+          })
+        : _vm._e()
     ],
     1
   )

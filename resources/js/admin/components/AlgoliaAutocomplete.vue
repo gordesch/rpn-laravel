@@ -11,12 +11,12 @@
             }"
         ></ais-search-box>
 
-        <ais-hits v-show="currentRefinement"
+        <ais-hits
             :class-names="{
                 'ais-Hits': 'open absolute',
             }"
         >
-            <ul slot-scope="{ items }" class="dropdown-menu">
+            <ul slot-scope="{ items }" class="dropdown-menu" v-if="currentRefinement">
                 <li v-for="item in items" :key="item.id">
                     <a href="#">{{ item.title }} ({{ item.year }})</a>
                 </li>

@@ -14,7 +14,7 @@ class CreateWeeksTable extends Migration
     public function up()
     {
         Schema::create('weeks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('number')->unique();
             $table->datetime('start');
             $table->datetime('end');
