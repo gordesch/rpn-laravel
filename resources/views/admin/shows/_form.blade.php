@@ -6,23 +6,13 @@
     value="{{ old('shows_provider_id', $show->shows_provider_id) }}"
 >
 
-<div class="form-group has-success has-feedback">
-    <label for="title" class="control-label">Titre complet</label>
-    <input
-        class="form-control"
-        id="title"
-        maxlength="255"
-        name="title"
-        required
-        size="30"
-        type="text"
-        value="{{ old('title', $show->title) }}"
-        autofocus
-    />
-    <span class="form-control-feedback">
-        <i class="fa fa-check"></i>
-    </span>
-</div>
+<x-admin.layout.form.input-text
+    name="title"
+    title="Titre"
+    :oldValue="$show->title"
+    attrs="maxlength='255' required autofocus"
+    state=""
+/>
 
 <slug-check id="slug" label="Titre simplifé" name="slug" v-bind:shouldexist="false" value="{{ old('slug', $show->slug) }}"></slug-check>
 
@@ -51,6 +41,13 @@
     />
 </div>
 
+<x-admin.layout.form.input-text
+    name="year"
+    title="Année"
+    :oldValue="$show->year"
+    attrs="maxlength='255' required autofocus"
+    state="{{ $show->year ? 'success' : 'warning' }}"
+/>
 <div class="form-group has-feedback  {{ $show->year ? 'has-success' : 'has-warning' }}">
     <label for="year" class="control-label">Année</label>
     <input

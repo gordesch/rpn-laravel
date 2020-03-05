@@ -6,7 +6,7 @@
 
     <title>@yield('title') - Interface d'administration</title>
 
-    <link rel="stylesheet" type="text/css" href="/admin/css/admin-1.2.10.css">
+    <link rel="stylesheet" type="text/css" href="/css/admin/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" integrity="sha256-CCsHNqNAiVDlD9ZaCQkhAD/oPYnsbjCEVJoB1d+p6FQ=" crossorigin="anonymous" />
 
     <script src="/admin/js/admin-1.2.0.js"></script>
@@ -17,122 +17,75 @@
 
 </head>
 
-<body style="padding-top: 70px;">
+<body class="bg-gray-100">
 <div id="app">
+    <!-- Navbar -->
+    <nav x-data="{ open: false }" @keydown.window.escape="open = false" class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full shadow-sm border border-black" src="/css/admin/rpn-simple.svg" alt="Royal Palace" />
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline">
+                            <a href="{{ route('admin.shows.index') }}" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Fiches-film</a>
+                            <a href="{{ route('admin.showings.import.index') }}" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Programmation</a>
+                            <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Divers</a>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Afficher le menu</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php">Administration</a>
+            </div>
         </div>
-
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="{{ route('admin.shows.index') }}">Fiches-film</a>
-                    {{--<a href="{{ route('admin.shows.index') }}" class="dropdown-toggle" data-toggle="dropdown">Fiches-film <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="creation-fiche-film.php"><i class="fa fa-fw fa-plus-circle"></i> Création</a></li>
-                        <li><a href="modification-fiche-film-choix.php"><i class="fa fa-fw fa-pencil-square-o"></i> Modification</a></li>
-                        <li><a href="chargement-affiche.php"><i class="fa fa-fw fa-picture-o"></i> Affiche</a></li>
-                        <li><a href="bande-annonce.php"><i class="fa fa-fw fa-play-circle-o"></i> Bande-annonce</a></li>
-                        <li><a href="fiche-film.php"><i class="fa fa-fw fa-search"></i> Recherche</a></li>
-                        <li><a href="dernieres-fiches-film.php"><i class="fa fa-fw fa-sort-numeric-desc"></i> Dernières fiches-film</a></li>
-                    </ul>--}}
-                </li>
-                <li x-data="{ open: false }" class="dropdown" x-bind:class="{ 'open': open }">
-                    <a x-on:click="open = true" x-on:click.prevent href="{{ route('admin.showings.import.index') }}" class="dropdown-toggle" >Programmation <b class="caret"></b></a>
-                    <ul x-on:click.away="open = false" class="dropdown-menu">
-                        <li><a href="{{ route('admin.showings.import.create') }}"><i class="fa fa-fw fa-upload"></i> Importation</a></li>
-                        <li><a href="programmation-semaine.php"><i class="fa fa-fw fa-cog"></i> Réglages</a></li>
-                        <li><a href="etat-fiches-film.php"><i class="fa fa-fw fa-tasks"></i> État des fiches-film</a></li>
-                        <li><a href="liste-seances.php"><i class="fa fa-fw fa-list-ol"></i> Liste et ID des séances</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="importation-cartes.php" class="dropdown-toggle" data-toggle="dropdown">Divers <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="services.php"><i class="fa fa-fw fa-external-link"></i> Services externes</a></li>
-                        <li><a href="opcache.php"><i class="fa fa-fw fa-refresh"></i> OPCache</a></li>
-                        <li><a href="ezservermonitor2-5/"><i class="fa fa-fw fa-tasks"></i> Monitoring du serveur</a></li>
-                        <li><a href="errors.php"><i class="fa fa-fw fa-stethoscope"></i> Logs d'erreurs</a></li>
-                        <li><a href="importation-cartes.php"><i class="fa fa-fw fa-credit-card"></i> Cartes</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="//www.royalpalacenogent.fr">Retour au site public</a>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-                        <strong>
-                            USERNAME
-                        </strong>
-                        (<em>USERTYPE</em>)
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">
-                                Utilisateurs
-                            </a>
-                        </li>
-                        <li role="presentation" class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-times"></i>
-                                <em>Déconnexion</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div>
-</nav>
-<div class="container">
-    @include('flash::message')
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+        <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 sm:px-3">
+                <a href="{{ route('admin.shows.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Fiches-film</a>
+                <a href="{{ route('admin.showings.import.index') }}" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Programmation</a>
+                <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Divers</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-base font-medium leading-none text-white">Tom Cook</div>
+                        <div class="mt-1 text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+                    </div>
+                </div>
+                <div class="mt-3 px-2">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Your Profile</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Settings</a>
+                    <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Sign out</a>
+                </div>
+            </div>
         </div>
-    @endif
+    </nav>
+    <header class="bg-white shadow sticky top-0">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
 
-    @yield('content')
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex-1 min-w-0">
+                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+                        @yield('title')
+                    </h2>
+                </div>
+                <div class="mt-4 flex md:mt-0 md:ml-4">
+                    @yield('header-buttons')
+                </div>
+            </div>
+        </div>
+    </header>
 
-</div> <!-- /site -->
-
-<footer id="footer">
-    <p class="text-muted container" style="padding:20px 15px;margin:0 auto;">
-        Cinéma Royal Palace –
-        Interface d'administration
-        ·
-        <a href="{{ config('app.url') }}">Retour au site public</a>
-        <span style="float:right">
-            <a href="#">Revenir en haut &uarr;</a>
-        </span>
-    </p>
-</footer>
-
+    <main class="py-6">
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            @yield('content')
+        </div>
+    </main>
 </div>
 
-<script src="{{ mix('/js/admin/app.js') }}"></script>
+{{--<script src="mix('/js/admin/app.js')"></script>--}}
 @livewireScripts
 @yield('scripts')
 </body>
