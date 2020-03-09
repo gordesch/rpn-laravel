@@ -1,11 +1,5 @@
-@extends('admin.app')
-
-@section('title', "Programmation")
-
-@section('content')
-
-<h1>Programmation</h1>
-
-<a class="btn btn-primary" href="{{ route('admin.showings.import.create') }}">Importer une nouvelle programmation</a>
-
-@endsection
+<x-admin.layout title="Programmation"  category="programmings">
+  <x-slot name="headerButtons">
+    <x-admin.layout.header.button-primary innerHTML="Importer des séances" :href="route('admin.showings.import.create')" />
+  </x-slot>
+</x-admin.layout>

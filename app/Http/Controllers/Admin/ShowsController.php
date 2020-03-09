@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PosterForm;
 use App\Http\Requests\ShowForm;
 use App\Http\Requests\VideoForm;
 use App\Show;
@@ -23,11 +24,21 @@ class ShowsController extends Controller
         return view('admin.shows.create', compact('show'));
     }
 
-    public function store(ShowForm $show, VideoForm $video)
+    public function store(ShowForm $show, PosterForm $poster, VideoForm $video)
     {
         $show = $show->persist(new Show);
         flash("{$show->title} a bien été créé")->success();
 
+        // poster
+        if (request('poster_url')) {
+            $new_poster = [
+                'type' => 'url',
+                'location' => request('poster_url'),
+            ];
+            $poster->persist($new_poster, $show);
+        }
+
+        // videos
         if (request('video-dubbed')) {
             $video->persist(new Video, $show, false);
         }
@@ -61,6 +72,6 @@ class ShowsController extends Controller
         }
 
 
-        return back();
+        return redirect('/admin/shows');
     }
 }

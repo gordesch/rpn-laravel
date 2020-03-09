@@ -1,0 +1,84 @@
+<x-admin.layout title="Programmation" category="programmings">
+  <x-slot name="titleInnerHTML">
+    Semaine du {{ $week->start->isoFormat('dddd DD MMMM YYYY') }}
+  </x-slot>
+  <x-slot name="headerButtons">
+    <x-admin.layout.header.button-primary innerHTML="Sauvegarder" onclick="document.forms['form'].submit()" />
+  </x-slot>
+  <form id="form" method="POST" action="{{ route('admin.weeks.update', [$week]) }}">
+    @method('PUT')
+    @csrf
+    <ul id="programmings" class="grid xl:grid-cols-3 md:grid-cols-2 grids-cols-1 grid-flow-row col-gap-2 row-gap-4">
+      @foreach($week->programmings as $programming)
+        <li x-data="{ open: false }" id="programming_{{ $programming->id }}" class="min-w-0 col-span-1 bg-white hover:bg-gray-50 shadow sm:rounded-md cursor-move">
+          <div class="block ">
+            <div class="flex items-center px-4 py-3 sm:px-5">
+              <div class="min-w-0 flex-1 flex items-center">
+                <x-admin.shows.poster :show="$programming->show"/>
+                <div class="min-w-0 flex-1 px-4">
+                  <div>
+                    <div class="flex items-center justify-between">
+                      <h2 class="text-sm leading-5 font-medium text-indigo-600 truncate mr-3">{{ $programming->show->title }}</h2>
+                      <div class="flex items-center text-xs leading-5">
+                        <div class="flex-shrink-0 text-xs">
+                          <div class="py-1 px-2 bg-gray-100 border border-gray-200 rounded-l-md text-gray-700">
+                            {{ $programming->showings_count > 1 ?  $programming->showings_count . ' séances' : $programming->showings_count . ' séance'}}
+                          </div>
+                        </div>
+                        <div>
+                          <button @click.prevent="open = !open" type="button" class="py-1 px-2 border border-gray-300 rounded-r-md shadow-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                            HTML
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div x-show="open === true" style="display: none;" class="flex my-px rounded-md shadow-sm">
+                      <div class="relative flex-grow focus-within:z-10">
+                        <input
+                          class="form-input block w-full py-1 px-2 rounded-none rounded-l-md text-xs leading-5 transition ease-in-out duration-150"
+                          type="text"
+                          name="programming[{{ $programming->id }}][custom_showings_infos]"
+                          id="programming[{{ $programming->id }}][custom_showings_infos]"
+                          placeholder="Avant-première<br />Dimanche à 18h"
+                          value="{!! $programming->custom_showings_infos !!}"
+                          size="60"
+                          maxlength="255"
+                        />
+                      </div>
+                      <button @click.prevent="open = !open" class="-ml-px relative inline-flex items-center px-1 py-1 border border-gray-300 font-medium rounded-r-md text-gray-700 bg-gray-50 hover:text-gray-500 hover:bg-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                        <svg class="h-5 w-5 text-gray-400 "fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                        <span class="sr-only">Close</span>
+                      </button>
+                    </div>
+                    <div x-show="!open" class="flex justify-between items-center mt-2 text-xs font-medium leading-5">
+                      <x-admin.programmings.checkbox label="VF" for="is_dubbed_version" :programming="$programming" />
+                      <x-admin.programmings.checkbox label="VO" for="is_original_version" :programming="$programming" />
+                      <x-admin.programmings.checkbox label="2D" for="is_2d" :programming="$programming" />
+                      <x-admin.programmings.checkbox label="3D" for="is_3d" :programming="$programming" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      @endforeach
+    </ul>
+  </form>
+
+  <x-slot name="scripts">
+
+    <script>
+      const draggable = new Draggable.Sortable(document.querySelectorAll('#programmings'), {
+        draggable: 'li',
+        distance: 3,
+        classes: {
+          'source:dragging': 'invisible',
+          'mirror': 'border-gray-200'
+        },
+      });
+    </script>
+  </x-slot>
+</x-admin.layout>

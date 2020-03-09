@@ -6,6 +6,7 @@ use App\Show;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Boolean;
 use SimpleXMLElement;
 
 
@@ -28,6 +29,19 @@ Trait CastsToShow
         $show = new Show;
 
         $show->shows_provider_id = $allocine_show['code'];
+
+        $match = Show::where(
+            'shows_provider_id',
+            $show->shows_provider_id
+        )->first();
+
+        if (!empty($match)) {
+            $show->id = $match->id;
+            $show->exists = true;
+        } else {
+            $show->id = null;
+            $show->exists = false; // Already set
+        }
 
         $show->title
             = isset($allocine_show->title)
@@ -111,7 +125,7 @@ Trait CastsToShow
             } elseif (Str::contains($audience, '12')) {
                 $show->audience = '12';
             } elseif (Str::contains($audience, 'Avertissement')) {
-                $show->audience = 'av';
+                $show->audience = '0';
             } elseif (Str::contains($audience, 'partir de')) {
                 $show->audience = trim(mb_substr($audience, 12, 2));
             }

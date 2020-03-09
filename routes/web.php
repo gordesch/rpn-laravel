@@ -29,6 +29,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('showings-import', 'ShowingsImportController@index')->name('showings.import.index');
     Route::get('showings-import/create', 'ShowingsImportController@create')->name('showings.import.create');
     Route::post('showings-import', 'ShowingsImportController@store')->name('showings.import.store');
+
+    Route::get('weeks/{week}', 'WeeksController@show')->name('weeks.show');
+    Route::put('weeks/{week}', 'WeeksController@update')->name('weeks.update');
 });
 
 Route::get('a-l-affiche/cette-semaine', function() {

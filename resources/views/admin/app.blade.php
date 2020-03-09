@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:x-on="http://www.w3.org/1999/xhtml" xmlns:x-bind="http://www.w3.org/1999/xhtml">
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     <script src="/admin/js/tablesorter.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-    @livewireStyles
+    <livewire:styles />
 
 </head>
 
@@ -62,12 +62,12 @@
             </div>
         </div>
     </nav>
-    <header class="bg-white shadow sticky top-0">
+    <header class="bg-white shadow sticky top-0 z-50">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
 
             <div class="md:flex md:items-center md:justify-between">
                 <div class="flex-1 min-w-0">
-                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate border border-transparent">
                         @yield('title')
                     </h2>
                 </div>
@@ -86,7 +86,7 @@
 </div>
 
 {{--<script src="mix('/js/admin/app.js')"></script>--}}
-@livewireScripts
+<livewire:scripts />
 @yield('scripts')
 </body>
 

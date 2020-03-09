@@ -42,7 +42,13 @@ class Youtube implements VideosProviderInterface
             'videoSyndicated' => 'true',
         ];
 
-        return new Collection(YoutubePackage::searchAdvanced($params));
+        try {
+            $results = YoutubePackage::searchAdvanced($params);
+        } catch (\Exception $e) {
+            $results = [];
+        }
+
+        return new Collection($results);
     }
 
 }

@@ -1,25 +1,28 @@
-<div class="bg-white shadow overflow-hidden sm:rounded-md max-w-2xl">
+<div class="bg-white shadow overflow-hidden sm:rounded-md max-w-3xl mx-auto">
   @if(count(collect($shows)))
     <ul>
       @foreach($shows as $show)
         <li @if(!$loop->first) class="border-t border-gray-200" @endif>
+          @if ($show->exists)
+          <div class="block bg-gray-50 focus:outline-none transition duration-150 ease-in-out">
+          @else
           <a href="{{ route('admin.shows.import.create') }}?code={{ $show->shows_provider_id }}&ticketing_provider_id={{ $ticketing_provider_id }}" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+          @endif
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">
-                <div class="flex-shrink-0">
-                  <img
-                      class="h-12 w-9 rounded-sm shadow-inner bg-gray-100"
-                      @if (!empty($show->poster_url))
-                      src="{{ $show->poster_url }}"
-                      @endif
-                      alt=""
-                  />
-                </div>
+                <x-admin.shows.poster :show="$show" />
                 <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
-                    <div class="text-sm leading-5 font-medium text-indigo-600 truncate">{{ $show->title }}</div>
-                    <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                      <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
+                      {{ $show->title }}
+                      @if ($show->exists)
+                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800">
+                          Déjà importé
+                        </span>
+                      @endif
+                    </div>
+                    <div class="mt-2 flex items-center text-sm leading-5 @if ($show->year OR $show->release_date) text-gray-500 @else text-gray-400 @endif">
+                      <svg class="flex-shrink-0 mr-1.5 h-5 w-5 @if ($show->year OR $show->release_date) text-gray-400 @else text-gray-300 @endif" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                       </svg>
                       @if ($show->year OR $show->release_date)
@@ -31,8 +34,8 @@
                   </div>
                   <div class="hidden md:block">
                     <div>
-                      <div class="flex items-center text-sm leading-5 text-gray-500">
-                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                      <div class="flex items-center text-sm leading-5 @if ($show->director) text-gray-500 @else text-gray-400 @endif">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 @if ($show->director) text-gray-400 @else text-gray-300 @endif" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
                         </svg>
                         @if ($show->director)
@@ -43,8 +46,8 @@
                           Inconnu
                         @endif
                       </div>
-                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                      <div class="mt-2 flex items-center text-sm leading-5 @if ($show->cast) text-gray-500 @else text-gray-400 @endif">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 @if ($show->cast) text-gray-400 @else text-gray-300 @endif" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" clip-rule="evenodd"/>
                         </svg>
 
@@ -61,12 +64,22 @@
                 </div>
               </div>
               <div>
-                <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                </svg>
+                @if ($show->exists)
+                  <svg class="h-5 w-5  text-green-400 " viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                @else
+                  <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                @endif
               </div>
             </div>
+          @if (!$show->exists)
           </a>
+          @else
+          </div>
+          @endif
         </li>
       @endforeach
     </ul>
@@ -80,7 +93,7 @@
           </div>
           <div class="min-w-0 flex-1 px-4">
             <div>
-              <div class="text-sm leading-5 truncate">Aucun résultat. Avez-vous recherché quelque chose ?</div>
+              <div class="text-sm leading-5 truncate text-center">Aucune fiche-film trouvée. Avez-vous recherché quelque chose ?</div>
             </div>
           </div>
         </div>

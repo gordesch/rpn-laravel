@@ -2,14 +2,15 @@
 
 namespace App;
 
-use Illuminate\Support\Arr;
-use Laravel\Scout\Searchable;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Show extends Model
+class Show extends Model  implements HasMedia
 {
-    use Searchable;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -31,21 +32,30 @@ class Show extends Model
         'shows_provider_id',
     ];
 
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray(): array
+    public function registerMediaCollections(): void
     {
-        return Arr::only(
-            $this->toArray(),
-            ['id', 'slug', 'title', 'year', 'director', 'cast', 'updated_at']
-        );
+        $this
+            ->addMediaCollection('posters')
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('sm')
+                    ->width(34)
+                    ->height(46)
+                    ->nonQueued();
+                $this
+                    ->addMediaConversion('sm@2x')
+                    ->width(68)
+                    ->height(92)
+                    ->nonQueued();
+            });
     }
 
-    public function getDurationAttribute(): CarbonInterval
+    public function getDurationAttribute(): ?CarbonInterval
     {
+        if ($this->duration_in_seconds === null) {
+            return null;
+        }
         return CarbonInterval::seconds($this->duration_in_seconds)->cascade();
     }
 

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Programming;
+use App\Week;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class ProgrammingController extends Controller
+class WeeksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,21 +43,29 @@ class ProgrammingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Programming  $programming
-     * @return \Illuminate\Http\Response
      */
-    public function show(Programming $programming)
+    public function show(Week $week): View
     {
-        //
+        $week->load([
+            'programmings' => function ($query) {
+                $query
+                    ->withCount('showings')
+                    ->orderBy('order', 'asc')
+                    ->orderBy('showings_count', 'desc');
+            },
+            'programmings.show',
+        ]);
+
+        return view('admin.weeks.show', compact('week'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Programming  $programming
+     * @param  \App\Week  $week
      * @return \Illuminate\Http\Response
      */
-    public function edit(Programming $programming)
+    public function edit(Week $week)
     {
         //
     }
@@ -65,21 +74,21 @@ class ProgrammingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Programming  $programming
+     * @param  \App\Week  $week
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Programming $programming)
+    public function update(Request $request, Week $week)
     {
-        //
+        ddd(request('programming'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Programming  $programming
+     * @param  \App\Week  $week
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Programming $programming)
+    public function destroy(Week $week)
     {
         //
     }

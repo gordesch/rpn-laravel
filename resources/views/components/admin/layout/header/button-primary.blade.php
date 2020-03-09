@@ -1,5 +1,4 @@
-@props(['innerHTML'])
-
-<button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-    {{ innerHTML }}
-</button>
+@props(['innerHTML', 'href', 'type'])
+<span {{ $attributes->merge(['class' => 'shadow-sm rounded-md']) }}>
+  <x-admin.layout.buttons.primary :innerHTML="$innerHTML" :href="$href ?? null" :type="$type ?? null"/>
+</span>
