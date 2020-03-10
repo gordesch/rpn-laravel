@@ -5,16 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\ShowsProvider\ShowsProviderInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\View\View;
 
 class ShowsImportSearchController extends Controller
 {
 
-    public function create()
+    public function create(): View
     {
         return view('admin.shows.import.search.create');
     }
 
-    public function show(ShowsProviderInterface $showsProvider)
+    public function show(ShowsProviderInterface $showsProvider): View
     {
         $title = request('searched_show');
         $ticketing_provider_id = request('ticketing_provider_id');

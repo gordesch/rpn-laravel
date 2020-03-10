@@ -23,6 +23,7 @@ class Show extends Model  implements HasMedia
         'genre',
         'duration_in_seconds',
         'country',
+        'is_local_language',
         'year',
         'director',
         'cast',

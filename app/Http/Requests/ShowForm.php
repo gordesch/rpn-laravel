@@ -43,6 +43,7 @@ class ShowForm extends FormRequest
             'genre' => 'string|max:255|nullable',
             'duration_in_seconds' => 'numeric|nullable',
             'country' => 'string|max:255|nullable',
+            'original_language' => 'boolean|nullable',
             'year' => 'numeric|nullable',
             'director' => 'string|max:255|nullable',
             'cast' => 'string|max:255|nullable',
@@ -51,9 +52,8 @@ class ShowForm extends FormRequest
         ];
     }
 
-    public function persist(Show $show): Show {
-        $show = Show::create($this->only($show->getFillable()));
-        return $show;
+    public function persist(): Show {
+        return Show::create($this->only((new Show)->getFillable()));;
     }
 
     public function update(Show $show) {
@@ -67,6 +67,9 @@ class ShowForm extends FormRequest
                 'duration_in_seconds' => CarbonInterval::hours($this->hours)->minutes($this->minutes)->totalSeconds,
             ]);
         }
+        $this->merge([
+            'is_local_language' => $this->has('is_local_language'),
+        ]);
     }
 
 

@@ -46,8 +46,15 @@
     title="Pays"
     :value="$show->country"
     attrs="maxlength=255"
-    width="xs"
+    width="xs" class="shadow-out"
     state="{{ $show->country ? 'success' : 'warning' }}"
+/>
+
+<x-admin.layout.form.input-checkbox-single
+  name="is_local_language"
+  title="Langue"
+  label="Français"
+  :value="$show->is_local_language"
 />
 
 <x-admin.layout.form.textarea

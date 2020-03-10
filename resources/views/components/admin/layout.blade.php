@@ -32,7 +32,7 @@
               <x-admin.layout.menu.link :href="route('admin.shows.index')" linkCategory="shows" :category="$category">
                 Fiches-film
               </x-admin.layout.menu.link>
-              <x-admin.layout.menu.link :href="route('admin.showings.import.index')" linkCategory="programmings" class="ml-4" :category="$category">
+              <x-admin.layout.menu.link :href="route('admin.weeks.index')" linkCategory="programmings" class="ml-4" :category="$category">
                 Programmations
               </x-admin.layout.menu.link>
             </div>
@@ -44,7 +44,7 @@
     <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <a href="{{ route('admin.shows.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Fiches-film</a>
-        <a href="{{ route('admin.showings.import.index') }}" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Programmation</a>
+        <a href="{{ route('admin.weeks.index') }}" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Programmation</a>
         <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Divers</a>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">

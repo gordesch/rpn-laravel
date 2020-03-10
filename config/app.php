@@ -257,6 +257,7 @@ return [
     'shows_db' =>
     [
         'driver' => env('SHOWS_PROVIDER'),
+        'locale_language' => env('SHOWS_PROVIDER_LOCAL_LANGUAGE_STRING'),
         'partner_code' => env('ALLOCINE_PARTNER_CODE'),
         'endpoint' => env('ALLOCINE_ENDPOINT'),
     ],

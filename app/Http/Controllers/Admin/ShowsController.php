@@ -8,25 +8,27 @@ use App\Http\Requests\ShowForm;
 use App\Http\Requests\VideoForm;
 use App\Show;
 use App\Video;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class ShowsController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $shows = Show::all()->sortByDesc('created_at');
 
         return view('admin.shows.index', compact('shows'));
     }
 
-    public function create()
+    public function create(): View
     {
         $show = new Show;
         return view('admin.shows.create', compact('show'));
     }
 
-    public function store(ShowForm $show, PosterForm $poster, VideoForm $video)
+    public function store(ShowForm $show, PosterForm $poster, VideoForm $video): RedirectResponse
     {
-        $show = $show->persist(new Show);
+        $show = $show->persist();
         flash("{$show->title} a bien été créé")->success();
 
         // poster
@@ -49,12 +51,12 @@ class ShowsController extends Controller
         return redirect()->route('admin.shows.index');
     }
 
-    public function edit(Show $show)
+    public function edit(Show $show): View
     {
         return view('admin.shows.edit', compact('show'));
     }
 
-    public function update(ShowForm $form, Show $show)
+    public function update(Show $show, ShowForm $form): RedirectResponse
     {
         $form->update($show);
         flash("{$show->title} a bien été mis à jour")->success();
@@ -62,7 +64,7 @@ class ShowsController extends Controller
         return redirect()->route('admin.shows.index');
     }
 
-    public function destroy(Show $show)
+    public function destroy(Show $show): RedirectResponse
     {
         try {
             $show->delete();
@@ -71,7 +73,6 @@ class ShowsController extends Controller
             flash('Erreur lors de la suppression')->danger();
         }
 
-
-        return redirect('/admin/shows');
+        return redirect()->route('admin.shows.index');
     }
 }

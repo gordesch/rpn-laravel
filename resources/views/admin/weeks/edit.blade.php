@@ -8,9 +8,9 @@
   <form id="form" method="POST" action="{{ route('admin.weeks.update', [$week]) }}">
     @method('PUT')
     @csrf
-    <ul id="programmings" class="grid xl:grid-cols-3 md:grid-cols-2 grids-cols-1 grid-flow-row col-gap-2 row-gap-4">
+    <ul id="programmings" class="grid xl:grid-cols-3 md:grid-cols-2 grids-cols-1 grid-flow-row col-gap-2 row-gap-4 focus:outline-none">
       @foreach($week->programmings as $programming)
-        <li x-data="{ open: false }" id="programming_{{ $programming->id }}" class="min-w-0 col-span-1 bg-white hover:bg-gray-50 shadow sm:rounded-md cursor-move">
+        <li x-data="{ open: false }" id="programming_{{ $programming->id }}" class="min-w-0 col-span-1 bg-white hover:bg-gray-50 shadow focus:outline-none focus:shadow-outline-indigo sm:rounded-md cursor-move">
           <div class="block ">
             <div class="flex items-center px-4 py-3 sm:px-5">
               <div class="min-w-0 flex-1 flex items-center">

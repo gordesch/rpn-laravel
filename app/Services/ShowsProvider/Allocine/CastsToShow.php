@@ -79,6 +79,14 @@ Trait CastsToShow
             ?  (string) $allocine_show->nationalityList->nationality[0]
             : null;
 
+        $show->is_local_language
+            = isset($allocine_show->languageList->language[0])
+            ? (
+                (string) $allocine_show->languageList->language[0] === config('app.shows_db.locale_language')
+                ? true
+                : false
+            ): null;
+
         $show->year
             = isset($allocine_show->productionYear)
             ? (int) $allocine_show->productionYear

@@ -22,6 +22,7 @@ class CreateShowsTable extends Migration
             $table->string('genre')->nullable();
             $table->unsignedInteger('duration_in_seconds')->nullable();
             $table->string('country')->nullable();
+            $table->string('original_language')->nullable();
             $table->unsignedSmallInteger('year')->nullable();
             $table->string('director')->nullable();
             $table->string('cast')->nullable();
