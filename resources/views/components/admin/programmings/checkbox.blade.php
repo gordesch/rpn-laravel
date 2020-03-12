@@ -1,13 +1,13 @@
 @props(['programming', 'for', 'label'])
 <label
   for="programming[{{ $programming->id }}][{{ $for }}]"
-  class="flex items-center px-3 py-0.5 rounded-full cursor-pointer
+  class="flex items-center justify-center px-3 py-0.5 rounded-full cursor-pointer
     @if ($for === 'is_dubbed_version')
-      mr-2 bg-green-100 text-green-800
+      md:mr-2 bg-green-100 text-green-800
     @elseif ($for === 'is_original_version')
-      mr-2 bg-blue-100 text-blue-800
+      md:mr-2 bg-blue-100 text-blue-800
     @elseif ($for === 'is_2d')
-      mr-2 bg-teal-100 text-teal-800
+      md:mr-2 bg-teal-100 text-teal-800
     @elseif ($for === 'is_3d')
       bg-red-100 text-red-800
     @endif

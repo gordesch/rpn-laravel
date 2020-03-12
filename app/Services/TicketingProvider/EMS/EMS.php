@@ -4,6 +4,7 @@ namespace App\Services\TicketingProvider\EMS;
 
 use App\Programming;
 use App\Services\TicketingProvider\TicketingProviderInterface;
+use App\Show;
 use App\Week;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -76,6 +77,7 @@ class EMS implements TicketingProviderInterface
                 'week_id',
                 array_values($weeks->pluck('id')->all())
             )->get();
+
         $this->shows->each(
             function ($show) use ($weeks, $programmings) {
                 $show->sessions->each(

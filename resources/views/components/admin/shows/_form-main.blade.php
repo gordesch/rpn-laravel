@@ -19,5 +19,6 @@
   :shouldExist="$slugShouldExist"
   :value="$show->slug"
   :show="$show"
+  :except="($mode ?? null) === 'edit' ? $show->slug : null"
   width="md"
 />

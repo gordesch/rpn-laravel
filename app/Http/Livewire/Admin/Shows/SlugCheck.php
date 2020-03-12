@@ -7,13 +7,14 @@ use Livewire\Component;
 
 class SlugCheck extends Component
 {
-    public bool $shouldExist;
-    public string $name;
-    public string $title;
-    public ?string $value;
-    public string $width;
-    public string $state;
-    public ?string $ticketingProviderId;
+    public ?bool $shouldExist = null;
+    public ?string $name = null;
+    public ?string $title = null;
+    public ?string $value = null;
+    public ?string $width = null;
+    public ?string $state = null;
+    public ?string $ticketingProviderId = null;
+    public ?string $except = null;
 
     public function mount(
         bool $shouldExist,
@@ -21,7 +22,8 @@ class SlugCheck extends Component
         string $title,
         ?string $value,
         string $width,
-        ?string $ticketingProviderId = null
+        ?string $ticketingProviderId = null,
+        ?string $except = null
     ) {
         $this->shouldExist = $shouldExist;
         $this->name = $name;
@@ -29,6 +31,7 @@ class SlugCheck extends Component
         $this->value = $value;
         $this->width = $width;
         $this->ticketingProviderId = $ticketingProviderId;
+        $this->except = $except;
         $this->check();
     }
 
@@ -43,6 +46,10 @@ class SlugCheck extends Component
 
     public function check(): void
     {
+        if ( ! $this->shouldExist && $this->value === $this->except) {
+            $this->state = 'success';
+            return;
+        }
         if ($this->_isValid()) {
             $this->state = 'success';
         } else {

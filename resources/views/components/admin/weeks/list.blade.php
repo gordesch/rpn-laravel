@@ -52,12 +52,12 @@
                     <div>
                       <div
                         class="flex items-center justify-end text-sm leading-5 text-gray-500">
-                        @if ($week->programmings->first()->order)
+                        @if ($week->programmings->first()->position !== null)
                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                             Programmation réglée
                           </span>
                         @elseif (
-                            !$week->programmings->first()->order
+                            $week->programmings->first()->position === null
                             && (
                                 $week->start == \Gordesch\CineCarbon::now()->startOfWeek()
                                 || $week->start == \Gordesch\CineCarbon::now()->addWeek()->startOfWeek()

@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 use App\Services\ShowsProvider\ShowsProviderInterface;
 
 class ImportSearchList extends Component
 {
     public ?string $search = null;
-    public string $ticketing_provider_id = '';
-    public $shows;
+    public ?string $ticketing_provider_id = null;
+    public $shows = null;
     protected ShowsProviderInterface $showsProvider;
 
     protected $listeners = ['search' => 'mount'];
@@ -25,7 +25,7 @@ class ImportSearchList extends Component
     public function updateShows(string $search)
     {
         $this->ticketing_provider_id = request('ticketing_provider_id', '');
-        $this->shows = new Collection($this->showsProvider::search($search));
+        $this->shows = new \Illuminate\Database\Eloquent\Collection($this->showsProvider::search($search));
     }
 
     public function render()

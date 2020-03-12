@@ -26,8 +26,10 @@
         name="{{ $name }}"
         @if ($state === 'error')
         class="form-input block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red sm:text-sm sm:leading-5"
-        @else
+        @elseif ($value !== $except)
         class="form-input block w-full pr-10 border-green-300 text-green-900 placeholder-green-300 focus:border-green-300 focus:shadow-outline-green sm:text-sm sm:leading-5"
+        @else
+        class="form-input block w-full pr-10 sm:text-sm sm:leading-5"
         @endif
         value="{{ old($name, $value) }}"
         type="text"
@@ -39,7 +41,7 @@
           <svg wire:loading.class="hidden" wire:target="value" class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
           </svg>
-        @else
+        @elseif ($value !== $except)
           <svg wire:loading.class="hidden" wire:target="value" class="h-5 w-5  text-green-400 " viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
           </svg>
@@ -47,7 +49,11 @@
         <span wire:loading wire:target="value" class="h-5 w-5 spinner text-gray-400"></span>
       </div>
     </div>
-    @if ($state === 'success' && $shouldExist)
+    @if (!$shouldExist && $value === $except)
+      <p wire:loading.class="invisible" wire:target="value" class="mt-2 text-sm text-gray-500">
+        Aucune modification pour l'instant.
+      </p>
+    @elseif ($state === 'success' && $shouldExist)
       <p wire:loading.class="invisible" wire:target="value" class="mt-2 text-sm text-green-500">Correspondance trouvée.</p>
     @elseif ($state === 'success' && !$shouldExist)
       <p wire:loading.class="invisible" wire:target="value" class="mt-2 text-sm text-green-500">Ce titre simplifié est disponible.</p>

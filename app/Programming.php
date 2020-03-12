@@ -9,6 +9,7 @@ class Programming extends Model
     protected $fillable = [
         'week_id',
         'show_id',
+        'position',
         'is_dubbed_version',
         'is_original_version',
         'is_2d',

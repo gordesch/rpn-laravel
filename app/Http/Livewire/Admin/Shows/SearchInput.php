@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class SearchInput extends Component
 {
-    public string $search = '';
+    public ?string $search = null;
     public bool $resultsLoading = false;
 
     protected $updatesQueryString = ['search' => ['except' => '']];

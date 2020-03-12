@@ -9,10 +9,18 @@
   </x-slot>
 
   <x-slot name="headerButtons">
+    <x-admin.layout.header.button-secondary :href="route('admin.shows.videos.edit', [$show])">
+      <x-slot name="innerHTML">
+        <x-admin.layout.icons.edit />
+        Bandes-annonces
+      </x-slot>
+    </x-admin.layout.header.button-secondary>
+
     <form
       action="{{ route('admin.shows.destroy', [$show]) }}"
       method="POST"
       onsubmit="return confirm('Supprimer la fiche de {{ $show->title }} ?');"
+      class="ml-3"
     >
       @method('DELETE')
       @csrf
@@ -34,6 +42,6 @@
 
   <form id="form" method="post" action="{{ route('admin.shows.update', [$show]) }}" role="form">
     @method('PUT')
-    <x-admin.shows.form :show="$show" :slugShouldExist="true"/>
+    <x-admin.shows.form :show="$show" :slugShouldExist="false" mode="edit"/>
   </form>
 </x-admin.layout>

@@ -17,11 +17,11 @@ class CreateProgrammingsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('week_id');
             $table->unsignedBigInteger('show_id');
-            $table->unsignedTinyInteger('order')->nullable();
-            $table->boolean('is_dubbed_version')->default(false);
-            $table->boolean('is_original_version')->default(false);
-            $table->boolean('is_2d')->default(false);
-            $table->boolean('is_3d')->default(false);
+            $table->unsignedTinyInteger('position')->nullable();
+            $table->boolean('is_dubbed_version')->nullable();
+            $table->boolean('is_original_version')->nullable();
+            $table->boolean('is_2d')->nullable();
+            $table->boolean('is_3d')->nullable();
             $table->text('custom_showings_infos')->nullable();
             $table->timestamps();
 

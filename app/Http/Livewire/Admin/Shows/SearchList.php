@@ -7,8 +7,8 @@ use Livewire\Component;
 
 class SearchList extends Component
 {
-    public string $search;
-    public $shows;
+    public ?string $search = null;
+    public $shows = null;
 
     protected $listeners = ['search' => 'mount'];
 
@@ -21,13 +21,13 @@ class SearchList extends Component
     public function updateShows()
     {
         if (empty($this->search)) {
-            $this->shows = Show::latest()->limit(30)->get();
+            $this->shows = Show::latest()->with('media')->limit(30)->get();
         } else {
             $this->shows = Show::where(
                 'title',
                 'like',
                 '%' . $this->search . '%'
-            )->limit(30)->get();
+            )->with('media')->limit(30)->get();
         }
     }
 

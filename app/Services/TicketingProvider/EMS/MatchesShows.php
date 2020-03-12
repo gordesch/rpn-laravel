@@ -22,12 +22,15 @@ Trait MatchesShows
     private function _matchShows(): void
     {
         $matches = new Collection(request('match'));
+
         $this->shows = $this->shows->map(
             function ($show) use ($matches) {
                 if (isset($show->ticketing_provider_id) && isset($show->id)) {
+                    // Matching is already done
                     return $show;
                 }
                 if (!isset($show->ticketing_provider_id)) {
+                    // Prepare for matching
                     $show->ticketing_provider_id = $show->id;
                     $matching_show = Show::select(
                         'id',
@@ -49,6 +52,7 @@ Trait MatchesShows
                     return $show;
                 }
                 if (!isset($show->id)) {
+                    // Matching
                     $match = $matches->where(
                         'slug',
                         $show->slug

@@ -22,7 +22,7 @@ class ShowingsByWeekController extends Controller
             ->with(
                 [
                     'programmings' => function ($query) {
-                        $query->orderBy('order');
+                        $query->orderBy('position');
                     },
                     'programmings.show.videos',
                     'programmings.showings' => function ($query) {

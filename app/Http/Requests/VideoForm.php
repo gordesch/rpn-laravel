@@ -35,12 +35,12 @@ class VideoForm extends FormRequest
         Show $show,
         bool $is_original_version
     ) {
-        if ($is_original_version) {
-            $video->youtube_id = request('video-original');
-        } else {
-            $video->youtube_id = request('video-dubbed');
-        }
         $video->is_original_version = $is_original_version;
+        $video->youtube_id =
+            $video->is_original_version
+            ? request('video-original')
+            : request('video-dubbed');
+
 
         return $show->videos()->save($video);
     }

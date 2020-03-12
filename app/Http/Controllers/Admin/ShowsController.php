@@ -15,9 +15,7 @@ class ShowsController extends Controller
 {
     public function index(): View
     {
-        $shows = Show::all()->sortByDesc('created_at');
-
-        return view('admin.shows.index', compact('shows'));
+        return view('admin.shows.index');
     }
 
     public function create(): View

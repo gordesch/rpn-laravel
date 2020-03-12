@@ -40,13 +40,21 @@ class WeeksController extends Controller
             'programmings' => function ($query) {
                 $query
                     ->withCount('showings')
-                    ->orderBy('order', 'asc')
+                    ->orderBy('position', 'asc')
                     ->orderBy('showings_count', 'desc');
             },
-            'programmings.show',
+            'programmings.show.media',
         ]);
 
-        if (!$week->programmings->first()->order) { // programmings not set
+        // Delete programmings where no showings
+        $week->programmings->each(function($item) {
+            if ($item->showings_count === 0) {
+                Programming::whereId($item->id)->delete();
+            }
+        });
+
+        // If programmings are not set, prepopulate with a guess
+        if ($week->programmings->first()->position === null) {
             $week->programmings->each
                 ->load('show', 'showings')
                 ->loadCount([
@@ -83,36 +91,22 @@ class WeeksController extends Controller
      */
     public function update(Request $request, Week $week): RedirectResponse
     {
-        $order = 0;
-        $programmings = collect(request('programming'))
-            ->map(function ($item, $key) {
-                return collect($item);
-            })->each(function ($item, $key) use (&$order) {
-            $programming = Programming::find($key);
-            $programming->order = $order;
-            $programming->is_dubbed_version =
-                $item->get('is_dubbed_version') ?
-                    true :
-                    false;
-            $programming->is_original_version =
-                $item->get('is_original_version') ?
-                    true :
-                    false;
-            $programming->is_2d =
-                $item->get('is_2d') ?
-                    true :
-                    false;
-            $programming->is_3d =
-                $item->get('is_3d') ?
-                    true :
-                    false;
-            $programming->custom_showings_infos =
-                $item->get('custom_showings_infos') ?? null;
-             $order++;
-             $programming->save();
-        });
+        $position = 0;
+        collect(request('programming'))
+            ->each(function ($item, $key) use (&$position) {
+                $item = collect($item);
+                Programming::whereId($key)->update([
+                    'position' => $position,
+                    'is_dubbed_version' => $item->get('is_dubbed_version') ? true : false,
+                    'is_original_version' => $item->get('is_original_version') ? true : false,
+                    'is_2d' => $item->get('is_2d') ? true : false,
+                    'is_3d' => $item->get('is_3d') ? true : false,
+                    'custom_showings_infos' => $item->get('custom_showings_infos') ?? null,
+                ]);
+                $position++;
+            });
 
-        flash("Programmation de la semaine {$week->start->isoFormat('WW')} mise à jour")->success();
+        flash("Programmation mise à jour pour la semaine du {$week->start->isoFormat('dddd DD MMMM YYYY')}")->success();
 
         return redirect()->route('admin.weeks.index');
     }
