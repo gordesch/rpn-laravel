@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Presenters\ShowPresenter;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -11,6 +12,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Show extends Model  implements HasMedia
 {
     use InteractsWithMedia;
+    use ShowPresenter;
 
     /**
      * The attributes that are mass assignable.

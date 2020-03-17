@@ -6,6 +6,7 @@ use App\Services\VideosProvider\VideosProviderInterface;
 use App\Show;
 use Illuminate\Support\Collection;
 use Alaouy\Youtube\Facades\Youtube as YoutubePackage;
+use Illuminate\Support\Facades\Http;
 
 class Youtube implements VideosProviderInterface
 {
@@ -30,7 +31,7 @@ class Youtube implements VideosProviderInterface
     {
         $version
             = $is_original_version
-            ? 'vost '
+            ? 'vost'
             : 'vf';
 
         $params = [

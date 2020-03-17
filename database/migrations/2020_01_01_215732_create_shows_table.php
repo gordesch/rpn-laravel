@@ -22,13 +22,12 @@ class CreateShowsTable extends Migration
             $table->string('genre')->nullable();
             $table->unsignedInteger('duration_in_seconds')->nullable();
             $table->string('country')->nullable();
-            $table->string('original_language')->nullable();
+            $table->boolean('is_local_language')->nullable();
             $table->unsignedSmallInteger('year')->nullable();
             $table->string('director')->nullable();
             $table->string('cast')->nullable();
             $table->text('synopsis')->nullable();
             $table->tinyInteger('audience')->nullable();
-            $table->unsignedInteger('poster_version')->default(1);
             $table->timestamps();
         });
     }

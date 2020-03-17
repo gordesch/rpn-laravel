@@ -10,10 +10,11 @@ $factory->define(Show::class, function (Faker $faker) {
     return [
         'title' => $title,
         'slug' => Str::slug($title),
-        'genre' => $faker->word,
+        'genre' => $faker->word(),
         'duration_in_seconds' => $faker->numberBetween(60 * 45, 60 * 140),
         'country' => $faker->country,
-        'year' => $faker->year,
+        'is_local_language' => $faker->boolean(),
+        'year' => $faker->year(),
         'director' => $faker->name(),
         'cast' => $faker->name(),
         'synopsis' => $faker->paragraph(8),

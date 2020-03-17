@@ -34,6 +34,7 @@
         @endif
         value="{{ old($name, $value) }}"
         {{ $attrs }}
+          placeholder="{{ $placeholder ?? null }}"
         type="text"
       />
       @if ($state === 'error')

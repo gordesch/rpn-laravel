@@ -39,11 +39,11 @@ class WeeksController extends Controller
         $week->load([
             'programmings' => function ($query) {
                 $query
+                    ->with('show.media')
                     ->withCount('showings')
                     ->orderBy('position', 'asc')
                     ->orderBy('showings_count', 'desc');
             },
-            'programmings.show.media',
         ]);
 
         // Delete programmings where no showings

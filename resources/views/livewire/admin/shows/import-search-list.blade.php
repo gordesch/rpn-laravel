@@ -93,7 +93,7 @@
           </div>
           <div class="min-w-0 flex-1 px-4">
             <div>
-              <div class="text-sm leading-5 truncate text-center">Aucune fiche-film trouvée. Avez-vous recherché quelque chose ?</div>
+              <div class="text-sm leading-5 truncate text-center">Avez-vous recherché quelque chose ?</div>
             </div>
           </div>
         </div>

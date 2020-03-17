@@ -30,7 +30,7 @@ Trait CastsToShow
 
         $show->shows_provider_id = $allocine_show['code'];
 
-        $match = Show::where(
+        $match = Show::select('id', 'shows_provider_id')->where(
             'shows_provider_id',
             $show->shows_provider_id
         )->first();

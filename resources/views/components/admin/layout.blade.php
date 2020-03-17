@@ -8,12 +8,6 @@
 
   <link rel="stylesheet" type="text/css" href="/css/admin/app.css">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-
-  <script src="/admin/js/admin-1.2.0.js"></script>
-  <script src="/admin/js/tablesorter.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/lib/draggable.bundle.js"></script>
-
   <livewire:styles />
 </head>
 
@@ -76,6 +70,7 @@
 </div>
 
 {{--<script src="mix('/js/admin/app.js')"></script>--}}
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <livewire:scripts />
 {{ $scripts ?? null }}
 </body>
