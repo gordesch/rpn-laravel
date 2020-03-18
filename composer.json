@@ -11,18 +11,17 @@
         "php": "^7.4",
         "ext-json": "*",
         "ext-simplexml": "*",
-        "alaouy/youtube": "^2.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "gordesch/cine-carbon": "^1.2",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^7.0",
         "laracasts/flash": "^3.1",
         "laravel/framework": "^7.0",
         "laravel/horizon": "^4.0",
         "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.2",
         "livewire/livewire": "^1.0",
-        "spatie/laravel-medialibrary": "^8.0.0"
+        "spatie/laravel-medialibrary": "^8.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

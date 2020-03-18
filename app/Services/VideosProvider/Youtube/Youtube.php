@@ -4,12 +4,29 @@ namespace App\Services\VideosProvider\Youtube;
 
 use App\Services\VideosProvider\VideosProviderInterface;
 use App\Show;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
-use Alaouy\Youtube\Facades\Youtube as YoutubePackage;
 use Illuminate\Support\Facades\Http;
 
 class Youtube implements VideosProviderInterface
 {
+    protected array $config;
+
+    public function __construct()
+    {
+        $this->config['endpoint'] = config('services.youtube.endpoint');
+        $this->config['api_key'] = config('services.youtube.api_key');
+    }
+
+    /**
+     * Search Youtube for trailers in dubbed and original version
+     *
+     * @param  Show  $show
+     *
+     * @return Collection
+     *
+     * @throws RequestException
+     */
     public static function search(Show $show): Collection
     {
         $results = new Collection;
@@ -24,6 +41,16 @@ class Youtube implements VideosProviderInterface
         return $results;
     }
 
+    /**
+     * Search Youtube for trailers of a movie in dubbed or original language
+     *
+     * @param  string  $title
+     * @param  bool  $is_original_version
+     *
+     * @return Collection
+     *
+     * @throws RequestException
+     */
     private static function _searchTrailers(
         string $title,
         bool $is_original_version
@@ -34,7 +61,7 @@ class Youtube implements VideosProviderInterface
             ? 'vost'
             : 'vf';
 
-        $params = [
+        $query = [
             'q'               => "bande annonce {$version} {$title}",
             'type'            => 'video',
             'part'            => 'id, snippet',
@@ -43,13 +70,29 @@ class Youtube implements VideosProviderInterface
             'videoSyndicated' => 'true',
         ];
 
-        try {
-            $results = YoutubePackage::searchAdvanced($params);
-        } catch (\Exception $e) {
-            $results = [];
-        }
+        $youtube = new static;
+        $results = $youtube->_call($query);
 
-        return new Collection($results);
+        return new Collection($results->items);
+    }
+
+    /**
+     * Call the Youtube API
+     *
+     * @param  array  $query
+     *
+     * @return mixed
+     *
+     * @throws RequestException
+     */
+    private function _call(array $query)
+    {
+        $uri = $this->config['endpoint'];
+        $query = array_merge($query, [
+            'key' => $this->config['api_key'],
+        ]);
+        $response = Http::get($uri, $query)->throw();
+        return json_decode($response->body());
     }
 
 }

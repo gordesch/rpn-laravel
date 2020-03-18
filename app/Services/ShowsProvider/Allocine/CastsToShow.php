@@ -28,7 +28,7 @@ Trait CastsToShow
     {
         $show = new Show;
 
-        $show->shows_provider_id = $allocine_show['code'];
+        $show->shows_provider_id = (string) $allocine_show['code'];
 
         $match = Show::select('id', 'shows_provider_id')->where(
             'shows_provider_id',

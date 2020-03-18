@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Services\ShowsProvider\ShowsProviderInterface;
 use App\Show;
 use Carbon\CarbonInterval;
 use Illuminate\Foundation\Http\FormRequest;
@@ -57,6 +58,12 @@ class ShowForm extends FormRequest
     }
 
     public function update(Show $show) {
+        $show->update($this->only($show->getFillable()));
+    }
+
+    public function synchronize(Show $show, ShowsProviderInterface $showsProvider)
+    {
+        $show = $showsProvider::synchronize($show);
         $show->update($this->only($show->getFillable()));
     }
 

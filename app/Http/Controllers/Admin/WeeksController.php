@@ -20,7 +20,8 @@ class WeeksController extends Controller
     public function index(): View
     {
         $this_week_start = CineCarbon::now()->startOfWeek();
-        $weeks = Week::where('start', '>=', $this_week_start)
+        //$weeks = Week::where('start', '>=', $this_week_start)
+        $weeks = Week::find(7)
             ->with('programmings')
             ->withCount('programmings', 'showings')
             ->has('showings')
@@ -44,6 +45,7 @@ class WeeksController extends Controller
                     ->orderBy('position', 'asc')
                     ->orderBy('showings_count', 'desc');
             },
+            'shows_with_missing_data',
         ]);
 
         // Delete programmings where no showings

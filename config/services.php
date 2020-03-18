@@ -39,6 +39,11 @@ return [
     'allocine' => [
         'partner_code' => env('ALLOCINE_PARTNER_CODE'),
         'endpoint' => env('ALLOCINE_ENDPOINT'),
-    ]
+    ],
+
+    'youtube' => [
+        'api_key' => env('YOUTUBE_API_KEY'),
+        'endpoint' => env('YOUTUBE_ENDPOINT'),
+    ],
 
 ];

@@ -7,6 +7,7 @@ use App\Services\ShowsProvider\ShowsProviderInterface;
 use App\Services\VideosProvider\VideosProviderInterface;
 use Carbon\Carbon;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
@@ -29,18 +30,11 @@ class ShowsImportController extends Controller
         try {
             $show = $showsProvider::show($code);
             $show->ticketing_provider_id = request('ticketing_provider_id');
-        } catch (GuzzleException $e) {
+        } catch (RequestException $e) {
             flash('Erreur lors de la connexion à Allociné. Veuillez réessayer.')->danger();
             return redirect()->back();
         }
 
-        try {
-            $videos = $videosProvider::search($show);
-        } catch (GuzzleException $e) {
-            flash('Erreur lors de la connexion à Allociné. Veuillez réessayer.')->danger();
-            return redirect()->back();
-        }
-
-        return view('admin.shows.import.create', compact('show', 'videos'));
+        return view('admin.shows.import.create', compact('show'));
     }
 }

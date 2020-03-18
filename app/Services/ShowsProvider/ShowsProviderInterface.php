@@ -9,4 +9,5 @@ interface ShowsProviderInterface
 {
     public static function search(string $title): Collection;
     public static function show(string $code): Show;
+    public static function synchronize(Show $show): Show;
 }

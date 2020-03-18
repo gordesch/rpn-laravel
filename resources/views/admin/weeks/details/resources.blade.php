@@ -3,24 +3,24 @@
     Semaine du {{ $week->start->isoFormat('dddd DD MMMM YYYY') }}
   </x-slot>
 
-  <x-admin.weeks.submenu selected="resources" :week="$week"></x-admin.weeks.submenu>
+  <x-admin.weeks.submenu selected="resources" :week="$week" />
 
-  @foreach($week->programmings as $programming)
+  @foreach($week->programmings->map->show as $show)
     <div class="grid grid-cols-4 gap-4 items-start border-t border-gray-200 @if (!$loop->first) mt-6 sm:mt-5 @endif pt-5">
       <div class="flex items-center">
-        <x-admin.shows.poster :show="$programming->show" />
+        <x-admin.shows.poster :show="$show" />
         <h4 class="block ml-5 text-sm font-medium leading-5 text-gray-700 truncate">
-          {{ $programming->show->title }}
+          {{ $show->title }}
         </h4>
       </div>
       <div class="self-center mt-1 sm:mt-0 flex rounded-md shadow-sm">
-        <x-admin.weeks.resources.infos :programming="$programming" />
+        <x-admin.weeks.resources.infos :show="$show" />
       </div>
       <div class="self-center mt-1 sm:mt-0 flex rounded-md shadow-sm">
-        <x-admin.weeks.resources.poster :programming="$programming" />
+        <x-admin.weeks.resources.poster :show="$show" />
       </div>
       <div class="self-center mt-1 sm:mt-0 flex rounded-md shadow-sm">
-        <x-admin.weeks.resources.link :programming="$programming" />
+        <x-admin.weeks.resources.link :show="$show" />
       </div>
     </div>
   @endforeach

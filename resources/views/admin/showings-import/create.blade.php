@@ -43,6 +43,7 @@
         :value="$show->slug"
         width="md"
         :ticketingProviderId="$show->ticketing_provider_id"
+        poll="true"
       />
     @endforeach
   </form>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Relations\ShowsWithMissingDataRelation;
 use Gordesch\CineCarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,8 +39,8 @@ class Week extends Model
         return $this->hasManyThrough(Showing::class, Programming::class);
     }
 
-    public function shows()
+    public function shows_with_missing_data(): ShowsWithMissingDataRelation
     {
-        return $this->hasManyThrough(Show::class, Programming::class);
+        return new ShowsWithMissingDataRelation($this);
     }
 }

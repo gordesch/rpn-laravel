@@ -4,12 +4,12 @@ namespace App\Services\TicketingProvider\EMS;
 
 use App\Programming;
 use App\Services\TicketingProvider\TicketingProviderInterface;
-use App\Show;
 use App\Week;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Http;
 
 /**
  * Class EMS
@@ -31,7 +31,6 @@ class EMS implements TicketingProviderInterface
     /**
      * EMS constructor
      *
-     * @throws GuzzleException
      */
     public function __construct()
     {
@@ -103,7 +102,7 @@ class EMS implements TicketingProviderInterface
      *
      * @return void
      *
-     * @throws GuzzleException
+     * @throws RequestException
      */
     private function _fetchShowsWithShowings(): void
     {
@@ -118,19 +117,17 @@ class EMS implements TicketingProviderInterface
      *
      * @return string
      *
-     * @throws GuzzleException
+     * @throws RequestException
      */
     private function _call(): string
     {
-        $response = $this->client->request(
-            'GET', $this->config['endpoint'], [
-                'auth' => [
-                    $this->config['username'],
-                    $this->config['password'],
-                ]
+        $response = Http::get($this->config['endpoint'], [
+            'auth' => [
+                $this->config['username'],
+                $this->config['password'],
             ]
-        )->getBody();
-        return (string) $response;
+        ])->throw();
+        return (string) $response->body();
     }
 }
 
