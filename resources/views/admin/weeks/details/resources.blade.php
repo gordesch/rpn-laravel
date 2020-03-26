@@ -28,7 +28,6 @@
   <x-slot name="scripts">
     <script src="https://unpkg.com/clipboard@2.x.x/dist/clipboard.min.js"></script>
     <script>
-      //document.querySelectorAll('input').forEach(input => input.addEventListener('click focus', () => input.select()));
       document.querySelectorAll('input, textarea').forEach(input => {
         input.addEventListener('click', () => input.select());
         input.addEventListener('focus', () => input.select());

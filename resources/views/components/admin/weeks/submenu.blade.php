@@ -24,12 +24,7 @@
           <span>
             État des fiches-film
           </span>
-          <span class="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 @if($selected === 'shows-state')  bg-indigo-200 text-indigo-500 @else bg-gray-200 text-gray-500 @endif">
-            <svg class="h-4 w-4 @if($selected === 'shows-state') text-indigo-400 @else text-gray-400 @endif" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M8.25706 3.09882C9.02167 1.73952 10.9788 1.73952 11.7434 3.09882L17.3237 13.0194C18.0736 14.3526 17.1102 15.9999 15.5805 15.9999H4.4199C2.89025 15.9999 1.92682 14.3526 2.67675 13.0194L8.25706 3.09882ZM11.0001 13C11.0001 13.5523 10.5524 14 10.0001 14C9.44784 14 9.00012 13.5523 9.00012 13C9.00012 12.4477 9.44784 12 10.0001 12C10.5524 12 11.0001 12.4477 11.0001 13ZM10.0001 5C9.44784 5 9.00012 5.44772 9.00012 6V9C9.00012 9.55228 9.44784 10 10.0001 10C10.5524 10 11.0001 9.55228 11.0001 9V6C11.0001 5.44772 10.5524 5 10.0001 5Z" clip-rule="evenodd"></path>
-            </svg>
-            {{ $week->shows_with_missing_data->count() }}
-          </span>
+          <livewire:admin.weeks.shows-state-counter :weekId="$week->id" :showsWithMissingDataCount="$week->shows_with_missing_data->count()" :selected="$selected" />
         </a>
         <a href="{{ route('admin.weeks.resources', [$week]) }}" class="@if($selected === 'resources') border-indigo-500 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700 @else border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 @endif ml-8 group inline-flex items-center -mb-px py-4 px-1 border-b-4 font-medium text-sm leading-5">
           <svg class="-ml-0.5 mr-2 h-5 w-5 @if($selected === 'resources') text-indigo-500 @else text-gray-400 group-hover:text-gray-500 @endif" fill="currentColor" viewBox="0 0 20 20">

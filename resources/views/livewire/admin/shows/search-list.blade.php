@@ -26,7 +26,7 @@
         </a>
       </li>
       @foreach($shows as $show)
-        <li class="border-t border-gray-200">
+        <li @if (!$loop->first) class="border-t border-gray-200" @endif>
           <a href="{{ route('admin.shows.edit', [$show]) }}" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">

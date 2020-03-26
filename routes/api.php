@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -23,4 +23,4 @@ Route::get('/admin/slug_exists/{slug}', function($slug) {
 });
 Route::get('/admin/shows/for-autocomplete', function() {
     return App\Show::all('id', 'slug', 'title', 'year');
-});
+});*/

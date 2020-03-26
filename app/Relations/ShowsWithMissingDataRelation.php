@@ -24,16 +24,19 @@ class ShowsWithMissingDataRelation extends Relation
     {
         $this
             ->query
-            ->orWhereNull([
-                'genre',
-                'duration_in_seconds',
-                'country',
-                'year',
-                'director',
-                'cast',
-                'synopsis'
-            ])
-            ->orDoesntHave('videos')
+            ->where('ignore_missing', false)
+            ->where(function ($query) {
+                $query
+                    ->orWhereNull([
+                        'genre',
+                        'duration_in_seconds',
+                        'country',
+                        'year',
+                        'director',
+                        'cast',
+                        'synopsis'
+                    ])->orDoesntHave('videos');
+            })
             ->join(
                 'programmings',
                 'show_id',

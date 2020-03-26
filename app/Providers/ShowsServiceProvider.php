@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ShowsProvider\ShowsProvider;
 use App\Services\ShowsProvider\ShowsProviderInterface;
 use App\Services\ShowsProvider\Allocine\Allocine;
 use Illuminate\Support\ServiceProvider;
@@ -15,10 +16,12 @@ class ShowsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            ShowsProviderInterface::class,
-            Allocine::class
-        );
+        $this->app->bind('allocine', function() {
+            return new Allocine;
+        });
+        $this->app->bind('shows-provider', function() {
+            return $this->app->make(config('app.shows_db.driver'));
+        });
     }
 
     /**

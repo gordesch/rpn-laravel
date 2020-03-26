@@ -21,13 +21,7 @@ class ShowsVideosController extends Controller
      */
     public function edit(Show $show, VideosProviderInterface $videosProvider): View
     {
-        try {
-            $videos = $videosProvider::search($show);
-        } catch (GuzzleException $e) {
-            flash('Erreur lors de la connexion à Allociné. Veuillez réessayer.')->danger();
-            return redirect()->back();
-        }
-        return view('admin.shows.videos.edit', compact ('show', 'videos'));
+        return view('admin.shows.videos.edit', compact ('show'));
     }
 
     /**

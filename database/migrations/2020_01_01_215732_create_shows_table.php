@@ -28,6 +28,7 @@ class CreateShowsTable extends Migration
             $table->string('cast')->nullable();
             $table->text('synopsis')->nullable();
             $table->tinyInteger('audience')->nullable();
+            $table->boolean('ignore_missing')->default(false);
             $table->timestamps();
         });
     }

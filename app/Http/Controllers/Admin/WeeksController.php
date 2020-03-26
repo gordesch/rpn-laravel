@@ -24,6 +24,7 @@ class WeeksController extends Controller
         $weeks = Week::find(7)
             ->with('programmings')
             ->withCount('programmings', 'showings')
+            ->with('shows_with_missing_data')
             ->has('showings')
             ->orderBy('start', 'asc')
             ->get();

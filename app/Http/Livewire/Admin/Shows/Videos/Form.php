@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Shows\Videos;
 
 use App\Services\VideosProvider\VideosProviderInterface;
 use App\Show;
@@ -9,9 +9,8 @@ use Livewire\Component;
 
 class Form extends Component
 {
-    public $show;
-    public $showTitle;
-    public $showIsLocalLanguage;
+    public string $showTitle = '';
+    public bool $showIsLocalLanguage = false;
     public $videos = [
         'dubbed_version' => [],
         'original_version' => [],
@@ -19,11 +18,8 @@ class Form extends Component
 
     public function mount($showTitle, $showIsLocalLanguage)
     {
-        $this->show = new Show;
-        $this->show->title = $showTitle;
-        $this->show->is_local_language = $showIsLocalLanguage;
-        $this->showTitle = $showTitle;
-        $this->showIsLocalLanguage = $showIsLocalLanguage;
+        $this->showTitle = (string) $showTitle;
+        $this->showIsLocalLanguage = (bool) $showIsLocalLanguage;
     }
 
     public function loadVideos(VideosProviderInterface $videosProvider)
@@ -37,10 +33,5 @@ class Form extends Component
             $this->reset('videos');
         }
     }
-
-
-    public function render()
-    {
-        return view('livewire.admin.shows.videos.form');
-    }
 }
+

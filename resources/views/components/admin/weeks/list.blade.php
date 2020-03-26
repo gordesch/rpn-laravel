@@ -1,24 +1,24 @@
 <div>
   <div class="bg-white shadow overflow-hidden sm:rounded-md max-w-3xl mx-auto">
     <ul>
-      <li>
-        <a href=""
-           class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
-          @if (!empty($search) && $shows->isEmpty())
-            <div class="flex px-4 py-4 sm:px-6 text-center text-sm leading-5">
-              Aucune programmation importée.
-            </div>
-          @endif
-        </a>
-      </li>
+      @if ($weeks->isEmpty())
+        <li>
+          <a href=""
+             class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+              <div class="flex px-4 py-4 sm:px-6 text-center text-sm leading-5">
+                Aucune programmation importée.
+              </div>
+          </a>
+        </li>
+      @endif
       @foreach($weeks as $week)
-        <li class="border-t border-gray-200">
+        <li @if (!$loop->first) class="border-t border-gray-200" @endif>
           <a href="{{ route('admin.weeks.edit', [$week]) }}"
              class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">
-                <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-                  <div>
+                <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-3 md:gap-4">
+                  <div class="md:col-span-2">
                     <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
                       Semaine du {{ $week->start->isoFormat('dddd DD MMMM YYYY') }}
                       <span class="ml-2 text-xs text-gray-500">
@@ -34,6 +34,14 @@
                                   clip-rule="evenodd"/>
                           </svg>
                           {{ $week->programmings_count > 1 ? $week->programmings_count . ' films' : $week->programmings_count . ' film' }}
+                          @if ($week->shows_with_missing_data->count())
+                            <span class="inline-flex items-center ml-1 px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-red-200 text-red-500 ">
+                              <svg class="h-4 w-4 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.25706 3.09882C9.02167 1.73952 10.9788 1.73952 11.7434 3.09882L17.3237 13.0194C18.0736 14.3526 17.1102 15.9999 15.5805 15.9999H4.4199C2.89025 15.9999 1.92682 14.3526 2.67675 13.0194L8.25706 3.09882ZM11.0001 13C11.0001 13.5523 10.5524 14 10.0001 14C9.44784 14 9.00012 13.5523 9.00012 13C9.00012 12.4477 9.44784 12 10.0001 12C10.5524 12 11.0001 12.4477 11.0001 13ZM10.0001 5C9.44784 5 9.00012 5.44772 9.00012 6V9C9.00012 9.55228 9.44784 10 10.0001 10C10.5524 10 11.0001 9.55228 11.0001 9V6C11.0001 5.44772 10.5524 5 10.0001 5Z" clip-rule="evenodd"></path>
+                              </svg>
+                              dont {{ $week->shows_with_missing_data->count() }} à corriger
+                            </span>
+                          @endif
                         </div>
                         <div class="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mt-0">
                           <svg

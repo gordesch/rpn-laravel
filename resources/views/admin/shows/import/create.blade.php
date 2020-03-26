@@ -53,7 +53,6 @@
       </div>
     </div>
 
-
     <div x-data="{ open: false}" class="mx-auto max-w-3xl mt-8 border-t border-gray-200 pt-8 sm:mt-5 sm:pt-10">
       <button @click.prevent="open = !open" class="w-full flex justify-between items-center text-left">
         <div class="flex-shrink-0 mr-3">
@@ -82,6 +81,7 @@
         <x-admin.shows._form-details :show="$show" />
       </div>
     </div>
-    <livewire:form :showTitle="$show->title" :showIsLocalLanguage="$show->is_local_language" />
+
+    <livewire:admin.shows.videos.form :showTitle="$show->title" :showIsLocalLanguage="$show->is_local_language" />
   </form>
 </x-admin.layout>

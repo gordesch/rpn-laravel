@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Services\ShowsProvider\ShowsProviderInterface;
-use App\Services\VideosProvider\VideosProviderInterface;
-use Carbon\Carbon;
-use GuzzleHttp\Exception\GuzzleException;
+use App\Services\ShowsProvider\Facade\ShowsProvider;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class ShowsImportController extends Controller
@@ -19,16 +15,12 @@ class ShowsImportController extends Controller
      *
      * @return RedirectResponse|View
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function create(
-        ShowsProviderInterface $showsProvider,
-        VideosProviderInterface $videosProvider
-    ) {
-        $code = request('code');
-
+    public function create(): View
+    {
         try {
-            $show = $showsProvider::show($code);
+            $code = request('code');
+            $show = ShowsProvider::show($code);
             $show->ticketing_provider_id = request('ticketing_provider_id');
         } catch (RequestException $e) {
             flash('Erreur lors de la connexion à Allociné. Veuillez réessayer.')->danger();

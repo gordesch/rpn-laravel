@@ -5,6 +5,8 @@ namespace App;
 use App\Presenters\ShowPresenter;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -12,6 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Show extends Model implements HasMedia
 {
     use InteractsWithMedia;
+    use Searchable;
     use ShowPresenter;
 
     /**
@@ -34,6 +37,15 @@ class Show extends Model implements HasMedia
         'ticketing_provider_id',
         'shows_provider_id',
     ];
+
+    public function toSearchableArray(): array
+    {
+        return Arr::only(
+            $this->toArray(),
+            ['id', 'slug', 'title', 'year', 'director', 'cast', 'updated_at']
+        );
+    }
+
 
     public function registerMediaCollections(): void
     {

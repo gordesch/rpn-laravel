@@ -6,13 +6,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-
-import algoliasearch from 'algoliasearch/lite';
-window.algoliasearch = algoliasearch;
-
-import InstantSearch from 'vue-instantsearch';
-Vue.use(InstantSearch);
+// window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,10 +16,9 @@ Vue.use(InstantSearch);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-const files = require.context('./', true, /\.vue$/i);
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// const files = require.context('./', true, /\.vue$/i);
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-//Vue.component('show-autocomplete', require('./components/ShowAutocomplete.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,18 +26,6 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-    data() {
-        return {
-            showUrl: '',
-            videosUrl: '',
-        }
-    },
-    methods: {
-        setSearch(event) {
-            this.showUrl = '/admin/shows/' + event;
-            this.videosUrl = '/admin/shows/' +  event + '/videos/create';
-        }
-    }
-});
+// const app = new Vue({
+//     el: '#app',
+// });

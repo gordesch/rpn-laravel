@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests;
 
-use App\Services\ShowsProvider\ShowsProviderInterface;
+use App\Services\ShowsProvider\Facade\ShowsProvider;
 use App\Show;
 use Carbon\CarbonInterval;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Arr;
 
 class ShowForm extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -53,18 +53,23 @@ class ShowForm extends FormRequest
         ];
     }
 
-    public function persist(): Show {
+    public function persist(): Show
+    {
         return Show::create($this->only((new Show)->getFillable()));;
     }
 
-    public function update(Show $show) {
+    public function update(Show $show): Show
+    {
         $show->update($this->only($show->getFillable()));
+        return $show;
     }
 
-    public function synchronize(Show $show, ShowsProviderInterface $showsProvider)
+    public function synchronize(Show $show): Show
     {
-        $show = $showsProvider::synchronize($show);
-        $show->update($this->only($show->getFillable()));
+        $show = ShowsProvider::synchronize($show);
+        $show_attributes = Arr::only($show->toArray(), $show->getFillable);
+        $show->update($show_attributes);
+        return $show;
     }
 
     protected function prepareForValidation()

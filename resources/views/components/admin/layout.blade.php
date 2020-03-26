@@ -7,7 +7,6 @@
   <title>{{ $title }} - Interface d'administration</title>
 
   <link rel="stylesheet" type="text/css" href="/css/admin/app.css">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <livewire:styles />
 </head>
 
@@ -38,12 +37,12 @@
 
   <!-- Header -->
   <header class="bg-white shadow sticky top-0 z-50">
-    <div class="flex items-center max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
       <div class="w-full md:flex md:items-center md:justify-between">
         <div class="flex-1 min-w-0">
-          <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate border border-transparent">
+          <h1 class="text-lg font-bold leading-9 text-gray-900 sm:text-xl sm:truncate border border-transparent">
             {{ $titleInnerHTML ?? $title }}
-          </h2>
+          </h1>
         </div>
         <div class="mt-4 flex md:mt-0 md:ml-4">
           {{ $headerButtons ?? null }}
@@ -69,10 +68,10 @@
   </main>
 </div>
 
-{{--<script src="mix('/js/admin/app.js')"></script>--}}
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+<script src="{{ mix('/js/admin/app.js') }}" defer></script>
 <livewire:scripts />
 {{ $scripts ?? null }}
+
 </body>
 
 </html>

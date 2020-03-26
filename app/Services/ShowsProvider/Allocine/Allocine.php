@@ -4,6 +4,7 @@ namespace App\Services\ShowsProvider\Allocine;
 
 use App\Show;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use SimpleXMLElement;
@@ -84,8 +85,9 @@ class Allocine implements ShowsProviderInterface
     static public function synchronize(Show $app_show): Show
     {
         $allocine_show = self::show($app_show->shows_provider_id);
-        $merged = array_merge($app_show->getAttributes(), $allocine_show->getAttributes());
-        return $app_show->setRawAttributes($merged);
+        $allocine_show_attributes = Arr::only($allocine_show->getAttributes(), $app_show->getFillable());
+        $synchronized = array_merge($app_show->getAttributes(), $allocine_show_attributes);
+        return $app_show->setRawAttributes($synchronized);
     }
 
     /**
