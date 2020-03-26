@@ -25,6 +25,7 @@ class ShowingsByWeekController extends Controller
                         $query->orderBy('position');
                     },
                     'programmings.show.videos',
+                    'programmings.show.media',
                     'programmings.showings' => function ($query) {
                         $query->orderBy('datetime', 'asc');
                     },

@@ -44,7 +44,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-/*Route::get('a-l-affiche/cette-semaine', function() {
+Route::get('a-l-affiche/cette-semaine', function() {
     return (new \App\Http\Controllers\ShowingsByWeekController())
         ->show(\Gordesch\CineCarbon::now()->programmingWeek());
 })->name('showing.this-week');
@@ -53,5 +53,5 @@ Route::get('a-l-affiche/semaine-prochaine', function() {
         ->show(\Gordesch\CineCarbon::now()->modify('+1 week')->programmingWeek());
 })->name('showing.next-week');
 Route::get('a-l-affiche/ce-soir/{date?}', 'ShowingsTonightController')->name('showing.tonight');
-Route::get('a-l-affiche/maintenant/{from?}', 'ShowingsNowController')->name('showing.now');*/
+Route::get('a-l-affiche/maintenant/{from?}', 'ShowingsNowController')->name('showing.now');
 

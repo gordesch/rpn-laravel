@@ -6,7 +6,7 @@
 
   <title>{{ $title }} - Interface d'administration</title>
 
-  <link rel="stylesheet" type="text/css" href="/css/admin/app.css">
+  <link rel="stylesheet" type="text/css" href="{{ mix('/css/admin/admin.css') }}">
   <livewire:styles />
 </head>
 
@@ -68,7 +68,7 @@
   </main>
 </div>
 
-<script src="{{ mix('/js/admin/app.js') }}" defer></script>
+<script src="{{ mix('/js/admin/admin.js') }}" defer></script>
 <livewire:scripts />
 {{ $scripts ?? null }}
 
