@@ -46,7 +46,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 Route::get('a-l-affiche/cette-semaine', function() {
     return (new \App\Http\Controllers\ShowingsByWeekController())
-        ->show(\Gordesch\CineCarbon::now()->programmingWeek());
+        ->show('2020-11');
 })->name('showing.this-week');
 Route::get('a-l-affiche/semaine-prochaine', function() {
     return (new \App\Http\Controllers\ShowingsByWeekController())

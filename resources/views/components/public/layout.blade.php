@@ -5,98 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ $title }} - Cinéma Royal Palace</title>
   <link rel="stylesheet" media="all" href="{{ mix('/css/public.css') }}">
-  @yield('head')
+  <style>
+    .rpn-shadow {
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.6);
+    }
+    .scrollbar::-webkit-scrollbar {
+      height: 0px;
+    }
+    .scrollbar::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 5px solid #161e2e; /* should match background, can't be transparent */
+      background-color: #4b5563;
+    }
+    .scrollbar:hover::-webkit-scrollbar-thumb {
+      background-color: #6b7280;
+    }
+  </style>
 </head>
-<body data-target="#spytarget" data-spy="scroll" data-offset="400" class="container">
-<!--[if lte IE 8]>
-<p>Notre site ne supporte pas les versions d'Internet Explorer inférieures à 8, sorties il y a plus de 7 ans et ne respectant pas les standards du web.<br/>
-    Pour pouvoir le consulter, merci d'utiliser un navigateur qui se met à jour automatiquement&nbsp;:
-    <a href="https://www.mozilla.org/fr/firefox/new/">Mozilla Firefox</a>,
-    <a href="https://www.google.fr/chrome/browser/desktop/">Google Chrome</a>,
-    <a href="http://www.opera.com/fr">Opera</a>...</p>
-<![endif]-->
-<a href="#contenu-principal" id="go-contenu">Aller au contenu principal</a>
-<header id="first-header" itemscope itemtype="http://schema.org/MovieTheater">
-  <div id="first-header-logo" style="margin-bottom: 5px;">
-    <a href="/" title="Retour à l'accueil">
+
+<body class="bg-gray-100">
+
+<div class="flex">
+  <a class="flex text-xs opacity-0 focus:opacity-100 leading-3" href="#contenu-principal" >Aller au contenu principal</a>
+</div>
+
+<header class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex justify-between">
+    <a class="flex items-center" href="/" title="Retour à l'accueil">
       <img
-        itemprop="image"
-        src="/css/images/logo-texte.png"
-        srcset="/css/images/logo-texte@2x.png 2x, css/images/logo-texte.svg 3x"
+        src="https://royalpalacenogent.fr/css/images/logo-texte.png"
+        srcset="https://royalpalacenogent.fr/css/images/logo-texte@2x.png 2x, css/images/logo-texte.svg 3x"
         width="83" height="75" alt="Cinéma Royal Palace"
-      /><p itemprop="description" class="lead">Cinéma Art et Essai<br />6 salles numériques – 3D</p>
+      >
+      <p class="ml-2 uppercase font-light leading-4 text-center">
+        Cinéma Art et Essai<br>
+        6 salles numériques – 3D
+      </p>
     </a>
-  </div>
-  <div id="first-header-contact" >
-    <p>
-      <strong itemprop="name">Cinéma Royal Palace</strong><br />
-      <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">165, grande rue Charles-de-Gaulle</span><br />
-                <span itemprop="postalCode">94130</span> <span itemprop="addressLocality">Nogent-sur-Marne</span><span class="sr-only" itemprop="addressCountry"> France</span></span><br />
-      <a href="acces.php"><i class="fa fa-map-marker fa-fw"></i><em>Accès &amp; Parkings</em></a>
-      <a href="mailto:contact@royalpalacenogent.fr"><i class="fa fa-envelope fa-fw"></i><em>Nous contacter</em></a>
+    <p class="text-xs text-right">
+      <strong>Cinéma Royal Palace</strong><br>
+      165, grande rue Charles-de-Gaulle<br>
+      94130 Nogent-sur-Marne<br>
+      <a href="acces.php">
+        <i class="fa fa-map-marker fa-fw"></i>
+        <span class="italic">Accès &amp; Parkings</span>
+      </a>
+      <a href="mailto:contact@royalpalacenogent.fr">
+        <i class="fa fa-envelope fa-fw"></i>
+        <span class="italic">Nous contacter</span>
+      </a>
     </p>
   </div>
-  <div class="clearfix"></div>
-  <div class="toptips navbar-default navbar-text">
-    <hr>
-    <a class="navbar-link" href="#" id="#newsletter" data-toggle="modal" data-target="#newsletter-modal">
+  <div class="mt-2 py-3 border-t text-sm text-center text-gray-500 focus:underline">
+    <a class="" href="#" id="#newsletter" data-toggle="modal" data-target="#newsletter-modal">
       ➤ Recevez la programmation par mail tous les lundis
     </a>&nbsp;&nbsp;//&nbsp;&nbsp;
-    <a href="https://www.facebook.com/CineRoyalPalace" target="_blank" class="navbar-link">
+    <a class="" href="https://www.facebook.com/CineRoyalPalace" target="_blank">
       ➤ Rejoignez notre page Facebook
     </a>
   </div>
 </header>
-<div id="contenant">
-  <header id="site-header">
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Afficher le menu</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Accueil</a>
+
+<nav class="container mx-auto sm:px-6 lg:px-8">
+  <div class="flex items-center {{--h-16--}} rpn-shadow sm:rounded-md bg-gray-900">
+    <div class="flex flex-shrink-0 px-4">
+      <a
+        class="px-3 py-2 rounded-md font-bold leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
+        href="/"
+      >
+        Accueil
+      </a>
+    </div>
+
+    <div class="flex items-center h-full overflow-y-hidden overflow-x-scroll scrolling-touch scrollbar">
+      <div class="flex items-center z-10" style="position:relative;top:7px;">
+        @foreach (range(1,12) as $item)
+          <a
+            class="@if(!$loop->first) ml-4 @endif px-3 whitespace-no-wrap z-10 py-2 rounded-md font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
+            href="#"
+          >
+            À l'affiche
+          </a>
+        @endforeach
       </div>
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-        Topmenu
-      </div>
-    </nav>
-  </header>
-  <section id="site" role="main">
-    @if (!empty($section) && ($section !== 'index'))
-      <div class="row">
-        <div class="col-md-3">
-          <nav class="sidebar hidden-print hidden-xs hidden-sm" role="complementary" data-spy="affix" data-offset-top="200">
-            Sidemenu
-          </nav>
-        </div>
-        <article class="col-md-9">
-          @endif
-
-
-          {{ $slot }}
-
-
-          @if ($section !== "index") : ?>
-        </article>
-      </div><!-- /.row -->
-    @endif
-  </section> <!-- /site -->
-</div>
-
-<footer id="last-footer">
-  <div id="mentions">
-    <a href="accessibilite.php">Accessibilité</a>
-    <a href="plan-du-site.php">Plan du site</a>
-    <a href="contact.php">Contactez-nous</a>
-    <a href="mentions-legales.php">Cookies &amp; Mentions légales</a>
+    </div>
   </div>
+</nav>
+
+<nav class="container mx-auto flex justify-center mt-3 px-4 sm:px-6 lg:px-8">
+  <a href="#" class="px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+    Maintenant
+  </a>
+  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+    Ce soir
+  </a>
+  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300">
+    Cette semaine
+  </a>
+  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+    La semaine prochaine
+  </a>
+</nav>
+
+<main class="container mx-auto sm:px-6 lg:px-8 py-6">
+  @if (!empty($category) && ($category !== 'index')) @endif
+  {{ $slot }}
+  @if ($category !== "index")@endif
+</main>
+
+<footer class="container mx-auto sm:px-6 lg:px-8 flex justify-center my-10 text-sm text-gray-900 uppercase">
+  <a class="mx-10 hover:underline" href="accessibilite.php">Accessibilité</a>
+  <a class="mx-10 hover:underline" href="plan-du-site.php">Plan du site</a>
+  <a class="mx-10 hover:underline" href="contact.php">Contactez-nous</a>
+  <a class="mx-10 hover:underline" href="mentions-legales.php">Cookies &amp; Mentions légales</a>
 </footer>
 
 <!-- Newsletter Modal -->
-<div class="modal fade" id="newsletter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal hidden fade" id="newsletter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <form class="modal-dialog" id="newsletter-form">
     <div class="modal-content">
       <div class="modal-header">

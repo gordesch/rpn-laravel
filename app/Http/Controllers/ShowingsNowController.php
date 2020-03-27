@@ -31,6 +31,6 @@ class ShowingsNowController extends Controller
             ->orderBy('datetime', 'asc')
             ->get();
 
-        return view('showing.now', compact('showings', 'from'));
+        return view('public.showings.now', compact('showings', 'from'));
     }
 }

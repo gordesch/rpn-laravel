@@ -100,7 +100,6 @@
   <x-slot name="scripts">
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/lib/draggable.bundle.js"></script>
     <script>
-      let change = false;
       const sortable = new Draggable.Sortable(document.querySelectorAll('#programmings'), {
         draggable: 'li',
         distance: 3,
@@ -109,6 +108,7 @@
           'mirror': 'border-gray-200'
         },
       });
+      let change = false;
       document.forms['form'].addEventListener('change', () => change = true);
       sortable.on('sortable:sorted', () => change = true);
       window.addEventListener('beforeunload', function (e) {

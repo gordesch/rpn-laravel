@@ -28,6 +28,6 @@ class ShowingsTonightController extends Controller
             ->orderBy('datetime', 'asc')
             ->get();
 
-        return view('showing.tonight', compact('showings', 'date'));
+        return view('public.showings.tonight', compact('showings', 'date'));
     }
 }

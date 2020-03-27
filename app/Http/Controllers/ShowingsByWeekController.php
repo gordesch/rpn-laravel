@@ -35,6 +35,6 @@ class ShowingsByWeekController extends Controller
         $week->days = CarbonPeriod::between($week->start, $week->end);
         $week->days->setDateClass(CineCarbon::class);
 
-        return view('showing.week', compact('week'));
+        return view('public.showings.week', compact('week'));
     }
 }
