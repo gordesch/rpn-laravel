@@ -20,16 +20,18 @@ class ShowsController extends Controller
 
     public function create(): View
     {
-        $show = new Show;
+        $show = new Show();
         return view('admin.shows.create', compact('show'));
     }
 
-    public function store(ShowForm $show, PosterForm $poster, VideoForm $video): RedirectResponse
-    {
+    public function store(
+        ShowForm $show,
+        PosterForm $poster,
+        VideoForm $video
+    ): RedirectResponse {
         $show = $show->persist();
         flash("{$show->title} a bien été créé")->success();
 
-        // poster
         if (request('poster_url')) {
             $new_poster = [
                 'type' => 'url',
@@ -38,12 +40,11 @@ class ShowsController extends Controller
             $poster->persist($new_poster, $show);
         }
 
-        // videos
         if (request('video-dubbed')) {
-            $video->persist(new Video, $show, false);
+            $video->persist(new Video(), $show, false);
         }
         if (request('video-original')) {
-            $video->persist(new Video, $show, true);
+            $video->persist(new Video(), $show, true);
         }
 
         return redirect()->route('admin.shows.index');
@@ -67,8 +68,8 @@ class ShowsController extends Controller
         try {
             $show->delete();
             flash("{$show->title} a bien été supprimé")->success();
-        } catch (\Exception $e) {
-            flash('Erreur lors de la suppression')->danger();
+        } catch (\Exception $exception) {
+            flash('Erreur lors de la suppression')->error();
         }
 
         return redirect()->route('admin.shows.index');

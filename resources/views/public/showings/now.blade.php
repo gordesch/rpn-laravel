@@ -1,11 +1,4 @@
-<x-public.layout title="Maintenant" category="showings">
-  <h1 class="mx-2 sm:mx-0 sm:px-2 pb-2 border-b text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-    Maintenant
-    <span class="text-sm font-normal leading-5 text-gray-500">
-      Séances d'ici deux heures
-    </span>
-  </h1>
-
+<x-public.layout title="Maintenant" subtitle="Séances d'ici deux heures" category="showings">
   <div class="max-w-4xl mx-auto flex flex-col mt-8">
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
       <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
@@ -13,7 +6,7 @@
           <thead class="bg-gray-50">
           <tr>
             <th class="flex justify-between px-6 py-3 border-b border-gray-200 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider" colspan="2">
-              <a href="{{ route('showing.now', $from->subHours(2)->format('H:i')) }}">
+              <a class="hover:text-gray-700" href="{{ route('showing.now', $from->subHours(2)->format('H:i')) }}">
                 <span aria-hidden="true">←</span>
                 Plus tôt
               </a>
@@ -22,7 +15,7 @@
                 de {{ $from->format('H\hi') }}
                 à {{ $from->addHours(2)->format('H\hi') }}
               </span>
-              <a href="{{ route('showing.now', $from->addHours(2)->format('H:i')) }}">
+              <a class="hover:text-gray-700" href="{{ route('showing.now', $from->addHours(2)->format('H:i')) }}">
                 Plus tard
                 <span aria-hidden="true">→</span>
               </a>

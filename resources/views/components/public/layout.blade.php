@@ -9,12 +9,15 @@
     .rpn-shadow {
       box-shadow: 0 2px 12px 0 rgba(0,0,0,.6);
     }
+    .scrollbar::before {
+      content: '';
+    }
     .scrollbar::-webkit-scrollbar {
-      height: 0px;
+      height: 12px;
     }
     .scrollbar::-webkit-scrollbar-thumb {
       border-radius: 8px;
-      border: 5px solid #161e2e; /* should match background, can't be transparent */
+      border: 4px solid #161e2e; /* should match background, can't be transparent */
       background-color: #4b5563;
     }
     .scrollbar:hover::-webkit-scrollbar-thumb {
@@ -33,8 +36,8 @@
   <div class="flex justify-between">
     <a class="flex items-center" href="/" title="Retour à l'accueil">
       <img
-        src="https://royalpalacenogent.fr/css/images/logo-texte.png"
-        srcset="https://royalpalacenogent.fr/css/images/logo-texte@2x.png 2x, css/images/logo-texte.svg 3x"
+        src="/css/images/logo-texte.png"
+        srcset="/css/images/logo-texte@2x.png 2x, /css/images/logo-texte.svg 3x"
         width="83" height="75" alt="Cinéma Royal Palace"
       >
       <p class="ml-2 uppercase font-light leading-4 text-center">
@@ -67,57 +70,61 @@
 </header>
 
 <nav class="container mx-auto sm:px-6 lg:px-8">
-  <div class="flex items-center {{--h-16--}} rpn-shadow sm:rounded-md bg-gray-900">
-    <div class="flex flex-shrink-0 px-4">
+  <div class="flex {{--h-16--}} rpn-shadow sm:rounded-md bg-gray-900">
+    <div class="pt-3 pl-3">
       <a
-        class="px-3 py-2 rounded-md font-bold leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
+        class="inline-block px-3 py-2 rounded-md font-bold leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
         href="/"
       >
         Accueil
       </a>
     </div>
 
-    <div class="flex items-center h-full overflow-y-hidden overflow-x-scroll scrolling-touch scrollbar">
-      <div class="flex items-center z-10" style="position:relative;top:7px;">
-        @foreach (range(1,12) as $item)
-          <a
-            class="@if(!$loop->first) ml-4 @endif px-3 whitespace-no-wrap z-10 py-2 rounded-md font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
-            href="#"
-          >
-            À l'affiche
-          </a>
-        @endforeach
-      </div>
+    <div class="flex pt-3 ml-3 overflow-y-hidden overflow-x-scroll scrolling-touch scrollbar">
+      @foreach (range(1,12) as $item)
+        <a
+          class="@if(!$loop->first) ml-4 @endif px-3 py-2 whitespace-no-wrap  rounded-md font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-800 transition duration-150 ease-in-out"
+          href="#"
+        >
+          À l'affiche
+        </a>
+      @endforeach
     </div>
   </div>
 </nav>
 
 <nav class="container mx-auto flex justify-center mt-3 px-4 sm:px-6 lg:px-8">
-  <a href="#" class="px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+  <a href="{{ route('showing.now') }}" class="@if (Route::currentRouteName() === 'showing.now') text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300 @else text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200 @endif px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
     Maintenant
   </a>
-  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+  <a href="{{ route('showing.tonight') }}" class="@if (Route::currentRouteName() === 'showing.tonight') text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300 @else text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200 @endif ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md ">
     Ce soir
   </a>
-  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300">
+  <a href="{{ route('showing.this-week') }}" class="@if (Route::currentRouteName() === 'showing.this-week') text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300 @else text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200 @endif ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md">
     Cette semaine
   </a>
-  <a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
+  <a href="{{ route('showing.next-week') }}" class="@if (Route::currentRouteName() === 'showing.next-week') text-gray-800 bg-gray-200 focus:outline-none focus:bg-gray-300 @else text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200 @endif ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800 focus:bg-gray-200">
     La semaine prochaine
   </a>
 </nav>
 
 <main class="container mx-auto sm:px-6 lg:px-8 py-6">
+  <h1 class="mx-2 sm:mx-0 sm:px-2 pb-2 border-b text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+    {{ $title }}
+    <span class="text-sm font-normal leading-5 text-gray-500">
+      {{ $subtitle ?? null }}
+    </span>
+  </h1>
   @if (!empty($category) && ($category !== 'index')) @endif
   {{ $slot }}
   @if ($category !== "index")@endif
 </main>
 
-<footer class="container mx-auto sm:px-6 lg:px-8 flex justify-center my-10 text-sm text-gray-900 uppercase">
-  <a class="mx-10 hover:underline" href="accessibilite.php">Accessibilité</a>
-  <a class="mx-10 hover:underline" href="plan-du-site.php">Plan du site</a>
-  <a class="mx-10 hover:underline" href="contact.php">Contactez-nous</a>
-  <a class="mx-10 hover:underline" href="mentions-legales.php">Cookies &amp; Mentions légales</a>
+<footer class="container mx-auto lg:flex lg:flex-wrap lg:justify-center my-10 text-sm text-gray-600 tracking-tight text-center uppercase whitespace-no-wrap">
+  <a class="block lg:inline mx-10 hover:text-gray-900 " href="accessibilite.php">Accessibilité</a>
+  <a class="block lg:inline mx-10 hover:text-gray-900 " href="plan-du-site.php">Plan du site</a>
+  <a class="block lg:inline mx-10 hover:text-gray-900 " href="contact.php">Contactez-nous</a>
+  <a class="block lg:inline mx-10 hover:text-gray-900 " href="mentions-legales.php">Cookies &amp; Mentions légales</a>
 </footer>
 
 <!-- Newsletter Modal -->

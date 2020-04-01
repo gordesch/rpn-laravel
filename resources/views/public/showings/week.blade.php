@@ -1,6 +1,10 @@
-<x-public.layout title="Cette semaine" category="showings">
+<x-public.layout
+  title="Cette semaine"
+  :subtitle="$week->as_string"
+  category="showings"
+>
 
-  @foreach($week->programmings->map->show as $show)
+  @forelse($week->programmings->map->show as $show)
 
     {{--@include('public.partials.shows.full')
 
@@ -14,5 +18,7 @@
 
     @include('public.partials.videos.full')--}}
 
-  @endforeach
+  @empty
+
+  @endforelse
 </x-public.layout>

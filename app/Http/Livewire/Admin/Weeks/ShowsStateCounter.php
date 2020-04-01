@@ -11,18 +11,21 @@ class ShowsStateCounter extends Component
     public int $shows_with_missing_data_count = 0;
     public string $selected = '';
 
+    /**
+     * @var array<string>
+     */
     public $listeners = ['show-updated' => 'refresh'];
 
-    public function mount($weekId, $showsWithMissingDataCount, $selected)
+    public function mount(int $weekId, int $showsWithMissingDataCount, string $selected): void
     {
         $this->week_id = $weekId;
         $this->shows_with_missing_data_count = $showsWithMissingDataCount;
         $this->selected = $selected;
     }
 
-    public function refresh()
+    public function refresh(): void
     {
-        $week = Week::find($this->week_id)->load('shows_with_missing_data');
+        $week = Week::findOrFail($this->week_id)->load('shows_with_missing_data');
         $this->shows_with_missing_data_count = $week->shows_with_missing_data->count();
     }
 }

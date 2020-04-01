@@ -3,8 +3,10 @@
 namespace App;
 
 use App\Presenters\ShowPresenter;
+use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
@@ -20,7 +22,7 @@ class Show extends Model implements HasMedia
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<string>
      */
     protected $fillable = [
         'title',
@@ -38,6 +40,9 @@ class Show extends Model implements HasMedia
         'shows_provider_id',
     ];
 
+    /**
+     * @return array<?string, ?int>
+     */
     public function toSearchableArray(): array
     {
         return Arr::only(
@@ -46,13 +51,12 @@ class Show extends Model implements HasMedia
         );
     }
 
-
     public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('posters')
             ->singleFile()
-            ->registerMediaConversions(function (Media $media) {
+            ->registerMediaConversions(function (/*Media $media*/) {
                 $this
                     ->addMediaConversion('sm')
                     ->width(34)
@@ -79,22 +83,22 @@ class Show extends Model implements HasMedia
         $this->attributes['duration_in_seconds'] = $duration->totalSeconds;
     }
 
-    public function programmings()
+    public function programmings(): Relation
     {
         return $this->hasMany(Programming::class);
     }
 
-    public function showings()
+    public function showings(): Relation
     {
         return $this->hasManyThrough(Showing::class, Programming::class);
     }
 
-    public function videos()
+    public function videos(): Relation
     {
         return $this->hasMany(Video::class);
     }
 
-    public function weeks()
+    public function weeks(): Relation
     {
         return $this->hasManyThrough(Week::class, Programming::class);
     }

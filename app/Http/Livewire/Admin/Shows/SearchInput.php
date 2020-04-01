@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class SearchInput extends Component
@@ -9,36 +10,45 @@ class SearchInput extends Component
     public ?string $search = null;
     public bool $resultsLoading = false;
 
+    /**
+     * @var array<string, array<string, string>>
+     */
     protected $updatesQueryString = ['search' => ['except' => '']];
 
+    /**
+     * @var array<string>
+     */
     protected $listeners = ['resultsLoaded' => 'resultsLoaded'];
 
-    public function mount()
+    public function mount(): void
     {
-        $this->search = (string) request()->query('search', '');
+        $search = request()->query('search', '');
+        if (!is_array($search)) {
+            $this->search = (string) $search;
+        }
     }
 
-    public function updatingSearch(string $value)
+    public function updatingSearch(): void
     {
         $this->resultsLoading = true;
     }
 
-    public function resultsLoaded(string $search)
+    public function resultsLoaded(string $search): void
     {
         if ($search === $this->search) {
             $this->resultsLoading = false;
         }
     }
 
-    public function render()
+    public function updated(): void
+    {
+        $this->emit('search', $this->search);
+    }
+
+    public function render(): View
     {
         return view('livewire.admin.shows.search-input', [
             'search' => $this->search,
         ]);
-    }
-
-    public function updated()
-    {
-        $this->emit('search', $this->search);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Services\TicketingProvider\EMS;
 
 use Illuminate\Support\Collection;
 
-Trait ManipulateShows
+trait ManipulateShows
 {
     private function _handleShowings(): void
     {

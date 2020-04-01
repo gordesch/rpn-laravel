@@ -12,10 +12,8 @@ class ShowForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -23,12 +21,11 @@ class ShowForm extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string>
      */
-    public function rules()
+    public function rules(): array
     {
-        if ($this->method() === 'PUT')
-        {
+        if ($this->method() === 'PUT') {
             // Update operation, exclude the record from the validation:
             $slug_rule = 'required|string|max:255|unique:shows,slug,' . $this->route('show')->id;
             $ticketing_provider_id_rule = 'string|max:255|unique:shows,ticketing_provider_id,' . $this->route('show')->id . '|nullable';
@@ -55,7 +52,7 @@ class ShowForm extends FormRequest
 
     public function persist(): Show
     {
-        return Show::create($this->only((new Show)->getFillable()));;
+        return Show::create($this->only((new Show())->getFillable()));
     }
 
     public function update(Show $show): Show
@@ -72,7 +69,7 @@ class ShowForm extends FormRequest
         return $show;
     }
 
-    protected function prepareForValidation()
+    protected function prepareForValidation(): void
     {
         if ($this->hours || $this->minutes) {
             $this->merge([
@@ -83,6 +80,4 @@ class ShowForm extends FormRequest
             'is_local_language' => $this->has('is_local_language'),
         ]);
     }
-
-
 }

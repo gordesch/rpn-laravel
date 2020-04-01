@@ -3,7 +3,7 @@
 namespace App\Services\TicketingProvider\EMS;
 
 use App\Programming;
-use App\Services\TicketingProvider\TicketingProviderInterface;
+use App\Services\TicketingProvider\TicketingProvider;
 use App\Week;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -16,34 +16,33 @@ use Illuminate\Support\Facades\Http;
  *
  * EMS ticketing provider API wrapper, access the showings database
  */
-class EMS implements TicketingProviderInterface
+class EMS implements TicketingProvider
 {
     use CastsToShowing;
     use MatchesShows;
     use ManipulateShows;
 
+    /**
+     * @var array<string>
+     */
     protected array $config;
     protected Client $client;
     protected Collection $shows;
     protected Collection $shows_to_match;
     protected Collection $showings;
 
-    /**
-     * EMS constructor
-     *
-     */
     public function __construct()
     {
         $this->config['endpoint'] = config('services.ems.endpoint');
         $this->config['username'] = config('services.ems.username');
         $this->config['password'] = config('services.ems.password');
-        $this->client = new Client;
-        $this->shows = new Collection;
-        $this->shows_to_match = new Collection;
-        $this->showings = new Collection;
+        $this->client = new Client();
+        $this->shows = new Collection();
+        $this->shows_to_match = new Collection();
+        $this->showings = new Collection();
     }
 
-    public function setShowsWithShowings(Collection $shows = null): void
+    public function setShowsWithShowings(?Collection $shows = null): void
     {
         if ($shows) {
             $this->shows = $shows;
@@ -100,8 +99,6 @@ class EMS implements TicketingProviderInterface
     /**
      * Get the showings for all shows
      *
-     * @return void
-     *
      * @throws RequestException
      */
     private function _fetchShowsWithShowings(): void
@@ -115,8 +112,6 @@ class EMS implements TicketingProviderInterface
     /**
      * Call the API
      *
-     * @return string
-     *
      * @throws RequestException
      */
     private function _call(): string
@@ -125,9 +120,8 @@ class EMS implements TicketingProviderInterface
             'auth' => [
                 $this->config['username'],
                 $this->config['password'],
-            ]
+            ],
         ])->throw();
         return (string) $response->body();
     }
 }
-

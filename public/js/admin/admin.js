@@ -485,12 +485,11 @@
       });
     });
   }
-
   function isNumeric(subject) {
     return !isNaN(subject);
   }
 
-  function handleForDirective(component, el, expression, initialUpdate) {
+  function handleForDirective(component, el, expression, initialUpdate, extraVars) {
     if (el.tagName.toLowerCase() !== 'template') console.warn('Alpine: [x-for] directive should only be added to <template> tags.');
     const {
       single,
@@ -507,7 +506,7 @@
       // empty, effectively hiding it.
       items = [];
     } else {
-      items = component.evaluateReturnExpression(el, bunch);
+      items = component.evaluateReturnExpression(el, bunch, extraVars);
     } // As we walk the array, we'll also walk the DOM (updating/creating as we go).
 
 
@@ -767,7 +766,7 @@
     component.showDirectiveLastElement = el;
   }
 
-  function handleIfDirective(el, expressionResult, initialUpdate) {
+  function handleIfDirective(component, el, expressionResult, initialUpdate) {
     if (el.nodeName.toLowerCase() !== 'template') console.warn(`Alpine: [x-if] directive should only be added to <template> tags. See https://github.com/alpinejs/alpine#x-if`);
     const elementHasAlreadyBeenAdded = el.nextElementSibling && el.nextElementSibling.__x_inserted_me === true;
 
@@ -776,6 +775,7 @@
       el.parentElement.insertBefore(clone, el.nextElementSibling);
       el.nextElementSibling.__x_inserted_me = true;
       transitionIn(el.nextElementSibling, () => {}, initialUpdate);
+      component.initializeElements(el.nextElementSibling);
     } else if (!expressionResult && elementHasAlreadyBeenAdded) {
       transitionOut(el.nextElementSibling, () => {
         el.nextElementSibling.remove();
@@ -785,7 +785,7 @@
 
   function registerListener(component, el, event, modifiers, expression, extraVars = {}) {
     if (modifiers.includes('away')) {
-      const handler = e => {
+      let handler = e => {
         // Don't do anything if the click came form the element or within it.
         if (el.contains(e.target)) return; // Don't do anything if this element isn't currently visible.
 
@@ -802,9 +802,9 @@
 
       document.addEventListener(event, handler);
     } else {
-      const listenerTarget = modifiers.includes('window') ? window : modifiers.includes('document') ? document : el;
+      let listenerTarget = modifiers.includes('window') ? window : modifiers.includes('document') ? document : el;
 
-      const handler = e => {
+      let handler = e => {
         // Remove this global event handler if the element that declared it
         // has been removed. It's now stale.
         if (listenerTarget === window || listenerTarget === document) {
@@ -833,6 +833,12 @@
         }
       };
 
+      if (modifiers.includes('debounce')) {
+        let nextModifier = modifiers[modifiers.indexOf('debounce') + 1] || 'invalid-wait';
+        let wait = isNumeric(nextModifier.split('ms')[0]) ? Number(nextModifier.split('ms')[0]) : 250;
+        handler = debounce(handler, wait);
+      }
+
       listenerTarget.addEventListener(event, handler);
     }
   }
@@ -852,7 +858,13 @@
   function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
     let keyModifiers = modifiers.filter(i => {
       return !['window', 'document', 'prevent', 'stop'].includes(i);
-    }); // If no modifier is specified, we'll call it a press.
+    });
+
+    if (keyModifiers.includes('debounce')) {
+      let debounceIndex = keyModifiers.indexOf('debounce');
+      keyModifiers.splice(debounceIndex, isNumeric((keyModifiers[debounceIndex + 1] || 'invalid-wait').split('ms')[0]) ? 2 : 1);
+    } // If no modifier is specified, we'll call it a press.
+
 
     if (keyModifiers.length === 0) return false; // If one is passed, AND it matches the key pressed, we'll call it a press.
 
@@ -926,12 +938,16 @@
         }
       } else if (el.tagName.toLowerCase() === 'select' && el.multiple) {
         return modifiers.includes('number') ? Array.from(event.target.selectedOptions).map(option => {
-          return parseFloat(option.value || option.text);
+          const rawValue = option.value || option.text;
+          const number = rawValue ? parseFloat(rawValue) : null;
+          return isNaN(number) ? rawValue : number;
         }) : Array.from(event.target.selectedOptions).map(option => {
           return option.value || option.text;
         });
       } else {
-        return modifiers.includes('number') ? parseFloat(event.target.value) : modifiers.includes('trim') ? event.target.value.trim() : event.target.value;
+        const rawValue = event.target.value;
+        const number = rawValue ? parseFloat(rawValue) : null;
+        return modifiers.includes('number') ? isNaN(number) ? rawValue : number : modifiers.includes('trim') ? rawValue.trim() : rawValue;
       }
     };
   }
@@ -1312,6 +1328,29 @@
   }
   /** version: 0.26.0 */
 
+  function wrap(data, mutationCallback) {
+
+    let membrane = new ReactiveMembrane({
+      valueMutated(target, key) {
+        mutationCallback(target, key);
+      }
+
+    });
+    return {
+      data: membrane.getProxy(data),
+      membrane: membrane
+    };
+  }
+  function unwrap$1(membrane, observable) {
+    let unwrappedData = membrane.unwrapProxy(observable);
+    let copy = {};
+    Object.keys(unwrappedData).forEach(key => {
+      if (['$el', '$refs', '$nextTick', '$watch'].includes(key)) return;
+      copy[key] = unwrappedData[key];
+    });
+    return copy;
+  }
+
   class Component {
     constructor(el, seedDataForCloning = null) {
       this.$el = el;
@@ -1370,39 +1409,43 @@
     }
 
     getUnobservedData() {
-      let unwrappedData = this.membrane.unwrapProxy(this.$data);
-      let copy = {};
-      Object.keys(unwrappedData).forEach(key => {
-        if (['$el', '$refs', '$nextTick', '$watch'].includes(key)) return;
-        copy[key] = unwrappedData[key];
-      });
-      return copy;
+      return unwrap$1(this.membrane, this.$data);
     }
 
     wrapDataInObservable(data) {
       var self = this;
-      let membrane = new ReactiveMembrane({
-        valueMutated(target, key) {
-          if (self.watchers[key]) {
-            self.watchers[key].forEach(callback => callback(target[key]));
-          } // Don't react to data changes for cases like the `x-created` hook.
+      let updateDom = debounce(function () {
+        self.updateElements(self.$el);
+      }, 0);
+      return wrap(data, (target, key) => {
+        if (self.watchers[key]) {
+          // If there's a watcher for this specific key, run it.
+          self.watchers[key].forEach(callback => callback(target[key]));
+        } else {
+          // Let's walk through the watchers with "dot-notation" (foo.bar) and see
+          // if this mutation fits any of them.
+          Object.keys(self.watchers).filter(i => i.includes('.')).forEach(fullDotNotationKey => {
+            let dotNotationParts = fullDotNotationKey.split('.'); // If this dot-notation watcher's last "part" doesn't match the current
+            // key, then skip it early for performance reasons.
+
+            if (key !== dotNotationParts[dotNotationParts.length - 1]) return; // Now, walk through the dot-notation "parts" recursively to find
+            // a match, and call the watcher if one's found.
+
+            dotNotationParts.reduce((comparisonData, part) => {
+              if (Object.is(target, comparisonData)) {
+                // Run the watchers.
+                self.watchers[fullDotNotationKey].forEach(callback => callback(target[key]));
+              }
+
+              return comparisonData[part];
+            }, self.getUnobservedData());
+          });
+        } // Don't react to data changes for cases like the `x-created` hook.
 
 
-          if (self.pauseReactivity) return;
-          debounce(() => {
-            self.updateElements(self.$el); // Walk through the $nextTick stack and clear it as we go.
-
-            while (self.nextTickStack.length > 0) {
-              self.nextTickStack.shift()();
-            }
-          }, 0)();
-        }
-
+        if (self.pauseReactivity) return;
+        updateDom();
       });
-      return {
-        data: membrane.getProxy(data),
-        membrane
-      };
     }
 
     walkAndSkipNestedComponents(el, callback, initializeComponentCallback = () => {}) {
@@ -1549,11 +1592,11 @@
             // We will let the "x-for" directive handle the "if"ing.
             if (attrs.filter(i => i.type === 'for').length > 0) return;
             var output = this.evaluateReturnExpression(el, expression, extraVars);
-            handleIfDirective(el, output, initialUpdate);
+            handleIfDirective(this, el, output, initialUpdate);
             break;
 
           case 'for':
-            handleForDirective(this, el, expression, initialUpdate);
+            handleForDirective(this, el, expression, initialUpdate, extraVars);
             break;
 
           case 'cloak':
@@ -1608,7 +1651,7 @@
 
           if (mutations[i].addedNodes.length > 0) {
             mutations[i].addedNodes.forEach(node => {
-              if (node.nodeType !== 1) return;
+              if (node.nodeType !== 1 || node.__x_inserted_me) return;
 
               if (node.matches('[x-data]')) {
                 node.__x = new Component(node);

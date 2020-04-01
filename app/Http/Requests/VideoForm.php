@@ -10,10 +10,8 @@ class VideoForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +19,12 @@ class VideoForm extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string>
      */
     public function rules()
     {
         return [
-            //
+            // Rules here
         ];
     }
 
@@ -34,13 +32,12 @@ class VideoForm extends FormRequest
         Video $video,
         Show $show,
         bool $is_original_version
-    ) {
+    ): Video {
         $video->is_original_version = $is_original_version;
         $video->youtube_id =
             $video->is_original_version
             ? request('video-original')
             : request('video-dubbed');
-
 
         return $show->videos()->save($video);
     }

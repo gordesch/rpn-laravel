@@ -2,14 +2,17 @@
 
 namespace App\Services\VideosProvider\Youtube;
 
-use App\Services\VideosProvider\VideosProviderInterface;
+use App\Services\VideosProvider\VideosProvider;
 use App\Show;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 
-class Youtube implements VideosProviderInterface
+class Youtube implements VideosProvider
 {
+    /**
+     * @var array<string>
+     */
     protected array $config;
 
     public function __construct()
@@ -29,7 +32,7 @@ class Youtube implements VideosProviderInterface
      */
     public static function search(Show $show): Collection
     {
-        $results = new Collection;
+        $results = new Collection();
         $results->put(
             'original_version',
             self::_searchTrailers($show->title, true)
@@ -54,23 +57,22 @@ class Youtube implements VideosProviderInterface
     private static function _searchTrailers(
         string $title,
         bool $is_original_version
-    ): Collection
-    {
+    ): Collection {
         $version
             = $is_original_version
             ? 'vost'
             : 'vf';
 
         $query = [
-            'q'               => "bande annonce {$version} {$title}",
-            'type'            => 'video',
-            'part'            => 'id, snippet',
-            'maxResults'      => 5,
+            'q' => "bande annonce {$version} {$title}",
+            'type' => 'video',
+            'part' => 'id, snippet',
+            'maxResults' => '5',
             'videoEmbeddable' => 'true',
             'videoSyndicated' => 'true',
         ];
 
-        $youtube = new static;
+        $youtube = new static();
         $results = $youtube->_call($query);
 
         return new Collection($results->items);
@@ -79,7 +81,7 @@ class Youtube implements VideosProviderInterface
     /**
      * Call the Youtube API
      *
-     * @param  array  $query
+     * @param  array<string>  $query
      *
      * @return mixed
      *
@@ -94,5 +96,4 @@ class Youtube implements VideosProviderInterface
         $response = Http::get($uri, $query)->throw();
         return json_decode($response->body());
     }
-
 }

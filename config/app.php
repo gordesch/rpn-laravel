@@ -1,5 +1,8 @@
 <?php
 
+use App\Services\ShowsProvider\Facade\ShowsProvider;
+use App\Services\TicketingProvider\Facade\TicketingProvider;
+
 return [
 
     /*
@@ -13,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Cinéma Royal Palace'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +56,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'domain' => env('APP_DOMAIN', 'localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -235,31 +239,28 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'ShowsProvider' => \App\Services\ShowsProvider\Facade\ShowsProvider::class,
+        'ShowsProvider' => ShowsProvider::class,
+        'TicketingProvider' => TicketingProvider::class,
 
     ],
 
-    'ticketing' =>
-    [
+    'ticketing_provider' => [
         'driver' => env('TICKETING_PROVIDER'),
-        'username' => env('TICKETING_USERNAME'),
-        'password' => env('TICKETING_PASSWORD'),
-        'endpoint' => env('TICKETING_ENDPOINT'),
     ],
 
-    'online_ticketing' =>
-    [
+    'online_ticketing_provider' => [
         'open' => env('ONLINE_TICKETING_ENABLE'),
         'base_url' => env('ONLINE_TICKETING_BASE_URL'),
         'stop_selling_at' => env('ONLINE_TICKETING_STOP_SELLING_AT'),
     ],
 
-    'shows_db' =>
-    [
+    'shows_provider' => [
         'driver' => env('SHOWS_PROVIDER'),
         'locale_language' => env('SHOWS_PROVIDER_LOCAL_LANGUAGE_STRING'),
-        'partner_code' => env('ALLOCINE_PARTNER_CODE'),
-        'endpoint' => env('ALLOCINE_ENDPOINT'),
+    ],
+
+    'videos_provider' => [
+        'driver' => env('VIDEOS_PROVIDER'),
     ],
 
 ];

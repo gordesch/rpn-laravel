@@ -13,7 +13,6 @@ class ShowingsTonightController extends Controller
      * @param  string|null  $date
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     *
      */
     public function __invoke(?string $date = null)
     {

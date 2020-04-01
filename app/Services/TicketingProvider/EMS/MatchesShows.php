@@ -6,13 +6,12 @@ use App\Show;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-
 /**
  * Trait CastsToShow
  *
  * Casts a response from the API to an App\Show
  */
-Trait MatchesShows
+trait MatchesShows
 {
     /**
      * Matches ticketings provider shows to internal shows
@@ -24,12 +23,12 @@ Trait MatchesShows
         $matches = new Collection(request('match'));
 
         $this->shows = $this->shows->map(
-            function ($show) use ($matches) {
+            function (Show $show) use ($matches) {
                 if (isset($show->ticketing_provider_id) && isset($show->id)) {
                     // Matching is already done
                     return $show;
                 }
-                if (!isset($show->ticketing_provider_id)) {
+                if (! isset($show->ticketing_provider_id)) {
                     // Prepare for matching
                     $show->ticketing_provider_id = $show->id;
                     $matching_show = Show::select(
@@ -51,7 +50,7 @@ Trait MatchesShows
 
                     return $show;
                 }
-                if (!isset($show->id)) {
+                if (! isset($show->id)) {
                     // Matching
                     $match = $matches->where(
                         'slug',

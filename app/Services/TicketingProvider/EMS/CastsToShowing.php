@@ -3,70 +3,66 @@
 namespace App\Services\TicketingProvider\EMS;
 
 use App\Programming;
+use App\Show;
 use App\Showing;
 use App\Week;
 use Gordesch\CineCarbon;
-
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Trait CastsToShowing
  *
  * Casts a response from the API to an App\Showing
  */
-Trait CastsToShowing
+trait CastsToShowing
 {
     /**
      * Returns a showing
      *
-     * @param $ems_showing
-     * @param $show
-     * @param $weeks
-     * @param $programmings
+     * @param object $ems_showing
+     * @param Show $show
+     * @param Collection $weeks
+     * @param Collection $programmings
      *
      * @return Showing
      */
-    static function toShowing(
-        $ems_showing,
-        $show,
-        &$weeks,
-        &$programmings
+    public static function toShowing(
+        object $ems_showing,
+        Show $show,
+        Collection &$weeks,
+        Collection &$programmings
     ): Showing {
-        $showing = new Showing;
+        $showing = new Showing();
 
         $showing->ticketing_provider_id = $ems_showing->id;
 
-        $showing->show_id = $show->id;
-
         $showing->datetime = CineCarbon::parse($ems_showing->date);
 
-        $showing->week_number
-            = CineCarbon::parse($ems_showing->date)->programmingWeek();
+        $week_number = CineCarbon::parse($ems_showing->date)->programmingWeek();
 
-        $week = $weeks->where('number', $showing->week_number)->first();
-        if ($week) {
-            $showing->week = $week;
-        } else {
-            $showing->week = Week::create(
-                ['number' => $showing->week_number]
+        $week = $weeks->where('number', $week_number)->first();
+        if (! $week) {
+            $week = Week::create(
+                ['number' => $week_number]
             );
-            $weeks->push($showing->week);
+            $weeks->push($week);
         }
+        $showing->setRelation('week', $week);
 
         $programming = $programmings
             ->where('show_id', $show->id)
             ->where('week_id', $showing->week->id)
             ->first();
-        if ($programming) {
-            $showing->programming = $programming;
-        } else {
-            $showing->programming = Programming::create(
+        if (! $programming) {
+            $programming = Programming::create(
                 [
                     'show_id' => $show->id,
                     'week_id' => $showing->week->id,
                 ]
             );
-            $programmings->push($showing->programming);
+            $programmings->push($programming);
         }
+        $showing->setRelation('programming', $programming);
         $showing->programming_id = $showing->programming->id;
 
         $showing->is_original_version

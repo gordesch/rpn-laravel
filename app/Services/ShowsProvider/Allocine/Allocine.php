@@ -2,23 +2,26 @@
 
 namespace App\Services\ShowsProvider\Allocine;
 
+use App\Services\ShowsProvider\ShowsProvider;
 use App\Show;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use SimpleXMLElement;
-use App\Services\ShowsProvider\ShowsProviderInterface;
 
 /**
  * Class Allocine
  *
  * Allocine.fr API wrapper, access their movies database
  */
-class Allocine implements ShowsProviderInterface
+class Allocine implements ShowsProvider
 {
     use CastsToShow;
 
+    /**
+     * @var array<string>
+     */
     protected array $config;
 
     /**
@@ -28,17 +31,15 @@ class Allocine implements ShowsProviderInterface
      */
     public function __construct(string $response_return_type = 'xml')
     {
-        $this->config['endpoint'] = config('services.allocine.endpoint');
-        $this->config['partner_code'] = config('services.allocine.partner_code');
-        $this->config['response_return_type'] = $response_return_type;
+        $this->config = [
+            'endpoint' => config('services.allocine.endpoint'),
+            'partner_code' => config('services.allocine.partner_code'),
+            'response_return_type' => $response_return_type,
+        ];
     }
 
     /**
      * Search for movies matching a string
-     *
-     * @param  string  $title  the string to search for
-     *
-     * @return Collection
      *
      * @throws RequestException
      */
@@ -47,7 +48,7 @@ class Allocine implements ShowsProviderInterface
         $allocine = new static('xml');
         $query = ['q' => $title];
         $response = $allocine->_call('search', $query);
-        $shows = new Collection;
+        $shows = new Collection();
         foreach ($response->movie as $movie) {
             $shows->push($allocine->toShow($movie));
         }
@@ -67,7 +68,7 @@ class Allocine implements ShowsProviderInterface
     {
         $allocine = new static('xml');
         $query = [
-            'code' => $code
+            'code' => $code,
         ];
         $response = $allocine->_call('movie', $query);
         return $allocine->toShow($response);
@@ -82,11 +83,17 @@ class Allocine implements ShowsProviderInterface
      *
      * @throws RequestException
      */
-    static public function synchronize(Show $app_show): Show
+    public static function synchronize(Show $app_show): Show
     {
         $allocine_show = self::show($app_show->shows_provider_id);
-        $allocine_show_attributes = Arr::only($allocine_show->getAttributes(), $app_show->getFillable());
-        $synchronized = array_merge($app_show->getAttributes(), $allocine_show_attributes);
+        $allocine_show_attributes = Arr::only(
+            $allocine_show->getAttributes(),
+            $app_show->getFillable()
+        );
+        $synchronized = array_merge(
+            $app_show->getAttributes(),
+            $allocine_show_attributes
+        );
         return $app_show->setRawAttributes($synchronized);
     }
 
@@ -94,7 +101,7 @@ class Allocine implements ShowsProviderInterface
      * Call the API
      *
      * @param  string  $service  the service to call
-     * @param  array  $query  the query to perform
+     * @param  array<string>  $query  the query to perform
      *
      * @return SimpleXMLElement
      *
@@ -104,7 +111,7 @@ class Allocine implements ShowsProviderInterface
     {
         $uri = $this->config['endpoint'] . $service;
         $query = array_merge($query, [
-            'partner' => $this->config['partner_code']
+            'partner' => $this->config['partner_code'],
         ]);
         $response = Http::get($uri, $query)->throw();
         return new SimpleXMLElement($response->body());

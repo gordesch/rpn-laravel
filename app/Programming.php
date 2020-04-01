@@ -3,9 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Programming extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
     protected $fillable = [
         'week_id',
         'show_id',
@@ -17,17 +23,17 @@ class Programming extends Model
         'custom_showings_infos',
     ];
 
-    public function show()
+    public function show(): Relation
     {
         return $this->belongsTo(Show::class);
     }
 
-    public function showings()
+    public function showings(): Relation
     {
         return $this->hasMany(Showing::class);
     }
 
-    public function week()
+    public function week(): Relation
     {
         return $this->belongsTo(Week::class);
     }

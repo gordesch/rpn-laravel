@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Presenters;
-
 
 trait ShowPresenter
 {
@@ -11,42 +9,46 @@ trait ShowPresenter
         if ($this->audience === null) {
             return null;
         }
-        if ($this->audience === (18 || 16 || 12)) {
+        if ($this->audience == 18 || $this->audience == 16 || $this->audience == 12) {
             return "-{$this->audience}";
         }
-        if ($this->audience === 0) {
+        if ($this->audience == 0) {
             return 'Avert.';
         }
         if ($this->audience && ($this->audience < 12)) {
             return "Conseillé à partir de {$this->audience} ans";
         }
+
+        return null;
     }
 
     public function getAudienceLongStringAttribute(): ?string
     {
-        if (!$this->audience) {
+        if (! $this->audience) {
             return null;
         }
-        if ($this->audience === 18) {
+        if ($this->audience == 18) {
             return 'Interdit aux moins de dix-huit ans';
         }
-        if ($this->audience === 16) {
+        if ($this->audience == 16) {
             return 'Interdit aux moins de seize ans';
         }
-        if ($this->audience === 12) {
+        if ($this->audience == 12) {
             return 'Interdit aux moins de douze ans';
         }
-        if ($this->audience === 0) {
+        if ($this->audience == 0) {
             return 'Avertissement : des scènes peuvent choquer la sensibilité des plus sensibles';
         }
         if ($this->audience && ($this->audience < 12)) {
             return "Conseillé à partir de {$this->audience} ans";
         }
+
+        return null;
     }
 
     public function getCastStringAttribute(): ?string
     {
-        if (!$this->cast) {
+        if (! $this->cast) {
             return null;
         }
         return "Avec {$this->cast}";
@@ -54,7 +56,7 @@ trait ShowPresenter
 
     public function getGenreDirectorCountryYearStringAttribute(): ?string
     {
-        if (!$this->genre && !$this->director && !$this->country && !$this->year && !$this->year) {
+        if (! $this->genre && ! $this->director && ! $this->country && ! $this->year && ! $this->year) {
             return null;
         }
         $genre_director = '';
@@ -79,7 +81,6 @@ trait ShowPresenter
             $this->country,
             $this->year,
         ]);
-        $details = implode(' – ', $details);
-        return $details;
+        return implode(' – ', $details);
     }
 }

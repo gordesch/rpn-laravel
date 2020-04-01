@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Relations;
-use Illuminate\Database\Eloquent\Builder;
+
 use App\Show;
 use App\Week;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
@@ -45,7 +46,10 @@ class ShowsWithMissingDataRelation extends Relation
             )->toSql();
     }
 
-    public function addEagerConstraints(array $weeks)
+    /**
+     * @param  array<Week>  $weeks
+     */
+    public function addEagerConstraints(array $weeks): void
     {
         $this
             ->query
@@ -57,6 +61,12 @@ class ShowsWithMissingDataRelation extends Relation
             ->select('shows.*');
     }
 
+    /**
+     * @param  array<Week>  $weeks
+     * @param  string  $relation
+     *
+     * @return array<Week>
+     */
     public function initRelation(array $weeks, $relation)
     {
         foreach ($weeks as $week) {
@@ -69,6 +79,13 @@ class ShowsWithMissingDataRelation extends Relation
         return $weeks;
     }
 
+    /**
+     * @param  array<Week>  $weeks
+     * @param  Collection  $shows
+     * @param  string  $relation
+     *
+     * @return array<Week>
+     */
     public function match(array $weeks, Collection $shows, $relation)
     {
         if ($shows->isEmpty()) {

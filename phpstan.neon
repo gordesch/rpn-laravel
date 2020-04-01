@@ -1,0 +1,27 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+
+    # The level 8 is the highest level
+    level: 7
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - '#Static call to instance method#'
+        -
+            message: '#Access to an undefined property App\\Show::\$poster_url#'
+            path: app/Services/ShowsProvider/Allocine/Allocine.php
+            # Explanation: Temporary property used in views
+        -
+            message: '#Access to an undefined property App\\Show::\$release_date#'
+            path: app/Services/ShowsProvider/Allocine/Allocine.php
+            # Explanation: Temporary property used in views
+        -
+            message: '#Property App\\Show::\$id \(int\) does not accept null#'
+            path: app/Services/ShowsProvider/Allocine/Allocine.php
+            # Explanation: $show->id set to null temporarily to indicate that there is no match yet
+        - '#Access to an undefined property App\\Programming::\$each#' # High-order collection

@@ -14,16 +14,18 @@ class ShowsImportController extends Controller
      * Displays the form for checking import infos
      *
      * @return RedirectResponse|View
-     *
      */
-    public function create(): View
+    public function create()
     {
         try {
             $code = request('code');
             $show = ShowsProvider::show($code);
             $show->ticketing_provider_id = request('ticketing_provider_id');
-        } catch (RequestException $e) {
-            flash('Erreur lors de la connexion à Allociné. Veuillez réessayer.')->danger();
+        } catch (RequestException $exception) {
+            $message =
+                'Erreur lors de la connexion à Allociné.
+                Veuillez réessayer.';
+            flash($message)->error();
             return redirect()->back();
         }
 

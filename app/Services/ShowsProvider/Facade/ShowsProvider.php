@@ -2,11 +2,14 @@
 
 namespace App\Services\ShowsProvider\Facade;
 
+use App\Show;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static show(string $code): \App\Show
- * @method static synchronize(\App\Show $show): \App\Show
+ * @method static Collection search(string $title)
+ * @method static Show show(string $code)
+ * @method static Show synchronize(Show $show)
  */
 class ShowsProvider extends Facade
 {

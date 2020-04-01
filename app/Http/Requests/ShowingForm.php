@@ -8,13 +8,10 @@ use Illuminate\Support\Collection;
 
 class ShowingForm extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -22,9 +19,9 @@ class ShowingForm extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'ticketing_provider_id' => 'required|string|max:255',
@@ -37,19 +34,20 @@ class ShowingForm extends FormRequest
         ];
     }
 
-    public function persist(Showing $showing) {
+    public function persist(Showing $showing): void
+    {
         Showing::create($showing->only($showing->getFillable()));
     }
 
-    public function persistMultiple(Collection $showings) {
-        $fillables = (new Showing)->getFillable();
+    public function persistMultiple(Collection $showings): void
+    {
+        $fillables = (new Showing())->getFillable();
         Showing::insert(
             $showings->map(
-                function ($showing, $key) use ($fillables) {
+                function ($showing) use ($fillables) {
                     return $showing->only($fillables);
                 }
             )->all()
         );
     }
-
 }

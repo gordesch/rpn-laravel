@@ -18,18 +18,18 @@ class WeeksDetailsController extends Controller
             },
             'shows_with_missing_data',
         ]);
-        return view ('admin.weeks.details.shows-state', compact('week'));
+        return view('admin.weeks.details.shows-state', compact('week'));
     }
 
     public function resources(Week $week): View
     {
         $week->load('programmings.show.media', 'shows_with_missing_data');
-        return view ('admin.weeks.details.resources', compact('week'));
+        return view('admin.weeks.details.resources', compact('week'));
     }
 
     public function showings(Week $week): View
     {
         $week->load('shows_with_missing_data');
-        return view ('admin.weeks.details.showings', compact('week'));
+        return view('admin.weeks.details.showings', compact('week'));
     }
 }

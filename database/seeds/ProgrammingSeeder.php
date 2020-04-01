@@ -16,7 +16,7 @@ class ProgrammingSeeder extends Seeder
                 $show->programmings()
                     ->create(factory(App\Programming::class)->make([
                         'show_id' => $show->id,
-                        'week_id' => $week->id
+                        'week_id' => $week->id,
                     ])->toArray());
             }
         });

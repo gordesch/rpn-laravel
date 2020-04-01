@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Shows;
 
 use App\Show;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class SlugCheck extends Component
@@ -24,7 +25,7 @@ class SlugCheck extends Component
         string $width,
         ?string $ticketingProviderId = null,
         ?string $except = null
-    ) {
+    ): void {
         $this->shouldExist = $shouldExist;
         $this->name = $name;
         $this->title = $title;
@@ -35,7 +36,8 @@ class SlugCheck extends Component
         $this->check();
     }
 
-    public function updatingValue(?string $value): void {
+    public function updatingValue(?string $value): void
+    {
         if ($value == null) {
             $this->value = null;
             return;
@@ -46,7 +48,7 @@ class SlugCheck extends Component
 
     public function check(): void
     {
-        if ( ! $this->shouldExist && $this->value === $this->except) {
+        if (! $this->shouldExist && $this->value === $this->except) {
             $this->state = 'success';
             return;
         }
@@ -60,9 +62,8 @@ class SlugCheck extends Component
     {
         if ($this->shouldExist) {
             return $this->_exists();
-        } else {
-            return ! $this->_exists();
         }
+        return ! $this->_exists();
     }
 
     private function _exists(): bool
@@ -70,7 +71,7 @@ class SlugCheck extends Component
         return Show::whereSlug($this->value)->exists();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.shows.slug-check');
     }

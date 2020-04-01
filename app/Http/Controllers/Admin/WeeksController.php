@@ -15,17 +15,15 @@ class WeeksController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      */
     public function index(): View
     {
-        $this_week_start = CineCarbon::now()->startOfWeek();
-        //$weeks = Week::where('start', '>=', $this_week_start)
-        $weeks = Week::find(7)
-            ->with('programmings')
-            ->withCount('programmings', 'showings')
-            ->with('shows_with_missing_data')
+        $current_week_start = CineCarbon::now()->startOfWeek();
+        $weeks = Week::where('start', '>=', $current_week_start)
             ->has('showings')
+            ->with('programmings')
+            ->with('shows_with_missing_data')
+            ->withCount('programmings', 'showings')
             ->orderBy('start', 'asc')
             ->get();
 
@@ -34,7 +32,6 @@ class WeeksController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      */
     public function edit(Week $week): View
     {
@@ -50,37 +47,45 @@ class WeeksController extends Controller
         ]);
 
         // Delete programmings where no showings
-        $week->programmings->each(function($item) {
+        $week->programmings->each(function ($item) {
             if ($item->showings_count === 0) {
-                Programming::whereId($item->id)->delete();
+                Programming::destroy($item->id);
             }
         });
 
         // If programmings are not set, prepopulate with a guess
-        if ($week->programmings->first()->position === null) {
+        if (! isset($week->programmings->first()->position)) {
             $week->programmings->each
                 ->load('show', 'showings')
                 ->loadCount([
-                    'showings as showings_in_dubbed_version_count' => function (Builder $query) {
-                        $query->where('is_original_version', false);
-                    },
-                    'showings as showings_in_original_version_count' => function (Builder $query) {
-                        $query->where('is_original_version', true);
-                    },
-                    'showings as showings_in_2d_count' => function (Builder $query) {
-                        $query->where('is_3d', false);
-                    },
-                    'showings as showings_in_3d_count' => function (Builder $query) {
-                        $query->where('is_3d', true);
-                    },
-                ])->map(function($programming, $key){
-                    if (!$programming->show->is_local_language) {
-                        $programming->is_dubbed_version = $programming->showings_in_dubbed_version_count;
-                        $programming->is_original_version = $programming->showings_in_original_version_count;
+                    'showings as showings_in_dubbed_version_count'
+                        => function (Builder $query) {
+                            $query->where('is_original_version', false);
+                        },
+                    'showings as showings_in_original_version_count'
+                        => function (Builder $query) {
+                            $query->where('is_original_version', true);
+                        },
+                    'showings as showings_in_2d_count'
+                        => function (Builder $query) {
+                            $query->where('is_3d', false);
+                        },
+                    'showings as showings_in_3d_count'
+                        => function (Builder $query) {
+                            $query->where('is_3d', true);
+                        },
+                ])->map(function ($programming) {
+                    if (! $programming->show->is_local_language) {
+                        $programming->is_dubbed_version
+                            = $programming->showings_in_dubbed_version_count;
+                        $programming->is_original_version
+                            = $programming->showings_in_original_version_count;
                     }
                     if ($programming->showings_in_3d_count) {
-                        $programming->is_2d = $programming->showings_in_2d_count;
-                        $programming->is_3d = $programming->showings_in_3d_count;
+                        $programming->is_2d
+                            = $programming->showings_in_2d_count;
+                        $programming->is_3d
+                            = $programming->showings_in_3d_count;
                     }
                 });
         }
@@ -90,9 +95,8 @@ class WeeksController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      */
-    public function update(Request $request, Week $week): RedirectResponse
+    public function update(Week $week): RedirectResponse
     {
         $position = 0;
         collect(request('programming'))
@@ -100,16 +104,22 @@ class WeeksController extends Controller
                 $item = collect($item);
                 Programming::whereId($key)->update([
                     'position' => $position,
-                    'is_dubbed_version' => $item->get('is_dubbed_version') ? true : false,
-                    'is_original_version' => $item->get('is_original_version') ? true : false,
+                    'is_dubbed_version'
+                        => $item->get('is_dubbed_version')
+                        ? true : false,
+                    'is_original_version'
+                        => $item->get('is_original_version')
+                        ? true : false,
                     'is_2d' => $item->get('is_2d') ? true : false,
                     'is_3d' => $item->get('is_3d') ? true : false,
-                    'custom_showings_infos' => $item->get('custom_showings_infos') ?? null,
+                    'custom_showings_infos'
+                        => $item->get('custom_showings_infos') ?? null,
                 ]);
                 $position++;
             });
-
-        flash("Programmation mise à jour pour la semaine du {$week->start->isoFormat('dddd DD MMMM YYYY')}")->success();
+        $week = $week->start->isoFormat('dddd DD MMMM YYYY');
+        $message = "Programmation mise à jour pour la semaine du {$week}";
+        flash($message)->success();
 
         return redirect()->route('admin.weeks.index');
     }

@@ -9,13 +9,12 @@ use Illuminate\Support\Str;
 use phpDocumentor\Reflection\Types\Boolean;
 use SimpleXMLElement;
 
-
 /**
  * Trait CastsToShow
  *
  * Casts a response from the API to an App\Show
  */
-Trait CastsToShow
+trait CastsToShow
 {
     /**
      * Returns a show
@@ -26,7 +25,7 @@ Trait CastsToShow
      */
     protected function toShow(SimpleXMLElement $allocine_show): Show
     {
-        $show = new Show;
+        $show = new Show();
 
         $show->shows_provider_id = (string) $allocine_show['code'];
 
@@ -35,7 +34,7 @@ Trait CastsToShow
             $show->shows_provider_id
         )->first();
 
-        if (!empty($match)) {
+        if (isset($match) || $match == true) {
             $show->id = $match->id;
             $show->exists = true;
         } else {
@@ -76,7 +75,7 @@ Trait CastsToShow
 
         $show->country
             = isset($allocine_show->nationalityList->nationality[0])
-            ?  (string) $allocine_show->nationalityList->nationality[0]
+            ? (string) $allocine_show->nationalityList->nationality[0]
             : null;
 
         $show->is_local_language
@@ -85,7 +84,7 @@ Trait CastsToShow
                 (string) $allocine_show->languageList->language[0] === config('app.shows_db.locale_language')
                 ? true
                 : false
-            ): null;
+            ) : null;
 
         $show->year
             = isset($allocine_show->productionYear)
@@ -93,7 +92,7 @@ Trait CastsToShow
             : null;
 
         $show->release_date
-            = $allocine_show->release->releaseDate
+            = isset($allocine_show->release->releaseDate)
             ? Carbon::parse(
                 $allocine_show->release->releaseDate
             )->format('d/m/Y')
@@ -110,19 +109,20 @@ Trait CastsToShow
             : null;
 
         $synopsis = null;
-        if ($allocine_show->synopsis) {
+        if (isset($allocine_show->synopsis)) {
             $synopsis = $allocine_show->synopsis->asXML();
-        } elseif ($allocine_show->synopsisShort) {
+        } elseif (isset($allocine_show->synopsisShort)) {
             $allocine_show->synopsisShort->asXML();
         }
-        if ($synopsis) {
+        if (isset($synopsis) || $synopsis == true) {
             $synopsis = strip_tags($synopsis);
             $synopsis = preg_replace('/\s\s+/u', ' ', $synopsis);
+        }
+        if (isset($synopsis) || $synopsis == true) {
             $show->synopsis = trim($synopsis);
         } else {
             $show->synopsis = null;
         }
-
 
         if (isset($allocine_show->movieCertificate->certificate)) {
             $audience = $allocine_show->movieCertificate->certificate;

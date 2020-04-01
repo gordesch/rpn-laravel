@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+Route::namespace('Admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Auth::routes(['verify' => true]);
+    });
+
+Route::namespace('Admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->middleware('auth-admin:admin')
+    ->group(function () {
+
     Route::get('shows', 'ShowsController@index')->name('shows.index');
     Route::get('shows/create', 'ShowsController@create')->name('shows.create');
     Route::post('shows', 'ShowsController@store')->name('shows.store');
@@ -43,15 +56,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('pages', 'PagesController@store')->name('pages.store');
     });
 });
-
-Route::get('a-l-affiche/cette-semaine', function() {
+Auth::routes(['verify' => true]);
+Route::get('a-l-affiche/cette-semaine', function () {
     return (new \App\Http\Controllers\ShowingsByWeekController())
-        ->show('2020-11');
+        ->show(\Gordesch\CineCarbon::now()->programmingWeek());
 })->name('showing.this-week');
-Route::get('a-l-affiche/semaine-prochaine', function() {
+Route::get('a-l-affiche/semaine-prochaine', function () {
     return (new \App\Http\Controllers\ShowingsByWeekController())
         ->show(\Gordesch\CineCarbon::now()->modify('+1 week')->programmingWeek());
 })->name('showing.next-week');
 Route::get('a-l-affiche/ce-soir/{date?}', 'ShowingsTonightController')->name('showing.tonight');
 Route::get('a-l-affiche/maintenant/{from?}', 'ShowingsNowController')->name('showing.now');
-

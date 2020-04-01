@@ -18,6 +18,6 @@ $factory->define(Show::class, function (Faker $faker) {
         'director' => $faker->name(),
         'cast' => $faker->name(),
         'synopsis' => $faker->paragraph(8),
-        'audience' => $faker->numberBetween(4, 18)
+        'audience' => $faker->numberBetween(4, 18),
     ];
 });
