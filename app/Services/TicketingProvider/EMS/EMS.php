@@ -116,12 +116,10 @@ class EMS implements TicketingProvider
      */
     private function _call(): string
     {
-        $response = Http::get($this->config['endpoint'], [
-            'auth' => [
-                $this->config['username'],
-                $this->config['password'],
-            ],
-        ])->throw();
+        $response = Http::withBasicAuth(
+            $this->config['username'],
+            $this->config['password'],
+        )->get($this->config['endpoint'])->throw();
         return (string) $response->body();
     }
 }

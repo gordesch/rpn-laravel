@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Admin;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator as ValidatorFacade;
@@ -84,6 +87,26 @@ class RegisterController extends Controller
     public function showRegistrationForm(): View
     {
         return view('admin.auth.register');
+    }
+
+    /**
+     * Handle a registration request for the application.
+     */
+    public function register(Request $request): Response
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 201)
+            : redirect($this->redirectPath());
     }
 
     /**

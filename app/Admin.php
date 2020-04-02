@@ -12,7 +12,7 @@ class Admin extends Authenticatable  implements MustVerifyEmail
 {
     use Notifiable;
 
-    protected $guard = 'admin';
+    protected string $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -41,7 +41,7 @@ class Admin extends Authenticatable  implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function getUsernameAttribute()
+    public function getUsernameAttribute(): string
     {
         return $this->email;
     }

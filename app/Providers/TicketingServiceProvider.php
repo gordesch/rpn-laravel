@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\TicketingProvider\EMS\EMS;
+use App\Services\TicketingProvider\TicketingProvider;
 use Illuminate\Support\ServiceProvider;
 
 class TicketingServiceProvider extends ServiceProvider
@@ -14,11 +15,15 @@ class TicketingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('ems', function () {
+        $this->app->bind(
+            TicketingProvider::class,
+            EMS::class
+        );
+        /*$this->app->bind('ems', function () {
             return new EMS();
         });
         $this->app->bind('ticketing-provider', function () {
             return $this->app->make(config('app.ticketing_provider.driver'));
-        });
+        });*/
     }
 }
