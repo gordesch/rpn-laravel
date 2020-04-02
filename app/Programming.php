@@ -23,6 +23,11 @@ class Programming extends Model
         'custom_showings_infos',
     ];
 
+    public function getIsAdjustedAttribute(): bool
+    {
+        return isset($this->position);
+    }
+
     public function show(): Relation
     {
         return $this->belongsTo(Show::class);

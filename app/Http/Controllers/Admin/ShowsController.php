@@ -20,8 +20,7 @@ class ShowsController extends Controller
 
     public function create(): View
     {
-        $show = new Show();
-        return view('admin.shows.create', compact('show'));
+        return view('admin.shows.create')->with(['show' => new Show()]);
     }
 
     public function store(
@@ -52,7 +51,7 @@ class ShowsController extends Controller
 
     public function edit(Show $show): View
     {
-        return view('admin.shows.edit', compact('show'));
+        return view('admin.shows.edit')->with(['show' => $show]);
     }
 
     public function update(Show $show, ShowForm $form): RedirectResponse

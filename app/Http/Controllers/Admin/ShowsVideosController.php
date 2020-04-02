@@ -17,7 +17,7 @@ class ShowsVideosController extends Controller
      */
     public function edit(Show $show): View
     {
-        return view('admin.shows.videos.edit', compact('show'));
+        return view('admin.shows.videos.edit')->with(['show' => $show]);
     }
 
     /**
@@ -43,7 +43,8 @@ class ShowsVideosController extends Controller
         } catch (\Exception $exception) {
             DB::rollBack();
             flash('Échec de l\'ajout de bande(s)-annonce(s)')->error();
+            return redirect()->back();
         }
-        return redirect()->back();
+        return redirect()->route('admin.shows.edit', [$show]);
     }
 }

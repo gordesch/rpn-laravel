@@ -12,7 +12,7 @@
     </x-admin.layout.header.button-primary>
   </x-slot>
 
-  <x-admin.weeks.submenu selected="tuning" :week="$week"></x-admin.weeks.submenu>
+  <x-admin.weeks.submenu selected="edit" :week="$week"></x-admin.weeks.submenu>
 
   <form id="form" method="POST" action="{{ route('admin.weeks.update', [$week]) }}">
     @method('PUT')
@@ -100,24 +100,26 @@
   <x-slot name="scripts">
     <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/lib/draggable.bundle.js"></script>
     <script>
-      const sortable = new Draggable.Sortable(document.querySelectorAll('#programmings'), {
-        draggable: 'li',
-        distance: 3,
-        classes: {
-          'source:dragging': 'invisible',
-          'mirror': 'border-gray-200'
-        },
-      });
-      let change = false;
-      document.forms['form'].addEventListener('change', () => change = true);
-      sortable.on('sortable:sorted', () => change = true);
-      window.addEventListener('beforeunload', function (e) {
-        if(change) {
-          e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
-          let confirmationMessage = 'Vous avez effectué des modifications. Voulez-vous quitter la page sans sauvegarder ?';
-          e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
-          return confirmationMessage; // Gecko, WebKit, Chrome <34
-        }
+      window.addEventListener('DOMContentLoaded', function (e) {
+        const sortable = new Draggable.Sortable(document.querySelectorAll('#programmings'), {
+          draggable: 'li',
+          distance: 3,
+          classes: {
+            'source:dragging': 'invisible',
+            'mirror': 'border-gray-200'
+          },
+        });
+        let change = false;
+        document.forms['form'].addEventListener('change', () => change = true);
+        sortable.on('sortable:sorted', () => change = true);
+        window.addEventListener('beforeunload', function (e) {
+          if (change) {
+            e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown
+            let confirmationMessage = 'Vous avez effectué des modifications. Voulez-vous quitter la page sans sauvegarder ?';
+            e.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+            return confirmationMessage; // Gecko, WebKit, Chrome <34
+          }
+        });
       });
     </script>
   </x-slot>

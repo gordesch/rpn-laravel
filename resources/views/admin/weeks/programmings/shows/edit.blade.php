@@ -3,7 +3,7 @@
     Semaine du {{ $week->start->isoFormat('dddd DD MMMM YYYY') }}
   </x-slot>
 
-  <x-admin.weeks.submenu selected="shows-state" :week="$week" />
+  <x-admin.weeks.submenu selected="programmings.shows.edit" :week="$week" />
 
   <div x-data="modal()" x-show="open" x-on:edit-videos.document="setModal(event)" class="fixed bottom-0 inset-x-0 px-4 z-50 pb-6 sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center">
     <div x-show="open" style="display: none;" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity">

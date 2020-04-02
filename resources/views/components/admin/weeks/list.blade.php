@@ -60,17 +60,11 @@
                     <div>
                       <div
                         class="flex items-center justify-end text-sm leading-5 text-gray-500">
-                        @if ($week->programmings->first()->position !== null)
+                        @if ($week->is_adjusted)
                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                             Programmation réglée
                           </span>
-                        @elseif (
-                            $week->programmings->first()->position === null
-                            && (
-                                $week->start == \Gordesch\CineCarbon::now()->startOfWeek()
-                                || $week->start == \Gordesch\CineCarbon::now()->addWeek()->startOfWeek()
-                            )
-                        )
+                        @elseif ($week->start == \Gordesch\CineCarbon::now()->startOfWeek() || $week->start == \Gordesch\CineCarbon::now()->addWeek()->startOfWeek())
                           <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                             Programmation à régler
                           </span>

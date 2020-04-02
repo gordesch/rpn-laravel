@@ -3,7 +3,7 @@
     Semaine du {{ $week->start->isoFormat('dddd DD MMMM YYYY') }}
   </x-slot>
 
-  <x-admin.weeks.submenu selected="resources" :week="$week" />
+  <x-admin.weeks.submenu selected="programmings.shows.index" :week="$week" />
 
   @foreach($week->programmings->map->show as $show)
     <div class="grid grid-cols-4 gap-4 items-start border-t border-gray-200 @if (!$loop->first) mt-6 sm:mt-5 @endif pt-5">

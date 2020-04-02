@@ -29,6 +29,6 @@ class ShowsImportController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.shows.import.create', compact('show'));
+        return view('admin.shows.import.create')->with(['show' => $show]);
     }
 }

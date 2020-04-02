@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ShowingForm;
+use App\Programming;
 use App\Services\TicketingProvider\TicketingProvider;
 use App\Showing;
 use Carbon\Carbon;
@@ -34,6 +35,12 @@ class ShowingsImportController extends Controller
 
             $showings = $ticketing->getAllShowings();
             (new ShowingForm())->persistMultiple($showings);
+
+            // Delete programmings where no showings
+            Programming::destroy(
+                $week->programmings->where('showings_count', '=', 0)->modelKeys()
+            );
+
             DB::commit();
             flash("{$showings->count()} séances importées")->success();
         } catch (\Exception $exception) {

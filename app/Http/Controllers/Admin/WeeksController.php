@@ -40,23 +40,16 @@ class WeeksController extends Controller
                 $query
                     ->with('show.media')
                     ->withCount('showings')
-                    ->orderBy('position', 'asc')
+                    ->orderByRaw('-position desc')
                     ->orderBy('showings_count', 'desc');
             },
             'shows_with_missing_data',
         ]);
 
-        // Delete programmings where no showings
-        $week->programmings->each(function ($item) {
-            if ($item->showings_count === 0) {
-                Programming::destroy($item->id);
-            }
-        });
-
         // If programmings are not set, prepopulate with a guess
-        if (! isset($week->programmings->first()->position)) {
-            $week->programmings->each
-                ->load('show', 'showings')
+        if (! $week->is_adjusted) {
+            $week->programmings
+                ->where('is_adjusted', false)
                 ->loadCount([
                     'showings as showings_in_dubbed_version_count'
                         => function (Builder $query) {
@@ -89,8 +82,7 @@ class WeeksController extends Controller
                     }
                 });
         }
-
-        return view('admin.weeks.edit', compact('week'));
+        return view('admin.weeks.edit')->with(['week' => $week]);
     }
 
     /**

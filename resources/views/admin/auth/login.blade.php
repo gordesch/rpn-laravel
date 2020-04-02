@@ -1,7 +1,25 @@
-<x-admin.auth.layout title="Connexion">
+<x-admin.auth.layout title="Connexion" :onlyTitle="true">
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-      <form x-data="{ loggingIn: false, email: null }" @submit="loggingIn = true; $refs.submitButton.innerHTML = '<span class=invisible>Connexion...</span>'" action="{{ route('admin.login') }}" method="POST">
+    <div class="bg-white shadow sm:rounded-lg overflow-hidden">
+      <div class="relative group" tabindex="0">
+        <img
+          src="/css/admin/login-fifth-element.jpg"
+          src="/css/admin/login-fifth-element.jpg"
+          srcset="/css/admin/login-fifth-element@2x.jpg 2x, /css/admin/login-fifth-element@original.jpg 3x"
+          class="w-full h-auto"
+          style="filter: brightness(1.6) contrast(.8) grayscale(.6);"
+        >
+        <p class="absolute bottom-0 right-0 bg-black px-2 py-1 m-1 text-xs text-white leading-none opacity-0 group-hover:opacity-100 group-focus:opacity-100">
+          Le Cinquième élément &ndash; Luc Besson &ndash; 1997 &ndash; Gaumont
+        </p>
+      </div>
+      <form
+        x-data="{ loggingIn: false, email: null }"
+        @submit="loggingIn = true; $refs.submitButton.innerHTML = '<span class=invisible>Connexion...</span>'"
+        action="{{ route('admin.login') }}"
+        method="POST"
+        class="py-8 px-4 sm:px-10"
+      >
         @csrf
         <x-admin.layout.form.input-text-simple
           name="email"

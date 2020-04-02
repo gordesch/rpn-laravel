@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator as ValidatorFacade;
+use Illuminate\View\View;
 
 
 class RegisterController extends Controller
@@ -79,10 +80,8 @@ class RegisterController extends Controller
 
     /**
      * Show the application registration form.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
+    public function showRegistrationForm(): View
     {
         return view('admin.auth.register');
     }

@@ -54,6 +54,11 @@ class Week extends Model
             : "Du {$this->start->isoFormat('dddd DD MMMM')} au {$this->end->isoFormat('dddd DD MMMM YYYY')}";
     }
 
+    public function getIsAdjustedAttribute(): bool
+    {
+        return ! $this->programmings->contains('is_adjusted', false);
+    }
+
     public function programmings(): Relation
     {
         return $this->hasMany(Programming::class);

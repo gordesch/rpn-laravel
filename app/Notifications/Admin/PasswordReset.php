@@ -6,7 +6,10 @@ use App\Admin;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\URL;
 
 class PasswordReset extends Notification
 {
@@ -41,10 +44,7 @@ class PasswordReset extends Notification
      */
     public function toMail(Admin $notifiable): MailMessage
     {
-        $url = url(config('app.url').route('admin.password.reset', [
-            'token' => $this->token,
-            'email' => $notifiable->getEmailForPasswordReset(),
-        ], false));
+        $url = $this->passwordResetUrl($notifiable);
 
         return (new MailMessage())
             ->subject(Lang::get('Demande de réinitialisation du mot de passe'))
@@ -52,5 +52,16 @@ class PasswordReset extends Notification
             ->action(Lang::get('Réinitialiser le mot de passe'), $url)
             ->line(Lang::get('Ce lien expirera dans :count minutes.', ['count' => config('auth.passwords.admins.expire')]))
             ->line(Lang::get("Si vous n'avez pas demandé à changer de mot de passe, vous n'avez aucune action à effectuer. Votre mot de passe restera inchangé."));
+    }
+
+    /**
+     * Get the password reset URL for the given notifiable.
+     */
+    protected function passwordResetUrl(Admin $notifiable): string
+    {
+        return url(config('app.url').route('admin.password.reset', [
+            'token' => $this->token,
+            'email' => $notifiable->getEmailForPasswordReset(),
+        ], false));
     }
 }

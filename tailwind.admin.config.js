@@ -9,9 +9,10 @@ module.exports = {
     },
   },
   variants: {
-    opacity: ['responsive', 'hover', 'focus', 'disabled'],
+    opacity: ['responsive', 'hover', 'focus', 'disabled', 'group-hover', 'group-focus'],
   },
   plugins: [
     require('@tailwindcss/ui'),
+    require('tailwindcss-interaction-variants'),
   ]
 }

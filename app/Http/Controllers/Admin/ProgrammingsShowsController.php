@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Week;
 use Illuminate\View\View;
 
-class WeeksDetailsController extends Controller
+class ProgrammingsShowsController extends Controller
 {
-    public function showsState(Week $week): View
+    public function edit(Week $week): View
     {
         $week->load([
             'programmings.show' => function ($query) {
@@ -18,18 +18,12 @@ class WeeksDetailsController extends Controller
             },
             'shows_with_missing_data',
         ]);
-        return view('admin.weeks.details.shows-state', compact('week'));
+        return view('admin.weeks.programmings.shows.edit', compact('week'));
     }
 
-    public function resources(Week $week): View
+    public function index(Week $week): View
     {
         $week->load('programmings.show.media', 'shows_with_missing_data');
-        return view('admin.weeks.details.resources', compact('week'));
-    }
-
-    public function showings(Week $week): View
-    {
-        $week->load('shows_with_missing_data');
-        return view('admin.weeks.details.showings', compact('week'));
+        return view('admin.weeks.programmings.shows.index', compact('week'));
     }
 }

@@ -24,7 +24,7 @@ Route::namespace('Admin')
 Route::namespace('Admin')
     ->prefix('admin')
     ->name('admin.')
-    ->middleware('auth-admin:admin')
+    ->middleware(['auth-admin:admin', 'verified-admin'])
     ->group(function () {
 
     Route::get('shows', 'ShowsController@index')->name('shows.index');
@@ -44,19 +44,21 @@ Route::namespace('Admin')
     Route::post('showings-import', 'ShowingsImportController@store')->name('showings.import.store');
 
     Route::get('weeks', 'WeeksController@index')->name('weeks.index');
-    Route::get('weeks/{week:id}/edit', 'WeeksController@edit')->name('weeks.edit');
-    Route::put('weeks/{week:id}', 'WeeksController@update')->name('weeks.update');
+    Route::get('weeks/{week}/edit', 'WeeksController@edit')->name('weeks.edit');
+    Route::put('weeks/{week}', 'WeeksController@update')->name('weeks.update');
 
-    Route::get('weeks/{week:id}/shows-state', 'WeeksDetailsController@showsState')->name('weeks.shows-state');
-    Route::get('weeks/{week:id}/resources', 'WeeksDetailsController@resources')->name('weeks.resources');
-    Route::get('weeks/{week:id}/showings', 'WeeksDetailsController@showings')->name('weeks.showings');
+    Route::get('weeks/{week}/programmings/shows/edit', 'ProgrammingsShowsController@edit')->name('weeks.programmings.shows.edit');
+    Route::get('weeks/{week}/programmings/shows', 'ProgrammingsShowsController@index')->name('weeks.programmings.shows.index');
+    Route::get('weeks/{week}/showings', 'Showings@index')->name('weeks.showings.index');
 
     Route::namespace('Website')->prefix('website')->name('website.')->group(function () {
         Route::get('pages/create', 'PagesController@create')->name('pages.create');
         Route::post('pages', 'PagesController@store')->name('pages.store');
     });
 });
+
 Auth::routes(['verify' => true]);
+
 Route::get('a-l-affiche/cette-semaine', function () {
     return (new \App\Http\Controllers\ShowingsByWeekController())
         ->show(\Gordesch\CineCarbon::now()->programmingWeek());
