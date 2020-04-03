@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Presenters\Poster;
 use App\Presenters\ShowPresenter;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;

@@ -9,6 +9,9 @@
         "
         alt=""
     />
+  @elseif($show->wasRecentlyCreated)
+    <div class="flex justify-center align-items-center h-12 w-9 border border-gray-400 rounded-sm shadow-inner bg-gray-100 opacity-25 spinner">
+    </div>
   @else
     <div class="flex justify-center align-items-center h-12 w-9 border border-gray-400 rounded-sm shadow-inner bg-gray-100 opacity-25">
     </div>

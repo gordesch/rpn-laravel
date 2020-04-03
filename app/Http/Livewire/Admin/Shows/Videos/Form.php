@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Shows\Videos;
 
-use App\Services\VideosProvider\VideosProvider;
+use App\Services\VideosProvider\Youtube\Youtube;
 use App\Show;
 use Illuminate\Http\Client\RequestException;
 use Livewire\Component;
@@ -25,12 +25,12 @@ class Form extends Component
         $this->showIsLocalLanguage = $showIsLocalLanguage;
     }
 
-    public function loadVideos(VideosProvider $videosProvider): void
+    public function loadVideos(): void
     {
         try {
             $show = new Show();
             $show->title = $this->showTitle;
-            $this->videos = $videosProvider::search($show)->toArray();
+            $this->videos = Youtube::search($show)->toArray();
         } catch (RequestException $e) {
             // @TODO handle error
             //flash('Erreur lors de la connexion à Youtube. Veuillez recharger la page.')->error();

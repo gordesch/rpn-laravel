@@ -91,12 +91,14 @@ trait CastsToShow
             ? (int) $allocine_show->productionYear
             : null;
 
-        $show->release_date
-            = isset($allocine_show->release->releaseDate)
-            ? Carbon::parse(
-                $allocine_show->release->releaseDate
-            )->format('d/m/Y')
-            : null;
+        $show->setAttribute(
+            'release_date',
+            isset($allocine_show->release->releaseDate)
+                ? Carbon::parse(
+                    $allocine_show->release->releaseDate
+                )->format('d/m/Y')
+                : null
+        );
 
         $show->director
             = isset($allocine_show->castingShort->directors)

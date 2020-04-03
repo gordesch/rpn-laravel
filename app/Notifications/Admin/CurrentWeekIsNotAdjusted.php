@@ -3,6 +3,7 @@
 namespace App\Notifications\Admin;
 
 use App\Admin;
+use App\Week;
 use Gordesch\CineCarbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -29,7 +30,7 @@ class CurrentWeekIsNotAdjusted extends Notification
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return array<string>
      */
     public function via($notifiable)
     {
@@ -45,16 +46,16 @@ class CurrentWeekIsNotAdjusted extends Notification
         return (new MailMessage())
             ->subject("Programmation de la semaine non-réglée")
             ->line("La programmation de cette semaine n'a pas été réglée. Il faut encore ordonner les films, préciser les versions, etc.")
-            ->action('Régler la programmation', $url);
+            ->action("Régler la programmation", $url);
     }
 
     /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return array<mixed>
      */
-    public function toArray($notifiable)
+    public function toArray($notifiable): array
     {
         return [
             //

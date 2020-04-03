@@ -29,11 +29,21 @@ class ShowsVideosController extends Controller
         try {
             $show->videos()->delete();
             if (request('video-dubbed')) {
-                $video->persist(new Video(), $show, false);
+                $video->persist(
+                    new Video(),
+                    $show,
+                    false,
+                    collect($request->all())
+                );
                 flash('Bande-annonce VF ajoutée')->success();
             }
             if (request('video-original')) {
-                $video->persist(new Video(), $show, true);
+                $video->persist(
+                    new Video(),
+                    $show,
+                    true,
+                    collect($request->all())
+                );
                 flash('Bande-annonce VO ajoutée')->success();
             }
             if (! request('video-dubbed') && ! request('video-original')) {

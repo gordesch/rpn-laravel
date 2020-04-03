@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +45,7 @@ class ResetPasswordController extends Controller
     /**
      * Get the guard to be used during password reset.
      */
-    protected function guard(): StatefulGuard
+    protected function guard(): Guard
     {
         return Auth::guard('admin');
     }

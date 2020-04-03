@@ -31,11 +31,11 @@ trait MatchesShows
                 if (! isset($show->ticketing_provider_id)) {
                     // Prepare for matching
                     $show->ticketing_provider_id = $show->id;
-                    $matching_show = Show::select(
+                    $matching_show = Show::select([
                         'id',
                         'slug',
                         'ticketing_provider_id'
-                    )->where(
+                    ])->where(
                         'ticketing_provider_id',
                         $show->ticketing_provider_id
                     )->first();

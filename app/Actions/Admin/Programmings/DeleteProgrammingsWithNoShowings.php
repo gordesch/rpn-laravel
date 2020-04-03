@@ -11,11 +11,9 @@ class DeleteProgrammingsWithNoShowings
     use QueueableAction;
 
     /**
-     * Execute the action.
-     *
      * @throws Exception
      */
-    public function execute(): void
+    public function __invoke(): void
     {
         Programming::whereDoesntHave('showings')->delete();
     }

@@ -82,6 +82,6 @@
       </div>
     </div>
 
-    <livewire:admin.shows.videos.form :showTitle="$show->title" :showIsLocalLanguage="$show->is_local_language" />
+    <livewire:admin.shows.videos.form :showTitle="$show->title" :showIsLocalLanguage="(bool) $show->is_local_language" />
   </form>
 </x-admin.layout>

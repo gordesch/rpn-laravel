@@ -4,61 +4,59 @@ namespace App\Services\TicketingProvider\Ticketing;
 
 use App\Show;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class TicketingShowsCollection extends Collection
 {
-    public function matchingRequired()
+    public function __construct(Collection $collection)
+    {
+        $collection->transform(function ($show) {
+            return new TicketingShow($show);
+        });
+        $this->items = $this->getArrayableItems($collection);
+    }
+
+    public function filterByMatchingIsRequired(): self
     {
         return $this->filter->matched;
     }
 
-    public function matchWith(Collection $matches)
+    public function match(): self
     {
-        $this = $this->map(
-            function (Show $show) use ($matches) {
-                if (isset($show->id) && isset($show->ticketing_provider_id)) {
-                    // Matching is already done
-                    return $show;
-                }
-                if (! isset($show->ticketing_provider_id)) {
-                    // Prepare for matching
-                    $show->ticketing_provider_id = $show->id;
-                    $matching_show = Show::select([
-                        'id',
-                        'slug',
-                        'ticketing_provider_id',
-                    ])->where(
-                        'ticketing_provider_id',
-                        $show->ticketing_provider_id
-                    )->first();
-                    $show->id
-                        = ($matching_show
-                        ? $matching_show->id
-                        : null);
-                    $show->slug
-                        = ($matching_show
-                        ? $matching_show->slug
-                        : Str::slug($show->title));
+        return $this->filterByMatchingIsRequired()->matchAll();
+    }
 
-                    return $show;
-                }
-                if (! isset($show->id)) {
-                    // Matching
-                    $match = $matches->where(
-                        'slug',
-                        $show->slug
-                    )->first();
-                    $matching_show = Show::where(
-                        'slug',
-                        $match['slug']
-                    );
-                    $show->id = $matching_show->first()->id;
-                    $matching_show->update(
-                        ['ticketing_provider_id' => $match['ticketing_provider_id']]
-                    );
-                    return $show;
-                }
-            }
-        );
+    public function matchAll(): self
+    {
+        return $this->map(function ($show) {
+            $show->ticketing_provider_id = $show->id;
+            $matching_show = Show::select([
+                'id',
+                'slug',
+                'ticketing_provider_id',
+            ])->where(
+                'ticketing_provider_id',
+                $show->ticketing_provider_id
+            )->first();
+            $show->id = optional($matching_show)->id;
+            $show->slug
+                = optional($matching_show)->slug ?? Str::slug($this->title);
+            $show->matched = (bool) $matching_show;
+
+            return $show;
+        });
+    }
+
+    public function matchAgainst(Collection $matches): self
+    {
+        return $this->map(function ($show) use ($matches) {
+            $match = $matches->firstWhere('slug', $show->slug);
+            $matching_show = Show::firstWhere('slug', $match['slug']);
+            $show->id = $matching_show->id;
+            $matching_show->update(
+                ['ticketing_provider_id' => $match['ticketing_provider_id']]
+            );
+            return $show;
+        });
     }
 }

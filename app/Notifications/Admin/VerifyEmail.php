@@ -33,10 +33,10 @@ class VerifyEmail extends Notification
         $verificationUrl = $this->verificationUrl($notifiable);
 
         return (new MailMessage())
-            ->subject(Lang::get('Verifiez votre adresse email'))
-            ->line(Lang::get('Merci de cliquer sur le bouton ci-dessous pour vérifier votre adresse email.'))
-            ->action(Lang::get('Vérifier mon adresse email'), $verificationUrl)
-            ->line(Lang::get("Si vous n'avez pas créé de compte, ignorez ce message."));
+            ->subject("Verifiez votre adresse email")
+            ->line("Merci de cliquer sur le bouton ci-dessous pour vérifier votre adresse email.")
+            ->action("Vérifier mon adresse email", $verificationUrl)
+            ->line("Si vous n'avez pas créé de compte, ignorez ce message.");
     }
 
     /**

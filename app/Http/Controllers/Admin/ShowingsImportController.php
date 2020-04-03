@@ -37,9 +37,7 @@ class ShowingsImportController extends Controller
             (new ShowingForm())->persistMultiple($showings);
 
             // Delete programmings where no showings
-            Programming::destroy(
-                $week->programmings->where('showings_count', '=', 0)->modelKeys()
-            );
+            Programming::whereDoesntHave('showings')->delete();
 
             DB::commit();
             flash("{$showings->count()} séances importées")->success();

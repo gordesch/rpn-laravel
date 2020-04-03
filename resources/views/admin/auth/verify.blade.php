@@ -1,14 +1,18 @@
 <x-admin.auth.layout title="Vérification de votre adresse email" category="auth">
-  <div action="{{ route('admin.password.update') }}" method="POST" class="bg-white overflow-hidden mt-8 sm:mx-auto sm:w-full sm:max-w-xl shadow sm:rounded-lg">
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     @csrf
-    <div class="flex items-center bg-white">
-      <div class="relative w-1/4 group" tabindex="0">
-        <img class="h-auto w-full shadow-inner bg-gray-100 opacity-75" src="/css/admin/stop-schwarznenegger.jpeg" style="filter: grayscale(40%)">
-        <p class="absolute right-0 bottom-0 left-0 bg-black px-2 py-1 m-1 text-xs text-white leading-none opacity-0 break-words group-hover:opacity-100 group-focus:opacity-100">
-          Arnold Schwarzenegger &ndash; Twitter @arnold
+    <div class="bg-white shadow sm:rounded-lg overflow-hidden">
+      <div class="relative group" tabindex="0">
+        <img
+          src="/css/admin/verify-moonrise-kingdom.jpg"
+          srcset="/css/admin/verify-moonrise-kingdom@2x.jpg 2x"
+          class="w-full h-auto"
+        >
+        <p class="absolute bottom-0 right-0 bg-black px-2 py-1 m-1 text-xs text-white leading-none opacity-0 group-hover:opacity-100 group-focus:opacity-100">
+          Moonrise Kingdom &ndash; Wes Anderson &ndash; 2012 &ndash; Studiocanal
         </p>
       </div>
-      <div class="pl-6 pr-4 py-5 sm:p-6">
+      <div class="py-8 px-4 sm:px-10">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
           Vérification de votre adresse email
         </h3>

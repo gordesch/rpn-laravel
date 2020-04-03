@@ -47,11 +47,11 @@ class PasswordReset extends Notification
         $url = $this->passwordResetUrl($notifiable);
 
         return (new MailMessage())
-            ->subject(Lang::get('Demande de réinitialisation du mot de passe'))
-            ->line(Lang::get('Vous recevez cet email parce que nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.'))
-            ->action(Lang::get('Réinitialiser le mot de passe'), $url)
-            ->line(Lang::get('Ce lien expirera dans :count minutes.', ['count' => config('auth.passwords.admins.expire')]))
-            ->line(Lang::get("Si vous n'avez pas demandé à changer de mot de passe, vous n'avez aucune action à effectuer. Votre mot de passe restera inchangé."));
+            ->subject("Demande de réinitialisation du mot de passe")
+            ->line("Vous recevez cet email parce que nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.")
+            ->action("Réinitialiser le mot de passe", $url)
+            ->line("Ce lien expirera dans " . config('auth.passwords.admins.expire') . " minutes.")
+            ->line("Si vous n'avez pas demandé à changer de mot de passe, vous n'avez aucune action à effectuer. Votre mot de passe restera inchangé.");
     }
 
     /**

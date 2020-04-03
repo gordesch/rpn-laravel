@@ -11,13 +11,13 @@ class TicketingShow extends Show
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->ticketing_provider_id = $this->id;
-        $this->id = null;
-    }
-
-
-    public function newCollection(array $models = [])
-    {
-        return new TicketingShowsCollection($models);
+        if (
+            isset($attributes['id'])
+            && ! isset($attributes['ticketing_provider_id'])
+        ) {
+            $attributes['ticketing_provider_id'] = $attributes['id'];
+            $attributes['id'] = null;
+            $this->forceFill($attributes);
+        }
     }
 }

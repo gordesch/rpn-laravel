@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Admin;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -91,8 +92,10 @@ class RegisterController extends Controller
 
     /**
      * Handle a registration request for the application.
+     *
+     * @return RedirectResponse|Response
      */
-    public function register(Request $request): Response
+    public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
@@ -112,7 +115,7 @@ class RegisterController extends Controller
     /**
      * Get the guard to be used during authentication.
      */
-    protected function guard(): StatefulGuard
+    protected function guard(): Guard
     {
         return Auth::guard('admin');
     }

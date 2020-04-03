@@ -2,53 +2,59 @@
 
 namespace App\Actions\Admin;
 
-use App\Actions\Admin\Showings\DeleteOldShowings;
-use App\Actions\DeleteProgrammingsWithNoShowings;
+use App\Actions\Admin\Programmings\DeleteProgrammingsWithNoShowings;
+use App\Actions\Admin\Showings\DeleteComingShowings;
 use App\Http\Requests\ShowingForm;
-use App\Programming;
 use App\Services\TicketingProvider\TicketingProvider;
-use App\Showing;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Spatie\QueueableAction\QueueableAction;
 
 class ImportShowings
 {
     use QueueableAction;
-    /**
-     * @var TicketingProvider
-     */
+
     private TicketingProvider $ticketing;
+    private DeleteComingShowings $delete_coming_showings;
+    private DeleteProgrammingsWithNoShowings $delete_programmings_with_no_showings;
+    private ShowingForm $showing_form;
 
     /**
      * Create a new action instance.
      */
-    public function __construct(TicketingProvider $ticketing)
-    {
+    public function __construct(
+        TicketingProvider $ticketing,
+        DeleteComingShowings $delete_coming_showings,
+        DeleteProgrammingsWithNoShowings $delete_programmings_with_no_showings,
+        ShowingForm $showing_form
+    ) {
         $this->ticketing = $ticketing;
+        $this->delete_coming_showings = $delete_coming_showings;
+        $this->delete_programmings_with_no_showings = $delete_programmings_with_no_showings;
+        $this->showing_form = $showing_form;
     }
 
     /**
      * Execute the action.
      *
-     * @return mixed
+     * @throws \Throwable
      */
-    public function execute()
+    public function __invoke(): void
     {
         DB::beginTransaction();
         try {
-            (new DeleteOldShowings())->execute();
+            $this->delete_coming_showings->__invoke();
 
-            $showings = $ticketing->getAllShowings();
+            $showings = $this->ticketing->getAllShowings();
             (new ShowingForm())->persistMultiple($showings);
 
-            // Delete programmings where no showings
-            DeleteProgrammingsWithNoShowings::class->execute();
+            $this->delete_programmings_with_no_showings->__invoke();
 
-            DB::commit();
             flash("{$showings->count()} séances importées")->success();
+            DB::commit();
         } catch (\Exception $exception) {
-            DB::rollback();
+
             flash("Erreur lors de l'importation, veuillez réessayer")->error();
+            DB::rollback();
         }
     }
 }

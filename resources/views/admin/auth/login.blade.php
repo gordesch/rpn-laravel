@@ -4,7 +4,6 @@
       <div class="relative group" tabindex="0">
         <img
           src="/css/admin/login-fifth-element.jpg"
-          src="/css/admin/login-fifth-element.jpg"
           srcset="/css/admin/login-fifth-element@2x.jpg 2x, /css/admin/login-fifth-element@original.jpg 3x"
           class="w-full h-auto"
           style="filter: brightness(1.6) contrast(.8) grayscale(.6);"

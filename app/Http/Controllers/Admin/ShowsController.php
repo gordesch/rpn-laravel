@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\Shows\StoreShow;
+use App\Actions\Admin\Shows\StoreVideos;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PosterForm;
 use App\Http\Requests\ShowForm;
@@ -9,6 +11,7 @@ use App\Http\Requests\VideoForm;
 use App\Show;
 use App\Video;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ShowsController extends Controller
@@ -24,28 +27,10 @@ class ShowsController extends Controller
     }
 
     public function store(
-        ShowForm $show,
-        PosterForm $poster,
-        VideoForm $video
+        Request $request,
+        StoreShow $store_show
     ): RedirectResponse {
-        $show = $show->persist();
-        flash("{$show->title} a bien été créé")->success();
-
-        if (request('poster_url')) {
-            $new_poster = [
-                'type' => 'url',
-                'location' => request('poster_url'),
-            ];
-            $poster->persist($new_poster, $show);
-        }
-
-        if (request('video-dubbed')) {
-            $video->persist(new Video(), $show, false);
-        }
-        if (request('video-original')) {
-            $video->persist(new Video(), $show, true);
-        }
-
+        $store_show->execute($request);
         return redirect()->route('admin.shows.index');
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Show;
 use App\Video;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Collection;
 
 class VideoForm extends FormRequest
 {
@@ -31,13 +32,14 @@ class VideoForm extends FormRequest
     public function persist(
         Video $video,
         Show $show,
-        bool $is_original_version
+        bool $is_original_version,
+        Collection $request
     ): Video {
         $video->is_original_version = $is_original_version;
         $video->youtube_id =
             $video->is_original_version
-            ? request('video-original')
-            : request('video-dubbed');
+            ? $request->get('video-original')
+            : $request->get('video-dubbed');
 
         return $show->videos()->save($video);
     }

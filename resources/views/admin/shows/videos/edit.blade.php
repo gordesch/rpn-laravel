@@ -20,6 +20,6 @@
   <form id="form" method="post" action="{{ route('admin.shows.videos.update', [$show]) }}" role="form">
     @csrf
     @method('PUT')
-    <livewire:admin.shows.videos.form :showTitle="$show->title" :showIsLocalLanguage="$show->is_local_language" />
+    <livewire:admin.shows.videos.form :showTitle="$show->title" :showIsLocalLanguage="(bool) $show->is_local_language" />
   </form>
 </x-admin.layout>
