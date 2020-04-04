@@ -3,5 +3,5 @@
     <livewire:admin.shows.search-input/>
   </x-slot>
 
-  <livewire:admin.shows.import-search-list/>
+  <livewire:admin.shows.import-search-list />
 </x-admin.layout>

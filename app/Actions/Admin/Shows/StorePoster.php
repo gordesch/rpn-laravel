@@ -18,14 +18,21 @@ class StorePoster
         $this->poster_form = $poster_form;
     }
 
-    public function execute(Show $show, Collection $request)
+    public function updatePosterIsPending(Show $show): self
     {
-        if (! $request->has('poster_url')) {
+        $show->poster_is_pending = true;
+        $show->save();
+        return $this;
+    }
+
+    public function execute(Show $show, Collection $input): void
+    {
+        if (! $input->has('poster_url')) {
             return;
         }
         $poster = [
             'type' => 'url',
-            'location' => $request->get('poster_url'),
+            'location' => $input->get('poster_url'),
         ];
         $this->poster_form->persist($poster, $show);
     }

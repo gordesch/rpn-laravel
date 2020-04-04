@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PosterForm;
 use App\Http\Requests\ShowForm;
 use App\Http\Requests\VideoForm;
+use App\Integration\Database\Post;
 use App\Show;
 use App\Video;
 use Illuminate\Http\RedirectResponse;
@@ -30,6 +31,9 @@ class ShowsController extends Controller
         Request $request,
         StoreShow $store_show
     ): RedirectResponse {
+        app()->make(ShowForm::class);
+        app()->make(PosterForm::class);
+        app()->make(VideoForm::class);
         $store_show->execute($request);
         return redirect()->route('admin.shows.index');
     }

@@ -1,7 +1,7 @@
 <x-admin.layout :title="$show->title" category="shows">
   <x-slot name="titleInnerHTML">
     <div class="flex-1 flex items-center">
-      <x-admin.shows.poster :show="$show"/>
+      <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="$show->id" />
       <span class="ml-3 truncate">
         {{ $show->title }}
       </span>

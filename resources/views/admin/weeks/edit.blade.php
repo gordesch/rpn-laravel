@@ -26,7 +26,7 @@
           <div class="block ">
             <div class="flex items-center px-4 py-3 sm:px-5">
               <div class="min-w-0 flex-1 flex items-center">
-                <x-admin.shows.poster :show="$programming->show"/>
+                <livewire:admin.shows.poster :show="$programming->show" :poll="$programming->show->poster_is_pending" :key="$programming->show->id" />
                 <div class="min-w-0 flex-1 pl-4">
                   <div>
                     <div class="sm:flex sm:items-center sm:justify-between">

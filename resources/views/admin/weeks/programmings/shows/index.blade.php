@@ -8,7 +8,7 @@
   @foreach($week->programmings->map->show as $show)
     <div class="grid grid-cols-4 gap-4 items-start border-t border-gray-200 @if (!$loop->first) mt-6 sm:mt-5 @endif pt-5">
       <div class="flex items-center">
-        <x-admin.shows.poster :show="$show" />
+        <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="$show->id" />
         <h4 class="block ml-5 text-sm font-medium leading-5 text-gray-700 truncate">
           {{ $show->title }}
         </h4>

@@ -33,7 +33,7 @@ class ShowsState extends Component
 
     public function toggleIgnoreMissing(): void
     {
-        $this->show->ignore_missing = !$this->show->ignore_missing;
+        $this->show->ignore_missing_data = !$this->show->ignore_missing_data;
         $this->show->save();
         $this->refreshVideosCount();
         $this->emit('show-updated');

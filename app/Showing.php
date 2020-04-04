@@ -37,14 +37,4 @@ class Showing extends Model
     {
         return $this->belongsTo(Programming::class);
     }
-
-    public function show(): Relation
-    {
-        return $this->hasOneThrough(Show::class, Programming::class);
-    }
-
-    public function week(): Relation
-    {
-        return $this->hasOneThrough(Week::class, Programming::class);
-    }
 }

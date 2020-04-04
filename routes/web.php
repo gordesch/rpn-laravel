@@ -49,7 +49,7 @@ Route::namespace('Admin')
 
     Route::get('weeks/{week}/programmings/shows/edit', 'ProgrammingsShowsController@edit')->name('weeks.programmings.shows.edit');
     Route::get('weeks/{week}/programmings/shows', 'ProgrammingsShowsController@index')->name('weeks.programmings.shows.index');
-    Route::get('weeks/{week}/showings', 'Showings@index')->name('weeks.showings.index');
+    Route::get('weeks/{week}/showings', 'ShowingsController@index')->name('weeks.showings.index');
 
     Route::namespace('Website')->prefix('website')->name('website.')->group(function () {
         Route::get('pages/create', 'PagesController@create')->name('pages.create');

@@ -28,7 +28,8 @@ class CreateShowsTable extends Migration
             $table->string('cast')->nullable();
             $table->text('synopsis')->nullable();
             $table->tinyInteger('audience')->nullable();
-            $table->boolean('ignore_missing')->default(false);
+            $table->boolean('ignore_missing_data')->default(false);
+            $table->boolean('poster_is_pending')->default(false);
             $table->timestamps();
         });
     }

@@ -33,14 +33,23 @@ class VideoForm extends FormRequest
         Video $video,
         Show $show,
         bool $is_original_version,
-        Collection $request
+        Collection $input
     ): Video {
         $video->is_original_version = $is_original_version;
         $video->youtube_id =
             $video->is_original_version
-            ? $request->get('video-original')
-            : $request->get('video-dubbed');
-
-        return $show->videos()->save($video);
+            ? $input->get('video-original')
+            : $input->get('video-dubbed');
+        try {
+            $show->videos()->save($video);
+            if ($video->is_original_version) {
+                flash('Bande-annonce VO ajoutée')->success();
+            } elseif (! $video->is_original_version) {
+                flash('Bande-annonce VF ajoutée')->success();
+            }
+        } catch (\Exception $exception) {
+            flash('Échec de l\'ajout de bande(s)-annonce(s)')->error();
+        }
+        return $video;
     }
 }

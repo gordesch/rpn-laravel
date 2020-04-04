@@ -1,6 +1,7 @@
 <div class="relative mt-4 bg-white shadow overflow-hidden sm:rounded-md max-w-full mx-auto">
   @if ($videos[$version . '_version'] === [])
-    <div class="absolute inset-0" style="background-image: linear-gradient(0deg, #f4f5f7, transparent);"></div>
+    <div class="absolute inset-0" style="background-image: linear-gradient(0deg, #f4f5f7, transparent);">
+    </div>
   @endif
   <ul>
     <li>
@@ -69,10 +70,10 @@
                 </div>
                 <div class="min-w-0 flex-1 px-4 text-sm text-gray-500 leading-5">
                   <div>
-                    <div class="truncate" style="text-overflow-ellipsis: ">
-                      <span class="bg-gray-300 text-transparent rounded">
-                      {{ str_repeat('_', rand(20, 30)) }}
-                    </span>
+                    <div class="inline-flex bg-gray-300 text-transparent rounded max-w-full">
+                      <span class="truncate">
+                        {{ str_repeat('_', rand(20, 60)) }}
+                      </span>
                     </div>
                     <div class="mt-2 truncate">
                       <span class="bg-gray-300 text-transparent rounded">

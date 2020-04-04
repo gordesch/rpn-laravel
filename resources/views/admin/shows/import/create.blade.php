@@ -1,7 +1,7 @@
 <x-admin.layout title="Importation d'une fiche-film" category="shows">
   <x-slot name="titleInnerHTML">
     <div class="flex-1 flex items-center">
-      <x-admin.shows.poster :show="$show" />
+      <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="$show->id" />
       <span class="ml-3 truncate">
         {{ $show->title }}
       </span>
@@ -30,7 +30,7 @@
           <svg x-show="!open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
-          <svg x-show="open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg x-show="open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display:none;">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
           </svg>
         </div>
@@ -59,7 +59,7 @@
           <svg x-show="!open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
-          <svg x-show="open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg x-show="open" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display:none;">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
           </svg>
         </div>

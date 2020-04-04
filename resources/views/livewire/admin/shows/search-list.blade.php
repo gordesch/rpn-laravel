@@ -1,4 +1,4 @@
-<div>
+<div wire:key="{{ Request::get('search') }}">
   <div class="mb-6 text-center">
     <x-admin.layout.header.button-primary-dropdown :href="route('admin.shows.import.search.create') . '?search=' . $search">
       <x-slot name="mainInnerHTML">
@@ -26,11 +26,11 @@
         </a>
       </li>
       @foreach($shows as $show)
-        <li @if (!$loop->first) class="border-t border-gray-200" @endif>
+        <li @if (!$loop->first) class="border-t border-gray-200" @endif wire:key="{{ Request::get('search') . '_' . $loop->iteration }}">
           <a href="{{ route('admin.shows.edit', [$show]) }}" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">
-                <x-admin.shows.poster :show="$show" />
+                <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="Request::get('search') . '_' . $loop->iteration . $show->id" />
                 <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
                     <div class="text-sm leading-5 font-medium text-indigo-600 truncate">

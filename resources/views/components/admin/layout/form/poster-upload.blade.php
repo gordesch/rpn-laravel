@@ -4,7 +4,7 @@
   </label>
   <div class="mt-2 sm:mt-0 sm:col-span-2">
     <div class="flex items-center">
-      <x-admin.shows.poster :show="$show" />
+      <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="$show->id" />
       <div x-data="{ open: false }" class="ml-5 rounded-md shadow-sm">
         <button @click.prevent="open = !open"  x-show="open === false" type="button" class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
           Nouvelle affiche

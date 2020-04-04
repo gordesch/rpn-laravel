@@ -25,7 +25,7 @@ class ShowsWithMissingDataRelation extends Relation
     {
         $this
             ->query
-            ->where('ignore_missing', false)
+            ->where('ignore_missing_data', false)
             ->where(function ($query) {
                 $query
                     ->orWhereNull([

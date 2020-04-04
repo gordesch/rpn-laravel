@@ -34,11 +34,9 @@ class SearchList extends Component
         if (!isset($this->search) || $this->search == false) {
             $this->shows = Show::latest()->with('media')->limit(30)->get();
         } else {
-            $this->shows = Show::where(
-                'title',
-                'like',
-                '%' . $this->search . '%'
-            )->with('media')->limit(30)->get();
+            $this->shows = Show::search($this->search)
+                ->paginate(30)
+                ->load('media');
         }
     }
 

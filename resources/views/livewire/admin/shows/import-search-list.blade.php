@@ -1,8 +1,8 @@
-<div class="bg-white shadow overflow-hidden sm:rounded-md max-w-3xl mx-auto">
+<div class="bg-white shadow overflow-hidden sm:rounded-md max-w-3xl mx-auto" wire:key="{{ Request::get('search') }}">
   @if(count(collect($shows)))
     <ul>
       @foreach($shows as $show)
-        <li @if(!$loop->first) class="border-t border-gray-200" @endif>
+        <li @if(!$loop->first) class="border-t border-gray-200" @endif wire:key="{{ Request::get('search') . '_' . $loop->iteration }}">
           @if ($show->exists)
           <div class="block bg-gray-50 focus:outline-none transition duration-150 ease-in-out">
           @else
@@ -10,13 +10,15 @@
           @endif
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">
-                <x-admin.shows.poster :show="$show" />
+                <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="Request::get('search') . '_' . $loop->iteration . $show->ticketing_provider_id" />
                 <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
-                    <div class="text-sm leading-5 font-medium text-indigo-600 truncate">
-                      {{ $show->title }}
+                    <div class="flex text-sm leading-5 font-medium text-indigo-600">
+                      <span class="truncate">
+                        {{ $show->title }}
+                      </span>
                       @if ($show->exists)
-                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800">
+                        <span class="ml-2 inline-flex flex-shrink-0 items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800">
                           Déjà importé
                         </span>
                       @endif

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\Shows\StoreVideos;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VideoForm;
 use App\Show;
 use App\Video;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -22,37 +24,27 @@ class ShowsVideosController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @throws \Throwable
      */
-    public function update(Show $show, VideoForm $video): RedirectResponse
-    {
+    public function update(
+        Request $request,
+        Show $show,
+        StoreVideos $store_videos
+    ): RedirectResponse{
         DB::beginTransaction();
         try {
             $show->videos()->delete();
-            if (request('video-dubbed')) {
-                $video->persist(
-                    new Video(),
-                    $show,
-                    false,
-                    collect($request->all())
-                );
-                flash('Bande-annonce VF ajoutée')->success();
-            }
-            if (request('video-original')) {
-                $video->persist(
-                    new Video(),
-                    $show,
-                    true,
-                    collect($request->all())
-                );
-                flash('Bande-annonce VO ajoutée')->success();
-            }
-            if (! request('video-dubbed') && ! request('video-original')) {
+            $store_videos->execute($show, collect($request->all()));
+            if (
+                 is_null($request->get('video-dubbed'))
+                && is_null($request->get('video-original'))
+            ) {
                 flash('Bandes-annonces supprimées avec succès')->success();
             }
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
-            flash('Échec de l\'ajout de bande(s)-annonce(s)')->error();
             return redirect()->back();
         }
         return redirect()->route('admin.shows.edit', [$show]);

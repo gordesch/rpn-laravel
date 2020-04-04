@@ -32,7 +32,7 @@
           </svg>
           <span>Ressources newsletter</span>
         </a>
-        <a href="#" class="@if($selected === 'showings.index') border-indigo-500 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700 @else border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 @endif ml-8 group inline-flex items-center -mb-px py-4 px-1 border-b-4 font-medium text-sm leading-5">
+        <a href="{{ route('admin.weeks.showings.index', [$week]) }}" class="@if($selected === 'showings.index') border-indigo-500 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700 @else border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 @endif ml-8 group inline-flex items-center -mb-px py-4 px-1 border-b-4 font-medium text-sm leading-5">
           <svg class="-ml-0.5 mr-2 h-5 w-5 @if($selected === 'showings.index') text-indigo-500 @else text-gray-400 group-hover:text-gray-500 @endif" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M20,12 L20,17 L0,17 L0,12 C1.1045695,12 2,11.1045695 2,10 C2,8.8954305 1.1045695,8 0,8 L0,3 L20,3 L20,8 C18.8954305,8 18,8.8954305 18,10 C18,11.1045695 18.8954305,12 20,12 Z M3,5 L17,5 L17,15 L3,15 L3,5 Z M10,12.0831427 L7.07572273,14.118034 L8.10736797,10.7080651 L5.26841999,8.55572809 L8.83028908,8.48314266 L10,5.11803399 L11.1697109,8.48314266 L14.73158,8.55572809 L11.892632,10.7080651 L12.9242773,14.118034 L10,12.0831427 Z" clip-rule="evenodd"/>
           </svg>

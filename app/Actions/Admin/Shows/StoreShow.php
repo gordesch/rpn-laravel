@@ -29,6 +29,7 @@ class StoreShow
         $show = $this->show_form->persist();
         flash("{$show->title} a bien été créé")->success();
         $this->store_poster
+            ->updatePosterIsPending($show)
             ->onQueue()
             ->execute($show, collect($request->all()));
         $this->store_videos

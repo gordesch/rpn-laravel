@@ -10,7 +10,6 @@ class ShowingsController extends Controller
 {
     public function index(Week $week): View
     {
-        $week->load('shows_with_missing_data');
-        return view('admin.weeks.details.showings', compact('week'));
+        return view('admin.weeks.showings.index', compact('week'));
     }
 }

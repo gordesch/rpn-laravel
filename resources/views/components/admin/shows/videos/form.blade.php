@@ -3,9 +3,9 @@
 <div class="mt-8 border-t border-gray-200 pt-8 sm:mt-5 sm:pt-10 @unless(!$showIsLocalLanguage) mx-auto max-w-3xl @endunless">
   <h3 class="text-lg leading-6 font-medium text-gray-900">
     @if (!$showIsLocalLanguage)
-      Bande-annonce
-    @else
       Bandes-annonces
+    @else
+      Bande-annonce
     @endif
   </h3>
   <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
@@ -14,16 +14,22 @@
   <div class="grid grid-cols-1 gap-4 @if (!$showIsLocalLanguage) lg:grid-cols-2 @endif">
     <fieldset class="mt-6 min-w-full">
       @if (!$showIsLocalLanguage)
-        <legend class="text-sm font-medium leading-5 text-gray-700">
+        <legend class="flex items-center text-sm font-medium leading-5 text-gray-700">
           Version française
+          @if ($videos['dubbed_version'] === [])
+            <span class="ml-2 w-4 text-gray-400 spinner"></span>
+          @endif
         </legend>
       @endif
       <x-admin.shows.videos.search-list :videos="$videos" version="dubbed" />
     </fieldset>
     @if (!$showIsLocalLanguage)
       <fieldset class="mt-6 min-w-full">
-        <legend class="text-sm font-medium leading-5 text-gray-700">
+        <legend class="flex items-center text-sm font-medium leading-5 text-gray-700">
           Version originale sous-titrée
+          @if ($videos['original_version'] === [])
+            <span class="ml-2 w-4 text-gray-400 spinner"></span>
+          @endif
         </legend>
         <x-admin.shows.videos.search-list :videos="$videos" version="original" />
       </fieldset>

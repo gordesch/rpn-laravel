@@ -20,13 +20,15 @@ class StoreVideos
         $this->video_form = $video_form;
     }
 
-    public function execute(Show $show, Collection $request)
+    public function execute(Show $show, Collection $input)
     {
-        if ($request->has('video-dubbed')) {
-            $this->video_form->persist(new Video(), $show, false, $request);
+        if (! is_null($input->get('video-dubbed'))) {
+            $this->video_form
+                ->persist(new Video(), $show, false, $input);
         }
-        if ($request->has('video-original')) {
-            $this->video_form->persist(new Video(), $show, true, $request);
+        if (! is_null($input->get('video-original'))) {
+            $this->video_form
+                ->persist(new Video(), $show, true, $input);
         }
     }
 }

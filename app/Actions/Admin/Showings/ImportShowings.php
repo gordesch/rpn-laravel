@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Admin;
+namespace App\Actions\Admin\Showings;
 
 use App\Actions\Admin\Programmings\DeleteProgrammingsWithNoShowings;
 use App\Actions\Admin\Showings\DeleteComingShowings;
