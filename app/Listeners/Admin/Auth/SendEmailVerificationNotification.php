@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\Admin;
+namespace App\Listeners\Admin\Auth;
 
-use App\Events\Admin\Registered;
+use App\Events\Admin\Auth\Registered;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class SendEmailVerificationNotification

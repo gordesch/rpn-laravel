@@ -10,16 +10,8 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\UnreachableUrl;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class PosterForm extends FormRequest
+class PosterFormRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,7 +20,7 @@ class PosterForm extends FormRequest
     public function rules(): array
     {
         return [
-            // Here
+            'poster_url' => ['url', 'nullable'],
         ];
     }
 
@@ -40,10 +32,10 @@ class PosterForm extends FormRequest
         Show $show
     ): Show {
         if ($poster['type'] === 'url') {
-            return $this->persistFromUrl($poster, $show);
+            $this->persistFromUrl($poster, $show);
         }
         if ($poster['type'] === 'file') {
-            return $this->persistFromFile($poster, $show);
+            $this->persistFromFile($poster, $show);
         }
         $show->poster_is_pending = false;
         $show->save();
@@ -60,7 +52,7 @@ class PosterForm extends FormRequest
                 ->usingName($show->slug)
                 ->toMediaCollection('posters');
             flash("Affiche de <strong>{$show->title}</strong> importée avec succès")->success();
-        } catch (FileCannotBeAdded $e) {
+        } catch (FileCannotBeAdded $exception) {
             // is in fact an UnreachableUrl exception
             flash("Erreur réseau lors de l'importation de l'affiche de <strong>{$show->title}</strong>. Veuillez réessayer.")->error();
         }
@@ -77,7 +69,7 @@ class PosterForm extends FormRequest
                 ->usingName($show->slug)
                 ->toMediaCollection('posters');
             flash("Affiche de <strong>{$show->title}</strong> importée avec succès")->success();
-        } catch (FileCannotBeAdded $e) {
+        } catch (FileCannotBeAdded $exception) {
             // is in fact an UnreachableUrl exception
             flash("Erreur réseau lors de l'importation de l'affiche de <strong>{$show->title}</strong>. Veuillez réessayer.")->error();
         }

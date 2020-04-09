@@ -21,6 +21,22 @@ class Show extends Model implements HasMedia
     use ShowPresenter;
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string>
+     */
+    protected $casts = [
+        'duration_in_seconds' => 'integer',
+        'year' => 'integer',
+        'audience' => 'integer',
+        'is_local_language' => 'boolean',
+        'ignore_missing_data' => 'boolean',
+        'poster_is_pending' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<string>
@@ -82,6 +98,12 @@ class Show extends Model implements HasMedia
     public function setDurationAttribute(CarbonInterval $duration): void
     {
         $this->attributes['duration_in_seconds'] = $duration->totalSeconds;
+    }
+
+    public function pages()
+    {
+        return $this->belongsToMany('App\Page')
+            ->withPivot('raw_infos', 'infos', 'date');
     }
 
     public function programmings(): Relation

@@ -21,14 +21,15 @@
         "guzzlehttp/guzzle": "^6.0",
         "laracasts/flash": "^3.1",
         "laravel/framework": "^7.0",
-        "laravel/horizon": "^4.0",
         "laravel/scout": "^8.0",
         "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.2",
         "livewire/livewire": "^1.0",
+        "masterminds/html5": "^2.7",
         "spatie/laravel-medialibrary": "^8.0",
         "spatie/laravel-queueable-action": "^2.5",
-        "van-ons/laraberg": "^1.0"
+        "spatie/laravel-sluggable": "^2.4",
+        "wa72/htmlpagedom": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
@@ -78,7 +79,6 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan horizon:publish",
             "@php artisan telescope:publish"
         ],
         "post-root-package-install": [

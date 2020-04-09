@@ -1,4 +1,4 @@
-<div wire:key="{{ Request::get('search') }}">
+<div wire:key="{{ Request::get('search') . microtime() }}">
   <div class="mb-6 text-center">
     <x-admin.layout.header.button-primary-dropdown :href="route('admin.shows.import.search.create') . '?search=' . $search">
       <x-slot name="mainInnerHTML">

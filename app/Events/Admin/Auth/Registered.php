@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events\Admin;
+namespace App\Events\Admin\Auth;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;

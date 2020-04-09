@@ -7,16 +7,8 @@ use App\Video;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Collection;
 
-class VideoForm extends FormRequest
+class VideosFormRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,7 +17,8 @@ class VideoForm extends FormRequest
     public function rules()
     {
         return [
-            // Rules here
+            'video-dubbed' => ['string', 'nullable'],
+            'video-original' => ['string', 'nullable'],
         ];
     }
 

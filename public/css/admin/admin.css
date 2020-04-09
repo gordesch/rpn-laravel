@@ -896,7 +896,7 @@ video {
 
     font-weight: 100 900;
 
-    font-display: swap;
+    font-display: optional;
 
     font-style: normal;
 

@@ -6,16 +6,8 @@ use App\Showing;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Collection;
 
-class ShowingForm extends FormRequest
+class ShowingFormRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,13 +16,13 @@ class ShowingForm extends FormRequest
     public function rules(): array
     {
         return [
-            'ticketing_provider_id' => 'required|string|max:255',
-            'programming_id' => 'required|numeric',
-            'datetime' => 'required|date',
-            'preshow_duration_in_seconds' => 'numeric',
-            'is_original_version' => 'required|boolean',
-            'is_3d' => 'required|boolean',
-            'auditorium_number' => 'required|numeric',
+            'ticketing_provider_id' => ['required', 'string', 'max:255'],
+            'programming_id' => ['required', 'numeric'],
+            'datetime' => ['required', 'date'],
+            'preshow_duration_in_seconds' => ['numeric'],
+            'is_original_version' => ['required', 'boolean'],
+            'is_3d' => ['required', 'boolean'],
+            'auditorium_number' => ['required', 'numeric'],
         ];
     }
 
@@ -44,7 +36,7 @@ class ShowingForm extends FormRequest
         $fillables = (new Showing())->getFillable();
         Showing::insert(
             $showings->map(
-                function ($showing) use ($fillables) {
+                function (Showing $showing) use ($fillables) {
                     return $showing->only($fillables);
                 }
             )->all()

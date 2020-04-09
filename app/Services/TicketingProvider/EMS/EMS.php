@@ -120,6 +120,7 @@ class EMS implements TicketingProvider
             $this->config['username'],
             $this->config['password'],
         )->get($this->config['endpoint'])->throw();
+        file_put_contents('prog.txt', $response->body());
         return (string) $response->body();
     }
 }

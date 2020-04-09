@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Weeks;
 
-use App\Http\Requests\ShowForm;
+use App\Http\Requests\ShowFormRequest;
 use App\Show;
 use Livewire\Component;
 
@@ -25,7 +25,7 @@ class ShowsState extends Component
 
     public function sync(): void
     {
-        $show = new ShowForm();
+        $show = new ShowFormRequest();
         $this->show = $show->synchronize($this->show);
         $this->refreshVideosCount();
         $this->emit('show-updated');

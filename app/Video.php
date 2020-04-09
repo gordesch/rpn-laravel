@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Video extends Model
 {
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string>
+     */
+    protected $casts = [
+        'is_original_version' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<string>

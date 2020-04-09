@@ -8,6 +8,21 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Showing extends Model
 {
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string>
+     */
+    protected $casts = [
+        'datetime' => 'datetime',
+        'is_original_version' => 'boolean',
+        'is_3d' => 'boolean',
+        'preshow_duration_in_seconds' => 'integer',
+        'auditorium_number' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<string>
@@ -20,17 +35,6 @@ class Showing extends Model
         'is_original_version',
         'is_3d',
         'auditorium_number',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array<string>
-     */
-    protected $casts = [
-        'datetime' => 'datetime',
-        'is_original_version' => 'boolean',
-        'is_3d' => 'boolean',
     ];
 
     public function programming(): Relation

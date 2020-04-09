@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 class Programming extends Model
 {
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string>
+     */
+    protected $casts = [
+        'is_dubbed_version' => 'boolean',
+        'is_original_version' => 'boolean',
+        'is_2d' => 'boolean',
+        'is_3d' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<string>

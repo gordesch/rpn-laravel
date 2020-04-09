@@ -23,7 +23,7 @@ class SearchInput extends Component
     public function mount(): void
     {
         $search = request()->query('search', '');
-        if (!is_array($search)) {
+        if (! is_array($search)) {
             $this->search = (string) $search;
         }
     }

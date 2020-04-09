@@ -23,7 +23,7 @@ class SearchList extends Component
     public function mount(): void
     {
         $search = request()->query('search', '');
-        if (!is_array($search)) {
+        if (! is_array($search)) {
             $this->search = (string) $search;
         }
         $this->updateShows();
@@ -31,7 +31,7 @@ class SearchList extends Component
 
     public function updateShows(): void
     {
-        if (!isset($this->search) || $this->search == false) {
+        if (! isset($this->search) || $this->search === '') {
             $this->shows = Show::latest()->with('media')->limit(30)->get();
         } else {
             $this->shows = Show::search($this->search)

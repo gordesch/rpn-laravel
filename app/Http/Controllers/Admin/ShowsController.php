@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Actions\Admin\Shows\StoreShow;
-use App\Actions\Admin\Shows\StoreVideos;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PosterForm;
-use App\Http\Requests\ShowForm;
-use App\Http\Requests\VideoForm;
-use App\Integration\Database\Post;
+use App\Http\Requests\PosterFormRequest;
+use App\Http\Requests\ShowFormRequest;
+use App\Http\Requests\VideosFormRequest;
+use App\Jobs\Admin\Shows\StoreShowJob;
 use App\Show;
-use App\Video;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ShowsController extends Controller
@@ -27,14 +23,14 @@ class ShowsController extends Controller
         return view('admin.shows.create')->with(['show' => new Show()]);
     }
 
-    public function store(
-        Request $request,
-        StoreShow $store_show
-    ): RedirectResponse {
-        app()->make(ShowForm::class);
-        app()->make(PosterForm::class);
-        app()->make(VideoForm::class);
-        $store_show->execute($request);
+    /**
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    public function store(ShowFormRequest $request): RedirectResponse
+    {
+        app()->make(PosterFormRequest::class);
+        app()->make(VideosFormRequest::class);
+        StoreShowJob::dispatchNow(collect($request->all()));
         return redirect()->route('admin.shows.index');
     }
 
@@ -43,11 +39,15 @@ class ShowsController extends Controller
         return view('admin.shows.edit')->with(['show' => $show]);
     }
 
-    public function update(Show $show, ShowForm $form): RedirectResponse
-    {
-        $form->update($show);
-        flash("{$show->title} a bien été mis à jour")->success();
-
+    /**
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    public function update(
+        Show $show,
+        ShowFormRequest $request
+    ): RedirectResponse {
+        app()->make(PosterFormRequest::class);
+        StoreShowJob::dispatchNow(collect($request->all()), $show);
         return redirect()->route('admin.shows.index');
     }
 

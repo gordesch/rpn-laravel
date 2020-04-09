@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Showings;
 
 use App\Show;
 use App\Showing;
+use App\Week;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\View\View;
@@ -14,30 +15,43 @@ class Table extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
-    public $week_id = null;
-    public $show_id = null;
-    public $date = null;
-    public $time = null;
+    public int $perPage = 10;
+    public ?string $week_id = null;
+    public ?string $show_id = null;
+    public ?string $date = null;
+    public ?string $time = null;
 
-    public function mount($week): void
+    public function mount(?Week $week = null): void
     {
-        $this->week_id = $week->id;
+        $this->week_id = (string) optional($week)->id;
     }
 
-    public function updatedWeekId($week_id)
+    public function updatedWeekId(): void
     {
         $this->show_id = $this->date = $this->time = null;
+        $this->page = 1;
     }
 
-    public function updatedShowId($show_id)
+    public function updatedShowId(): void
     {
         $this->date = $this->time = null;
+        $this->page = 1;
     }
 
-    public function updatedDate($date)
+    public function updatedDate(): void
     {
         $this->time = null;
+        $this->page = 1;
+    }
+
+    public function previousPage()
+    {
+         $this->page -= $this->page === 1 ? 0 : 1;
+    }
+
+    public function nextPage()
+    {
+        $this->page += 1;
     }
 
     public function render(): View

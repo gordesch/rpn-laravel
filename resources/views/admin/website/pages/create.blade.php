@@ -10,22 +10,58 @@
 
   <form id="form" method="post" action="{{ route('admin.website.pages.store') }}">
     @csrf
-    <button type="submit">créer</button>
-    <fieldset class="bg-white">
-      <textarea id="content" name="content" hidden></textarea>
-    </fieldset>
+    <div class="px-4 sm:px-0">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Informations principales</h3>
+      <p class="mt-1 text-sm leading-5 text-gray-500">
+        Renseignez ici les informations concernant le contenu de la page.
+      </p>
+    </div>
+    <div class="mt-5">
+      <div class="shadow sm:rounded-md sm:overflow-hidden">
+        <div class="px-4 py-5 bg-white sm:p-6">
+          <label for="title" class="block text-sm font-medium leading-5 text-gray-700">Titre</label>
+          <input
+            id="title"
+            name="title"
+            class="max-w-lg mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+            required
+          />
+
+          <div class="mt-6">
+            <p class="block text-sm font-medium leading-5 text-gray-700">Contenu</p>
+            <div class="mt-1 relative" style="min-height: {{ 200+26 }}px;">
+              <x:admin.layout.editor.quill name="content" form="form" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Films associés</h3>
+        <p class="mt-1 text-sm leading-5 text-gray-500">
+          Sélectionnez ici les films qui seront associés à la page.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="flex bg-white px-4 py-5 sm:p-6 shadow sm:rounded-md">
+        <livewire:admin.shows.select />
+        <input
+          type="text"
+          class="block w-full h-16 px-3 py-2 border border-gray-300 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm transition duration-150 ease-in-out shadow-sm"
+          placeholder="{{ Carbon\Carbon::now()->isoFormat('DD/MM/YYYY') }}"
+          pattern="(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(20)\d\d"
+        >
+      </div>
+      <x:admin.layout.editor.quill name="show_raw_content" form="form" />
+    </div>
   </form>
 
 
   <x-slot name="scripts">
-    <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-    <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
-    <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
-    <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        Laraberg.init('content')
-      });
-    </script>
+
   </x-slot>
 </x-admin.layout>

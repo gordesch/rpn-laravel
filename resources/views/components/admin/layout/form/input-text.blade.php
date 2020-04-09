@@ -1,4 +1,4 @@
-@props(['title', 'name', 'value', 'attrs', 'width', 'state', 'help'])
+@props(['title', 'name', 'value' => null, 'attrs' => null, 'width', 'state' => null, 'help'])
 
 <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
   <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">

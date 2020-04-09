@@ -23,7 +23,7 @@ trait MatchesShows
         $matches = new Collection(request('match'));
 
         $this->shows = $this->shows->map(
-            function (Show $show) use ($matches) {
+            function ($show) use ($matches) {
                 if (isset($show->ticketing_provider_id) && isset($show->id)) {
                     // Matching is already done
                     return $show;
@@ -34,7 +34,7 @@ trait MatchesShows
                     $matching_show = Show::select([
                         'id',
                         'slug',
-                        'ticketing_provider_id'
+                        'ticketing_provider_id',
                     ])->where(
                         'ticketing_provider_id',
                         $show->ticketing_provider_id

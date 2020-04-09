@@ -1,0 +1,14 @@
+{
+    "sites": [
+        {
+            "id": "2291891",
+            "name": "Royal Palace",
+            "address": "165, grande rue Charles-de-Gaulle",
+            "zip_code": "94130",
+            "city": "Nogent-sur-Marne",
+            "super_billets": [],
+            "events": []
+        }
+    ],
+    "version": 1586007781
+}
