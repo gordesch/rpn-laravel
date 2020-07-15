@@ -20,7 +20,7 @@ trait CastsToShowing
      * Returns a showing
      *
      * @param object $ems_showing
-     * @param Show $show
+     * @param object $show
      * @param Collection $weeks
      * @param Collection $programmings
      *
@@ -28,7 +28,7 @@ trait CastsToShowing
      */
     public static function toShowing(
         object $ems_showing,
-        Show $show,
+        object $show,
         Collection &$weeks,
         Collection &$programmings
     ): Showing {

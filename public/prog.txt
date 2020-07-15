@@ -7,8 +7,2562 @@
             "zip_code": "94130",
             "city": "Nogent-sur-Marne",
             "super_billets": [],
-            "events": []
+            "events": [
+                {
+                    "id": "PTMV5",
+                    "title": "LA BONNE EPOUSE",
+                    "director": "Martin Provost",
+                    "actors": "Juliette Binoche, Yolande Moreau, No\u00e9mie Lvovsky, Edouard Baer, Fran\u00e7ois Berl\u00e9and",
+                    "release_date": "20200311",
+                    "genres": "comedy,drama,social,satirical",
+                    "localized_genres": "Com\u00e9die, Drame, Social, satirique",
+                    "synopsis": " Tenir son foyer et se plier au devoir conjugal sans fl\u00e9chir : c\u2019est ce qu\u2019enseigne avec ardeur Paulette Van Der Beck dans son \u00e9cole m\u00e9nag\u00e8re. Ses certitudes vacillent quand elle se retrouve veuve et ruin\u00e9e. Est-ce le retour de son premier amour ou le vent de libert\u00e9 de mai 68 ? Et si la bonne \u00e9pouse devenait enfin une femme libre ?",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/6CA89056\/120\/PTMV5.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/11\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/12\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/13\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/14\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/15\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/16\/120\/PTMV5.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/17\/120\/PTMV5.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 109,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRPTMV5&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087525",
+                            "date": "202007031615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87525&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087526",
+                            "date": "202007031845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87526&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087549",
+                            "date": "202007041615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87549&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087550",
+                            "date": "202007041845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87550&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087570",
+                            "date": "202007051615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87570&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087571",
+                            "date": "202007051845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87571&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087594",
+                            "date": "202007061615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87594&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087595",
+                            "date": "202007061845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87595&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087624",
+                            "date": "202007071615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87624&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087625",
+                            "date": "202007071845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87625&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087679",
+                            "date": "202007081600",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87679&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087680",
+                            "date": "202007081830",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87680&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "WBKXO",
+                    "title": "Une sir\u00e8ne \u00e0 Paris",
+                    "director": "Mathias Malzieu",
+                    "actors": "Tch\u00e9ky Karyo, Rossy de Palma, Marilyn Lima, Romane Bohringer, Alexis Michalik, Nicolas Duvauchelle, Lou Gala, Nicolas Ullmann",
+                    "release_date": "20200311",
+                    "genres": "fantasy,drama,romance,comedy,horror",
+                    "localized_genres": "Fantastique, Drame, Romance, Com\u00e9die, Horreur",
+                    "synopsis": "Crooner au c\u0153ur bris\u00e9, Gaspard s\u2019\u00e9tait jur\u00e9 de ne plus retomber amoureux. Quant \u00e0 Lula, jolie sir\u00e8ne, elle n\u2019a que le chant pour se d\u00e9fendre des hommes, en faisant s\u2019emballer leur c\u0153ur jusqu\u2019\u00e0 l\u2019explosion. Lorsque la Seine en crue vient d\u00e9poser Lula au pied du Flowerburger, la p\u00e9niche-cabaret o\u00f9 chante Gaspard, c\u2019est un mini-tsunami qui va bouleverser leur existence. Lui, l\u2019homme qui a souffert d\u2019avoir trop aim\u00e9, et elle, la cr\u00e9ature qui n\u2019a jamais connu l\u2019amour, vont apprendre \u00e0 se conna\u00eetre. Et \u00e0 chanter d\u2019une m\u00eame voix\u2026",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/7704F9E0\/120\/WBKXO.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/WBKXO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/WBKXO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/WBKXO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/WBKXO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/WBKXO.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 102,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRWBKXO&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087634",
+                            "date": "202007071630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87634&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087535",
+                            "date": "202007031630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87535&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087559",
+                            "date": "202007041630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87559&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087580",
+                            "date": "202007051630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87580&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087604",
+                            "date": "202007061630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87604&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "3DOP9",
+                    "title": "La Communion",
+                    "director": "Jan Komasa",
+                    "actors": "Bartosz Bielenia, Aleksandra Konieczna, Eliza Rycembel, Tomasz Zi\u0119tek, Leszek Lichota, Barbara Kurzaj, \u0141ukasz Simlat, Zdzis\u0142aw Wardejn, Anna Biernacik, Lidia Bogacz, Bogdan Brzyski",
+                    "release_date": "20200304",
+                    "genres": "drama,history",
+                    "localized_genres": "Drame, Histoire",
+                    "synopsis": " Daniel, 20 ans, se d\u00e9couvre une vocation spirituelle dans un centre de d\u00e9tention pour la jeunesse mais le crime qu'il a commis l'emp\u00eache d'acc\u00e9der aux \u00e9tudes de s\u00e9minariste. Envoy\u00e9 dans une petite ville pour travailler dans un atelier de menuiserie, il se fait passer pour un pr\u00eatre et prend la t\u00eate de la paroisse. L'arriv\u00e9e du jeune et charismatique pr\u00e9dicateur bouscule alors cette petite communaut\u00e9 conservatrice.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/CDDA7B8E\/120\/3DOP9.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/3DOP9.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/3DOP9.jpg"
+                    ],
+                    "certification_id": "R12",
+                    "duration": 115,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FR3DOP9&ps=EMS0809",
+                    "country": "PL",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087539",
+                            "date": "202007031615",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87539&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087563",
+                            "date": "202007041615",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87563&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087584",
+                            "date": "202007051615",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87584&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087608",
+                            "date": "202007061615",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87608&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087638",
+                            "date": "202007071615",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87638&ps=EMS0809"
+                        }
+                    ]
+                },
+                {
+                    "id": "243ML",
+                    "title": "Nous, les chiens",
+                    "director": "Oh Sung-yoon, Lee Choon-baek",
+                    "actors": "Doh Kyung-soo, Park So-dam, Park Chul-min, Kang Seok, Lee Jun-hyeok, Yeon Ji-won, Jeon Sook-kyung, Park Jung-geum",
+                    "release_date": "20200622",
+                    "genres": "animation,adventure,family,kids",
+                    "localized_genres": "Animation, Aventure, Familial, Enfants",
+                    "synopsis": "Le chien est le meilleur ami de l'homme. Affectueux, fid\u00e8le\u2026 mais lorsqu'il vieillit ou se comporte mal, il est parfois abandonn\u00e9 comme un mouchoir souill\u00e9. Et lorsqu'il se retrouve seul face \u00e0 la nature, l'instinct animal et l'esprit animal reprennent le dessus. Solidaire, d\u00e9termin\u00e9e, notre petite bande de chiens errants va peu \u00e0 peu r\u00e9apprendre \u00e0 se d\u00e9brouiller seule. Et d\u00e9couvrir la libert\u00e9, au cours d'un extraordinaire voyage.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/C099A820\/120\/243ML.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/243ML.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/243ML.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/243ML.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 102,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FR243ML&ps=EMS0809",
+                    "country": "KR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087560",
+                            "date": "202007041345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87560&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087581",
+                            "date": "202007051345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87581&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087605",
+                            "date": "202007061345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87605&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087685",
+                            "date": "202007081630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87685&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "XXH9U",
+                    "title": "De Gaulle",
+                    "director": "Gabriel Le Bomin",
+                    "actors": "Lambert Wilson, Isabelle Carr\u00e9, Andrew Bicknell, Olivier Gourmet, Sophie Quinton, Catherine Mouchet, Nicolas Robin, Gilles Cohen, Laurent Stocker",
+                    "release_date": "20200622",
+                    "genres": "history,drama,war,biopic,biography,political",
+                    "localized_genres": "Histoire, Drame, Guerre, Biopic, Biographie, Politique",
+                    "synopsis": " 1940. De\u00a0Gaulle s\u2019oppose \u00e0 P\u00e9tain car il souhaite poursuivre l\u2019offensive militaire. \u00c0 Colombey, Yvonne, sa femme, est contrainte de partir. La famille conna\u00eet les routes de l\u2019exode jusqu\u2019en Bretagne. Alors que l\u2019armistice se profile, de\u00a0Gaulle choisit de partir \u00e0 Londres o\u00f9 Churchill, qui devient un alli\u00e9, lui permet de parler \u00e0 la BBC le 18 juin. Yvonne et Charles finissent par se retrouver, apr\u00e8s un long p\u00e9riple, dans la capitale londonienne.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/F71DD0CD\/120\/XXH9U.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/XXH9U.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/XXH9U.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 108,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRXXH9U&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087569",
+                            "date": "202007051845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87569&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087592",
+                            "date": "202007061630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87592&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087593",
+                            "date": "202007061845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87593&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087622",
+                            "date": "202007071630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87622&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087623",
+                            "date": "202007071845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87623&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087523",
+                            "date": "202007031630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87523&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087547",
+                            "date": "202007041630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87547&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087548",
+                            "date": "202007041845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87548&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087568",
+                            "date": "202007051630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87568&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087524",
+                            "date": "202007031845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87524&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087682",
+                            "date": "202007081400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87682&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087683",
+                            "date": "202007081930",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87683&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "P00MV",
+                    "title": "Invisible Man",
+                    "director": "Leigh Whannell",
+                    "actors": "Elisabeth Moss, Aldis Hodge, Storm Reid, Michael Dorman, Harriet Dyer",
+                    "release_date": "20200622",
+                    "genres": "horror,fantasy,thriller,science_fiction,suspense",
+                    "localized_genres": "Horreur, Fantastique, Thriller, Science-Fiction, Suspense",
+                    "synopsis": "Cecilia Kass est en couple avec un brillant et riche scientifique. Ne supportant plus son comportement violent et tyrannique, elle prend la fuite une nuit et se r\u00e9fugie aupr\u00e8s de sa s\u0153ur, leur ami d'enfance et sa fille adolescente. Mais quand l'homme se suicide en laissant \u00e0 Cecilia une part importante de son immense fortune, celle-ci commence \u00e0 se demander s'il est r\u00e9ellement mort. Tandis qu'une s\u00e9rie de co\u00efncidences inqui\u00e9tantes menace la vie des \u00eatres qu'elle aime, Cecilia cherche d\u00e9sesp\u00e9r\u00e9ment \u00e0 prouver qu'elle est traqu\u00e9e par un homme que nul ne peut voir. Peu \u00e0 peu, elle a le sentiment que sa raison vacille\u2026",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/AB9C98C8\/120\/P00MV.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/P00MV.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/P00MV.jpg"
+                    ],
+                    "certification_id": "R12",
+                    "duration": 125,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRP00MV&ps=EMS0809",
+                    "country": "US",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087532",
+                            "date": "202007031845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87532&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087533",
+                            "date": "202007032100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87533&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087556",
+                            "date": "202007041845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87556&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087557",
+                            "date": "202007042100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87557&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087577",
+                            "date": "202007051845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87577&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087578",
+                            "date": "202007052100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87578&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087601",
+                            "date": "202007061845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87601&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087602",
+                            "date": "202007062100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87602&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087631",
+                            "date": "202007071845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87631&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087632",
+                            "date": "202007072100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87632&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "WZ8FH",
+                    "title": "Filles de joie",
+                    "director": "Anne Paulicevich, Fr\u00e9d\u00e9ric Fonteyne",
+                    "actors": "No\u00e9mie Lvovsky, Sara Forestier, Annabelle Lengronne, Salom\u00e9 Dewaels, Jonas Bloquet",
+                    "release_date": "20200622",
+                    "genres": "drama,comedy,social",
+                    "localized_genres": "Drame, Com\u00e9die, Social",
+                    "synopsis": " Lors d'un \u00e9t\u00e9 caniculaire,\u00a0 Axelle, Conso et Dominique traversent tous les jours la fronti\u00e8re franco-belge pour se prostituer en Belgique afin de continuer \u00e0 vivre \u00e0 Roubaix.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/B949A151\/120\/WZ8FH.jpg",
+                    "trailer_url": "access denied",
+                    "certification_id": "R12",
+                    "duration": 91,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRWZ8FH&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087616",
+                            "date": "202007031630",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87616&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087540",
+                            "date": "202007031845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87540&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087564",
+                            "date": "202007041845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87564&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087585",
+                            "date": "202007051845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87585&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087609",
+                            "date": "202007061845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87609&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087639",
+                            "date": "202007071845",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87639&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "IJCU2",
+                    "title": "L'Ombre de Staline",
+                    "director": "Agnieszka Holland",
+                    "actors": "James Norton, Vanessa Kirby, Peter Sarsgaard, Joseph Mawle, Fenella Woolgar",
+                    "release_date": "20200622",
+                    "genres": "drama,history,thriller,biopic,biography",
+                    "localized_genres": "Drame, Histoire, Thriller, Biopic, Biographie",
+                    "synopsis": "Pour un journaliste d\u00e9butant, Gareth Jones ne manque pas de culot. Apr\u00e8s avoir d\u00e9croch\u00e9 une interview d\u2019Hitler qui vient tout juste d\u2019acc\u00e9der au pouvoir, il d\u00e9barque en 1933 \u00e0 Moscou, afin d'interviewer Staline sur le fameux miracle sovi\u00e9tique. A son arriv\u00e9e, il d\u00e9chante : anesth\u00e9si\u00e9s par la propagande, ses contacts occidentaux se d\u00e9robent, il se retrouve surveill\u00e9 jour et nuit, et son principal interm\u00e9diaire dispara\u00eet. Une source le convainc alors de s'int\u00e9resser \u00e0 l'Ukraine. Parvenant \u00e0 fuir, il saute dans un train, en route vers une v\u00e9rit\u00e9 inimaginable...",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/A935EB9F\/120\/IJCU2.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/IJCU2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/IJCU2.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 119,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRIJCU2&ps=EMS0809",
+                    "country": "PL",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087528",
+                            "date": "202007031900",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87528&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087552",
+                            "date": "202007041900",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87552&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087572",
+                            "date": "202007051345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87572&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087627",
+                            "date": "202007071900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87627&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087551",
+                            "date": "202007041345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87551&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087573",
+                            "date": "202007051900",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87573&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087596",
+                            "date": "202007061345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87596&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087597",
+                            "date": "202007061900",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87597&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087626",
+                            "date": "202007071345",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87626&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087681",
+                            "date": "202007082045",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87681&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "NLSNO",
+                    "title": "Benni",
+                    "director": "Nora Fingscheidt",
+                    "actors": "Helena Zengel, Albrecht Schuch, Gabriela Maria Schmeide, Lisa Hagmeister, Maryam Zaree",
+                    "release_date": "20200622",
+                    "genres": "drama",
+                    "localized_genres": "Drame",
+                    "synopsis": "Benni a neuf ans. N\u00e9glig\u00e9e par sa m\u00e8re, elle est enferm\u00e9e depuis sa petite enfance dans une violence qu\u2019elle n\u2019arrive plus \u00e0 contenir. Prise en charge par les services sociaux, elle n\u2019aspire pourtant qu\u2019\u00e0 \u00eatre prot\u00e9g\u00e9e et retrouver l\u2019amour maternel qui lui manque tant. De foyer en foyer, son assistante sociale et Micha, un \u00e9ducateur, tenteront tout pour calmer ses blessures et l\u2019aider \u00e0 trouver une place dans le monde.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/8DAF85A6\/120\/NLSNO.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/11\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/12\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/13\/120\/NLSNO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/14\/120\/NLSNO.jpg"
+                    ],
+                    "certification_id": "A",
+                    "duration": 118,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRNLSNO&ps=EMS0809",
+                    "country": "DE",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087537",
+                            "date": "202007031600",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87537&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087561",
+                            "date": "202007041600",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87561&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087582",
+                            "date": "202007051600",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87582&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087606",
+                            "date": "202007061600",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87606&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087636",
+                            "date": "202007071600",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87636&ps=EMS0809"
+                        }
+                    ]
+                },
+                {
+                    "id": "UMOYH",
+                    "title": "Un fils",
+                    "director": "Mehdi M. Barsaoui",
+                    "actors": "Sami Bouajila, Najla Ben Abdallah, Youssef Khemiri, Noomene Hamda, Slah Msaddek",
+                    "release_date": "20200311",
+                    "genres": "drama,thriller,social,family",
+                    "localized_genres": "Drame, Thriller, Social, Familial",
+                    "synopsis": " Far\u00e8s et Meriem forment avec Aziz, leur fils de 10 ans, une famille tunisienne moderne issue d\u2019un milieu privil\u00e9gi\u00e9. Lors d\u2019une vir\u00e9e dans le sud de la Tunisie, leur voiture est prise pour cible par un groupe terroriste et le jeune gar\u00e7on est gri\u00e8vement bless\u00e9...",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/BDF9D979\/120\/UMOYH.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/UMOYH.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/UMOYH.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 96,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRUMOYH&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087541",
+                            "date": "202007032130",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87541&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087565",
+                            "date": "202007042130",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87565&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087586",
+                            "date": "202007052130",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87586&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087610",
+                            "date": "202007062130",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87610&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087640",
+                            "date": "202007072130",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87640&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "QMTBO",
+                    "title": "Les Parfums",
+                    "director": "Gr\u00e9gory MAGNE",
+                    "actors": "Emmanuelle Devos, Gr\u00e9gory Montel, Gustave Kervern, Sergi L\u00f3pez, Z\u00e9lie Rixhon, Eva Chico Veiga, William Sciortino, Pauline Moul\u00e8ne",
+                    "release_date": "20200701",
+                    "genres": "comedy,drama",
+                    "localized_genres": "Com\u00e9die, Drame",
+                    "synopsis": "Anne Walberg est une c\u00e9l\u00e9brit\u00e9 dans le monde du parfum. Elle cr\u00e9e des fragrances et vend son incroyable talent \u00e0 des soci\u00e9t\u00e9s en tout genre. Elle vit en diva, \u00e9go\u00efste, au temp\u00e9rament bien tremp\u00e9. Guillaume est son nouveau chauffeur et le seul qui n\u2019a pas peur de lui tenir t\u00eate. Sans doute la raison pour laquelle elle ne le renvoie pas.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/3142A664\/120\/QMTBO.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/QMTBO.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/11\/120\/QMTBO.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 100,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRQMTBO&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087519",
+                            "date": "202007031400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87519&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087531",
+                            "date": "202007032115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87531&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087543",
+                            "date": "202007041400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87543&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087544",
+                            "date": "202007041900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87544&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087555",
+                            "date": "202007042115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87555&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087650",
+                            "date": "202007051100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87650&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087520",
+                            "date": "202007031900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87520&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087589",
+                            "date": "202007051900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87589&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087612",
+                            "date": "202007061400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87612&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087613",
+                            "date": "202007061900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87613&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087600",
+                            "date": "202007062115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87600&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087642",
+                            "date": "202007071400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87642&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087643",
+                            "date": "202007071900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87643&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087630",
+                            "date": "202007072115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87630&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087588",
+                            "date": "202007051400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87588&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087576",
+                            "date": "202007052115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87576&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087677",
+                            "date": "202007081615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87677&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087678",
+                            "date": "202007081345",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87678&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "4FZCL",
+                    "title": "En avant",
+                    "director": "Dan Scanlon",
+                    "actors": "Tom Holland, Chris Pratt, Julia Louis-Dreyfus, Octavia Spencer, Mel Rodriguez, Kyle Bornheimer, Lena Waithe, Ali Wong, Grey DeLisle, Tracey Ullman, Wilmer Valderrama, John Ratzenberger, George Psarras",
+                    "release_date": "20200304",
+                    "genres": "animation,fantasy,kids,family,adventure,comedy",
+                    "localized_genres": "Animation, Fantastique, Enfants, Familial, Aventure, Com\u00e9die",
+                    "synopsis": "Dans la banlieue d'un univers imaginaire, deux fr\u00e8res elfes se lancent dans une qu\u00eate extraordinaire pour d\u00e9couvrir s'il reste encore un peu de magie dans le monde.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/AA72CD42\/120\/4FZCL.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/11\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/12\/120\/4FZCL.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/13\/120\/4FZCL.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 102,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FR4FZCL&ps=EMS0809",
+                    "country": "US",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087558",
+                            "date": "202007041415",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87558&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087647",
+                            "date": "202007051100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87647&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087579",
+                            "date": "202007051415",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87579&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087603",
+                            "date": "202007061415",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87603&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087633",
+                            "date": "202007071415",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87633&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087534",
+                            "date": "202007031415",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87534&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087686",
+                            "date": "202007081400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87686&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087687",
+                            "date": "202007081615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87687&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "R4BN3",
+                    "title": "La Petite taupe aime la nature",
+                    "director": "Zden\u011bk Miler",
+                    "release_date": "20200622",
+                    "genres": "animation",
+                    "localized_genres": "Animation",
+                    "synopsis": "L\u2019embl\u00e9matique et ind\u00e9modable Petite Taupe revient au cin\u00e9ma avec 3 aventures in\u00e9dites  ! Soucieuse de l\u2019environnement et de la pr\u00e9servation de la nature, La Petite Taupe et ses amis vont ravir une nouvelle g\u00e9n\u00e9ration de jeunes spectateurs !",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/F1916B59\/120\/R4BN3.jpg",
+                    "trailer_url": "access denied",
+                    "certification_id": "A3",
+                    "duration": 43,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRR4BN3&ps=EMS0809",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087618",
+                            "date": "202007041730",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87618&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087562",
+                            "date": "202007041615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87562&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087583",
+                            "date": "202007051615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87583&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087619",
+                            "date": "202007051730",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87619&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087607",
+                            "date": "202007061615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87607&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087620",
+                            "date": "202007061730",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87620&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087637",
+                            "date": "202007071615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87637&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087645",
+                            "date": "202007071730",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87645&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "U6AKY",
+                    "title": "Brooklyn Secret",
+                    "director": "Isabel Sandoval",
+                    "actors": "Isabel Sandoval, Lynn Cohen, Eamon Farren, Lev Gorn, Ivory Aquino, P.J. Boudousqu\u00e9",
+                    "release_date": "20200701",
+                    "genres": "drama,social",
+                    "localized_genres": "Drame, Social",
+                    "synopsis": "Olivia travaille comme soignante aupr\u00e8s d\u2019Olga, une grand-m\u00e8re russe ashk\u00e9naze de Brighton Beach \u00e0 Brooklyn. Fragilis\u00e9e par sa situation d\u2019immigrante philippine, elle paie secr\u00e8tement un Am\u00e9ricain pour organiser un mariage blanc. Alors que celui-ci se r\u00e9tracte, elle rencontre Alex, le petit fils d\u2019Olga, avec qui elle ose enfin vivre une v\u00e9ritable histoire d\u2019amour\u2026",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/AAB61872\/120\/U6AKY.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/U6AKY.jpg"
+                    ],
+                    "certification_id": "ALL",
+                    "duration": 90,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRU6AKY&ps=EMS0809",
+                    "country": "US",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087614",
+                            "date": "202007062130",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87614&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087521",
+                            "date": "202007032130",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87521&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087546",
+                            "date": "202007041345",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87546&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087545",
+                            "date": "202007042130",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87545&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087648",
+                            "date": "202007051115",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87648&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087567",
+                            "date": "202007051345",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87567&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087590",
+                            "date": "202007052130",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87590&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087591",
+                            "date": "202007061345",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87591&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087621",
+                            "date": "202007071345",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87621&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087644",
+                            "date": "202007072130",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87644&ps=EMS0809"
+                        }
+                    ]
+                },
+                {
+                    "id": "OBCEU",
+                    "title": "Irresistible",
+                    "director": "Jon Stewart",
+                    "actors": "Steve Carell, Rose Byrne, Chris Cooper, Brent Sexton, Mackenzie Davis",
+                    "release_date": "20200701",
+                    "genres": "comedy,drama,satirical,political",
+                    "localized_genres": "Com\u00e9die, Drame, satirique, Politique",
+                    "synopsis": "Un consultant politique d\u00e9mocrate aide un ancien colonel de la Marine dans son \u00e9lection \u00e0 la mairie d'une ville du Wisconsin.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/AEDA268E\/120\/OBCEU.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/OBCEU.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/OBCEU.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/OBCEU.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/OBCEU.jpg"
+                    ],
+                    "duration": 101,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FROBCEU&ps=EMS0809",
+                    "country": "US",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087529",
+                            "date": "202007031400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87529&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087530",
+                            "date": "202007032100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87530&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087553",
+                            "date": "202007041400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87553&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087554",
+                            "date": "202007042100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87554&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087652",
+                            "date": "202007051100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87652&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087574",
+                            "date": "202007051400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87574&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087575",
+                            "date": "202007052100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87575&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087598",
+                            "date": "202007061400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87598&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087599",
+                            "date": "202007062100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87599&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087628",
+                            "date": "202007071400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87628&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087629",
+                            "date": "202007072100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87629&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087684",
+                            "date": "202007082045",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87684&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "34N0R",
+                    "title": "Monos",
+                    "director": "Alejandro Landes",
+                    "actors": "Mois\u00e9s Arias, Julianne Nicholson, Sofia Buenaventura, Karen Quintero, Julian Giraldo, Laura Castrill\u00f3n, Deibi Rueda, Paul Cubides, Sneider Castro, Wilson Salazar, Jorge Rom\u00e1n",
+                    "release_date": "20200304",
+                    "genres": "drama,thriller",
+                    "localized_genres": "Drame, Thriller",
+                    "synopsis": "Un groupe rebelle appel\u00e9 \u00abl\u2019Organisation\u00bb, une bande d\u2019enfants soldats brandissant des fusils et portant des noms de guerre comme Rambo, Wolf, Lady et Bigfoot, occupe une ruine abandonn\u00e9e au sommet d\u2019une montagne isol\u00e9e o\u00f9 ils s\u2019entra\u00eenent. Ils veillent sur un conscrit et tiennent en otage Sara Watson, une ing\u00e9nieure am\u00e9ricaine. Mais une attaque les force \u00e0 abandonner leur base : la r\u00e9cr\u00e9ation est termin\u00e9e pour le jeune \u00e9quipage h\u00e9t\u00e9roclite...",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/01F2E707\/120\/34N0R.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/34N0R.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/34N0R.jpg"
+                    ],
+                    "certification_id": "R12",
+                    "duration": 103,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FR34N0R&ps=EMS0809",
+                    "country": "CO",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087542",
+                            "date": "202007032100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87542&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087566",
+                            "date": "202007042100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87566&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087651",
+                            "date": "202007051100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87651&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087587",
+                            "date": "202007052100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87587&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087611",
+                            "date": "202007062100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87611&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087646",
+                            "date": "202007071400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87646&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087641",
+                            "date": "202007072100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87641&ps=EMS0809"
+                        }
+                    ]
+                },
+                {
+                    "id": "C6ZI2",
+                    "title": "Les Mal-aim\u00e9s",
+                    "director": "Helene Ducrocq",
+                    "release_date": "20200916",
+                    "genres": "animation",
+                    "localized_genres": "Animation",
+                    "synopsis": "Programme de 4 courts m\u00e9trages d'animation.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/47B8CECC\/120\/C6ZI2.jpg",
+                    "certification_id": "A3",
+                    "duration": 40,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRC6ZI2&ps=EMS0809",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087649",
+                            "date": "202007051100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 3,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87649&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "I32U3",
+                    "title": "DJ SNAKE",
+                    "director": "Alexandre Buisson",
+                    "release_date": "20200827",
+                    "genres": "concert",
+                    "localized_genres": "Concert",
+                    "synopsis": "Il a conquis la sc\u00e8ne musicale du monde entier. Il est l'artiste fran\u00e7ais le plus \u00e9cout\u00e9 au monde. Il a collabor\u00e9 avec les plus grandes stars internationales. DJ Snake offre un show hors normes \u00e0 Paris La D\u00e9fense Arena qui a fait de lui le premier artiste dans l'histoire de la musique \u00e9lectronique \u00e0 se produire dans une salle aussi grande. Plus de 20 cam\u00e9ras ont immortalis\u00e9 ce concert historique \u00e0 la sc\u00e9nographie spectaculaire. De Turn Down For What, Lean On, Magenta Riddim \u00e0 Taki Taki, Loco Contigo, Let Me Love You, pr\u00e9parez-vous \u00e0 vibrer et vivre un concert inoubliable.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/82A8E2B2\/120\/I32U3.jpg",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/I32U3.jpg"
+                    ],
+                    "duration": 110,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRI32U3&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087654",
+                            "date": "202008272100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87654&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "399WH",
+                    "title": "Une Nuit au Louvre : L\u00e9onard de Vinci",
+                    "director": "MARTIN Pierre-Hubert",
+                    "release_date": "20200916",
+                    "genres": "documentary",
+                    "localized_genres": "Documentaire",
+                    "synopsis": "Film\u00e9e sp\u00e9cialement pour le cin\u00e9ma, cette visite priv\u00e9e nocturne de l\u2019exposition L\u00c9ONARD DE VINCI, con\u00e7ue et organis\u00e9e par le Mus\u00e9e du Louvre, est l\u2019occasion unique de contempler les plus belles \u0153uvres du peintre au plus pr\u00e8s. Cette grande r\u00e9trospective consacr\u00e9e \u00e0 l\u2019ensemble de sa carri\u00e8re de peintre montre combien L\u00e9onard a plac\u00e9 la peinture au-dessus de toute activit\u00e9 et comment son enqu\u00eate sur le monde \u2013 il l\u2019appelait \u00ab science de la peinture \u00bb - fut l\u2019instrument d\u2019un art, dont l\u2019ambition supr\u00eame \u00e9tait de donner la vie \u00e0 ses tableaux. Les \u00e9clairages apport\u00e9s par les commissaires de l\u2019exposition lors de cette visite priv\u00e9e film\u00e9e permettent en outre de mieux comprendre la pratique artistique et la technique picturale de L\u00e9onard.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/2969868D\/120\/399WH.jpg",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/399WH.jpg"
+                    ],
+                    "duration": 90,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FR399WH&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087655",
+                            "date": "202009161400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87655&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087656",
+                            "date": "202009171400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87656&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087657",
+                            "date": "202009182000",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87657&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087658",
+                            "date": "202009191800",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87658&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087660",
+                            "date": "202009201100",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87660&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087659",
+                            "date": "202009201600",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87659&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087661",
+                            "date": "202009211400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 5,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87661&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087662",
+                            "date": "202009222000",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 6,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87662&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "I8RS2",
+                    "title": "Tout Simplement Noir",
+                    "director": "Jean-Pascal Zadi, John Wax",
+                    "actors": "Jean-Pascal Zadi, Fary, Caroline Anglade, Omar Sy, Mathieu Kassovitz, John Wax, Kareen Guiock",
+                    "release_date": "20200708",
+                    "genres": "comedy",
+                    "localized_genres": "Com\u00e9die",
+                    "synopsis": "JP, un acteur rat\u00e9 de 40 ans, d\u00e9cide d\u2019organiser la premi\u00e8re grosse marche de contestation noire en France, mais ses rencontres, souvent burlesques, avec des personnalit\u00e9s influentes de la communaut\u00e9 et le soutien int\u00e9ress\u00e9 qu\u2019il re\u00e7oit de Fary, le font osciller entre envie d\u2019\u00eatre sur le devant de la sc\u00e8ne et v\u00e9ritable engagement militant...",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/41762257\/120\/I8RS2.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/I8RS2.jpg"
+                    ],
+                    "duration": 90,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRI8RS2&ps=EMS0809",
+                    "country": "FR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087668",
+                            "date": "202007081400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87668&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087669",
+                            "date": "202007081900",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87669&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087670",
+                            "date": "202007082115",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 1,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87670&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "ME0U0",
+                    "title": "Scooby !",
+                    "director": "Tony Cervone",
+                    "actors": "Will Forte, Frank Welker, Amanda Seyfried, Mark Wahlberg, Jason Isaacs",
+                    "release_date": "20200708",
+                    "genres": "animation,comedy,family,mystery,adventure",
+                    "localized_genres": "Animation, Com\u00e9die, Familial, Myst\u00e8re, Aventure",
+                    "synopsis": "D\u00e9marrez la Mystery Machine ! Scooby-Doo et ses amis luttent \u00e0 nouveau contre le crime dans une toute nouvelle aventure.",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/76F52C57\/120\/ME0U0.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/ME0U0.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/ME0U0.jpg"
+                    ],
+                    "duration": 94,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRME0U0&ps=EMS0809",
+                    "country": "US",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087671",
+                            "date": "202007081400",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87671&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087672",
+                            "date": "202007081615",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87672&ps=EMS0809",
+                            "audio_lang": "fr"
+                        },
+                        {
+                            "id": "emsx080900087673",
+                            "date": "202007081830",
+                            "version": "VF",
+                            "formats": "",
+                            "features": [
+                                "vf",
+                                "disabled_access"
+                            ],
+                            "hall_id": 4,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87673&ps=EMS0809",
+                            "audio_lang": "fr"
+                        }
+                    ]
+                },
+                {
+                    "id": "YQYB2",
+                    "title": "Lucky Strike",
+                    "director": "Kim Yong-hoon",
+                    "actors": "Jeon Do-yeon, Jung Woo-sung, Bae Seong-woo, Youn Yuh-jung, Jeong Man-sik, Jin Kyung, Shin Hyun-bin, Kim Jun-han, Jung Ga-ram, Park Ji-hwan, Heo Dong-won, Bae Jin-woong",
+                    "release_date": "20200708",
+                    "genres": "thriller,suspense,drama,mystery,crime,comedy",
+                    "localized_genres": "Thriller, Suspense, Drame, Myst\u00e8re, Crime, Com\u00e9die",
+                    "synopsis": "Un corps retrouv\u00e9 sur une plage, un employ\u00e9 de sauna, un douanier peu scrupuleux, un pr\u00eateur sur gage et une h\u00f4tesse de bar qui n\u2019auraient jamais d\u00fb se croiser. Mais le sort en a d\u00e9cid\u00e9 autrement en pla\u00e7ant sur leur route un sac rempli de billets, qui bouleversera leur destin. Arnaques, trahisons et meurtres : tous les coups sont permis pour qui r\u00eave de nouveaux d\u00e9parts\u2026",
+                    "bill_url": "https:\/\/movies.monnaie-services.com\/FR\/poster\/7F7F0014\/120\/YQYB2.jpg",
+                    "trailer_url": "access denied",
+                    "backdrop_urls": [
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/0\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/1\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/2\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/3\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/4\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/5\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/6\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/7\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/8\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/9\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/10\/120\/YQYB2.jpg",
+                        "https:\/\/movies.monnaie-services.com\/FR\/backdrop\/11\/120\/YQYB2.jpg"
+                    ],
+                    "certification_id": "R12",
+                    "duration": 108,
+                    "booking_url": "https:\/\/www.ticketingcine.fr\/?nc=0809&idMS=FRYQYB2&ps=EMS0809",
+                    "country": "KR",
+                    "sessions": [
+                        {
+                            "id": "emsx080900087674",
+                            "date": "202007081400",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87674&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087675",
+                            "date": "202007081830",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87675&ps=EMS0809"
+                        },
+                        {
+                            "id": "emsx080900087676",
+                            "date": "202007082100",
+                            "version": "VO",
+                            "formats": "",
+                            "features": [
+                                "vo",
+                                "disabled_access"
+                            ],
+                            "hall_id": 2,
+                            "booking_url": "https:\/\/www.ticketingcine.fr?nc=0809&lang=fr&ids=87676&ps=EMS0809"
+                        }
+                    ]
+                }
+            ]
         }
     ],
-    "version": 1586007781
+    "version": 1593780482
 }

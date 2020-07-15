@@ -14,7 +14,7 @@ class MatchShowsForShowingsImportJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public Collection $shows_for;
+    public Collection $shows;
 
     /**
      * Create a new job instance.

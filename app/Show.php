@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Presenters\Poster;
 use App\Presenters\ShowPresenter;
-use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -12,7 +10,6 @@ use Illuminate\Support\Arr;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Show extends Model implements HasMedia
 {
@@ -119,10 +116,5 @@ class Show extends Model implements HasMedia
     public function videos(): Relation
     {
         return $this->hasMany(Video::class);
-    }
-
-    public function weeks(): Relation
-    {
-        return $this->hasManyThrough(Week::class, Programming::class);
     }
 }

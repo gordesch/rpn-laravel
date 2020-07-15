@@ -27,7 +27,7 @@ class ShowingsImportController extends Controller
 
     public function store(): RedirectResponse
     {
-        ImportShowingsJob::dispatchNow();
+        ImportShowingsJob::dispatchNow(\Session::get('shows_to_import'));
         return redirect()->route('admin.weeks.index');
     }
 }

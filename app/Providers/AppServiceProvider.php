@@ -2,9 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Queue\Events\JobFailed;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +21,10 @@ class AppServiceProvider extends ServiceProvider
             'fr_FR',
             'fr'
         );
+        Collection::macro('hasNotEmpty', function ($search_key) {
+            return $this->contains(function ($value, $key) use ($search_key) {
+                return $key === $search_key && $value != null;
+            });
+        });
     }
 }

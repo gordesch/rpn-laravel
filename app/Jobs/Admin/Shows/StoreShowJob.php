@@ -39,7 +39,10 @@ class StoreShowJob implements ShouldQueue
         if (! $show->wasRecentlyCreated && $show->getChanges() !== []) {
             flash("{$show->title} a bien été mis à jour")->success();
         }
-        StorePosterJob::dispatch($show, $this->input);
+        $has_new_poster
+            = $this->input->hasNotEmpty('poster_url')
+            || $this->input->hasNotEmpty('poster_file');
+        StorePosterJob::dispatchIf($has_new_poster, $show, $this->input);
         StoreVideosJob::dispatch($show, $this->input);
     }
 }
