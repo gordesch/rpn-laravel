@@ -3,7 +3,7 @@
 namespace App\Services\ShowsProvider\Allocine;
 
 use App\Services\ShowsProvider\ShowsProvider;
-use App\Show;
+use App\Models\Show;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;

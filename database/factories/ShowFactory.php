@@ -1,23 +1,40 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Show;
-use Faker\Generator as Faker;
+use App\Models\Show;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Show::class, function (Faker $faker) {
-    $title = $faker->name;
-    return [
-        'title' => $title,
-        'slug' => Str::slug($title),
-        'genre' => $faker->word(),
-        'duration_in_seconds' => $faker->numberBetween(60 * 45, 60 * 140),
-        'country' => $faker->country,
-        'is_local_language' => $faker->boolean(),
-        'year' => $faker->year(),
-        'director' => $faker->name(),
-        'cast' => $faker->name(),
-        'synopsis' => $faker->paragraph(8),
-        'audience' => $faker->numberBetween(4, 18),
-    ];
-});
+class ShowFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Show::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $title = $this->faker->name();
+        return [
+            'title'               => $title,
+            'slug'                => Str::slug($title),
+            'genre'               => $this->faker->word(),
+            'duration_in_seconds' => $this->faker->numberBetween(60 * 45, 60 * 140),
+            'country'             => $this->faker->country,
+            'is_local_language'   => $this->faker->boolean(),
+            'year'                => $this->faker->year(),
+            'director'            => $this->faker->name(),
+            'cast'                => $this->faker->name(),
+            'synopsis'            => $this->faker->paragraph(8),
+            'audience'            => $this->faker->numberBetween(4, 18),
+        ];
+    }
+}

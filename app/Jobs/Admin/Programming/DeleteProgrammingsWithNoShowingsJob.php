@@ -2,7 +2,7 @@
 
 namespace App\Jobs\Admin\Programming;
 
-use App\Programming;
+use App\Models\Programming;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

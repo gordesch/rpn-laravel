@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Show;
-use App\Video;
+use App\Models\Show;
+use App\Models\Video;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Collection;
 

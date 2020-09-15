@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Admin;
+use App\Models\Admin;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Validation\Validator as ValidatorContract;

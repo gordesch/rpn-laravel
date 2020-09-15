@@ -7,33 +7,25 @@ use Livewire\Component;
 
 class SearchInput extends Component
 {
-    public ?string $search = null;
-    public bool $resultsLoading = false;
+    public $search = '';
+    public $resultsLoading = false;
 
     /**
      * @var array<string, array<string, string>>
      */
-    protected $updatesQueryString = ['search' => ['except' => '']];
+    protected $queryString = ['search' => ['except' => '']];
 
     /**
      * @var array<string>
      */
     protected $listeners = ['resultsLoaded' => 'resultsLoaded'];
 
-    public function mount(): void
-    {
-        $search = request()->query('search', '');
-        if (! is_array($search)) {
-            $this->search = (string) $search;
-        }
-    }
-
     public function updatingSearch(): void
     {
         $this->resultsLoading = true;
     }
 
-    public function resultsLoaded(string $search): void
+    public function resultsLoaded($search): void
     {
         if ($search === $this->search) {
             $this->resultsLoading = false;

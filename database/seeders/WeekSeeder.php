@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\Week;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Gordesch\CineCarbon;
@@ -19,8 +22,7 @@ class WeekSeeder extends Seeder
                              ->until(Carbon::now()->addWeeks(3))
                              ->setDateClass(CineCarbon::class);
         foreach ($weeks as $week) {
-            $week_number = $week->programmingWeek();
-            factory(App\Week::class)->create(['number' => $week_number]);
+            Week::factory()->create(['number' => $week->programmingWeek()]);
         }
     }
 }

@@ -2,22 +2,16 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
 class Select extends Component
 {
-    /**
-     * @var Collection
-     */
     public $shows = [];
-    /**
-     * @var ?Show
-     */
     public $selected = null;
-    public string $search = '';
-    public bool $resultsLoading = false;
+    public $search = '';
+    public $resultsLoading = false;
 
     public function updatedSearch()
     {

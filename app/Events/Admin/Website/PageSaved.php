@@ -2,7 +2,7 @@
 
 namespace App\Events\Admin\Website;
 
-use App\Page;
+use App\Models\Page;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;

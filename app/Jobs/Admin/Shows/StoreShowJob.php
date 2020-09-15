@@ -3,7 +3,7 @@
 namespace App\Jobs\Admin\Shows;
 
 use App\Http\Requests\ShowFormRequest;
-use App\Show;
+use App\Models\Show;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

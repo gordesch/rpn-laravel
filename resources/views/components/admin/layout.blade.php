@@ -30,6 +30,9 @@
                 <x-admin.layout.menu.link :href="route('admin.weeks.index')" linkCategory="programmings" class="ml-4" :category="$category">
                   Programmations
                 </x-admin.layout.menu.link>
+                <x-admin.layout.menu.link :href="route('admin.website.pages.create')" linkCategory="website" class="ml-4" :category="$category">
+                  Site &amp; Pages
+                </x-admin.layout.menu.link>
               </div>
             </div>
           @endif

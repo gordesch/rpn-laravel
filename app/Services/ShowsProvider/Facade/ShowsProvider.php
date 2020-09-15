@@ -2,7 +2,7 @@
 
 namespace App\Services\ShowsProvider\Facade;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 

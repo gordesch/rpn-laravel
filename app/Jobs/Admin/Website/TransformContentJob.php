@@ -2,7 +2,7 @@
 
 namespace App\Jobs\Admin\Website;
 
-use App\Page;
+use App\Models\Page;
 use App\Services\Html;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

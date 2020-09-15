@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -16,6 +16,7 @@ class SlugCheck extends Component
     public ?string $state = null;
     public ?string $ticketingProviderId = null;
     public ?string $except = null;
+    public $poll;
 
     public function mount(
         bool $shouldExist,

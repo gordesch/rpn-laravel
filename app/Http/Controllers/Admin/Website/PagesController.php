@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Website;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PageFormRequest;
 use App\Jobs\Admin\Website\StorePageJob;
-use App\Page;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;

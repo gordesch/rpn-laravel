@@ -1,37 +1,42 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Programming;
-use App\Showing;
+use App\Models\Programming;
+use App\Models\Showing;
 use Faker\Generator as Faker;
 use Gordesch\CineCarbon;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Showing::class, function (Faker $faker, $attrib = [
-    'programming_id' => null,
-]) {
-    $programming = null;
-    if (array_key_exists('programming_id', $attrib)) {
-        $programming_id = $attrib['programming_id'];
-        $programming = Programming::whereId($programming_id)
-            ->with('week')->firstOrFail();
-    } else {
-        $programming_id = factory(App\Programming::class);
+class ShowingFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Showing::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'ticketing_provider_id'       => $this->faker->domainWord,
+            'programming_id'              => Programming::factory(),
+            'datetime'                    => function (array $attributes) {
+                return $this->faker->dateTimeBetween(
+                    Programming::find($attributes['programming_id'])->week->start,
+                    Programming::find($attributes['programming_id'])->week->end
+                );
+            },
+            'preshow_duration_in_seconds' => 60 * 15, // 15 min
+            'is_original_version'         => $this->faker->boolean,
+            'is_3d'                       => $this->faker->boolean,
+            'auditorium_number'           => $this->faker->numberBetween(1, 6),
+        ];
     }
-    return [
-        'ticketing_provider_id' => $faker->domainWord,
-        'programming_id' => $programming_id,
-        'datetime' => $faker->dateTimeBetween(
-            array_key_exists('programming_id', $attrib)
-                ? $programming->week->start
-                : CineCarbon::now()->startOfWeek(),
-            array_key_exists('programming_id', $attrib)
-                ? $programming->week->end
-                : CineCarbon::now()->endOfWeek()
-        ),
-        'preshow_duration_in_seconds' => 60 * 15, // 15 min
-        'is_original_version' => $faker->boolean,
-        'is_3d' => $faker->boolean,
-        'auditorium_number' => $faker->numberBetween(1, 6),
-    ];
-});
+}

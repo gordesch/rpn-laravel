@@ -3,7 +3,7 @@
 namespace App\Jobs\Admin\Website;
 
 use App\Http\Requests\PageFormRequest;
-use App\Page;
+use App\Models\Page;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateShowingsTable extends Migration
 {
-     protected const FIFTEEN_MIN_IN_SECONDS = 15 * 60;
+     protected const FIFTEEN_MINUTES_IN_SECONDS = 15 * 60;
 
     /**
      * Run the migrations.
@@ -21,7 +21,7 @@ class CreateShowingsTable extends Migration
             $table->unsignedBigInteger('programming_id');
             $table->datetime('datetime');
             $table->unsignedInteger('preshow_duration_in_seconds')
-                ->default(self::FIFTEEN_MIN_IN_SECONDS);
+                ->default(self::FIFTEEN_MINUTES_IN_SECONDS);
             $table->boolean('is_original_version')->default(false);
             $table->boolean('is_3d')->default(false);
             $table->tinyInteger('auditorium_number');

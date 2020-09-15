@@ -26,6 +26,7 @@ class ImportShowingsJob implements ShouldQueue
     public function __construct(Collection $shows_to_import)
     {
         $this->shows_to_import = $shows_to_import;
+        $this->shows_to_match = new Collection();
     }
 
     /**

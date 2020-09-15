@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Events\Admin\Website\PageSaved;
 use Illuminate\Database\Eloquent\Model;
@@ -45,7 +45,7 @@ class Page extends Model
 
     public function shows()
     {
-        return $this->belongsToMany('App\Show')
+        return $this->belongsToMany('App\Models\Show')
             ->withPivot('raw_infos', 'infos', 'date');
     }
 }

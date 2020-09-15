@@ -1,15 +1,31 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Week;
-use Faker\Generator as Faker;
-use Gordesch\CineCarbon;
+use App\Models\Week;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Week::class, function (Faker $faker) {
+class WeekFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Week::class;
 
-    return [
-        'number' => Carbon::parse($faker->unique()->dateTimeBetween('now', '+ 6 months'))->isoFormat('GGGG-WW'),
-    ];
-});
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'number' => Carbon::parse(
+                $this->faker->unique()->dateTimeBetween('now', '+ 6 months')
+            )->isoFormat('GGGG-WW'),
+        ];
+    }
+}

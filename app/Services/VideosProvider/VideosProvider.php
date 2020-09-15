@@ -2,7 +2,7 @@
 
 namespace App\Services\VideosProvider;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
 

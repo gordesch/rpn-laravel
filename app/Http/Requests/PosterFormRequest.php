@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;

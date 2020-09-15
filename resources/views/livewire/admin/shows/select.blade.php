@@ -110,7 +110,7 @@
             data-import-link="true"
             x-on:keydown.arrow-up.prevent="document.querySelector('.select-for-{{ $search }} [data-last-iteration]').focus()"
             x-on:keydown.escape="document.getElementById('search').focus()"
-            href="{{ route('admin.shows.import.search.create') }}?search={{ $search }}&ticketing_provider_id={{ optional($show)->ticketing_provider_id }}"
+            href="{{ route('admin.shows.import.search.create') }}?search={{ $search }}&ticketing_provider_id={{ optional($show ?? null)->ticketing_provider_id }}"
             class="flex items-center justify-center w-full px-4 py-2 leading-5 text-xs text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:bg-gray-100 focus:text-gray-700"
             target="_blank"
           >

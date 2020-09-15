@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin\Weeks;
 
 use App\Http\Requests\ShowFormRequest;
-use App\Show;
+use App\Models\Show;
 use Livewire\Component;
 
 class ShowsState extends Component

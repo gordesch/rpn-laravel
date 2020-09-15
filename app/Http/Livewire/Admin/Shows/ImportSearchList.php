@@ -9,32 +9,23 @@ use Livewire\Component;
 
 class ImportSearchList extends Component
 {
-    public string $search = '';
-    public string $ticketing_provider_id = '';
-    /**
-     * @var Collection
-     */
-    public $shows = null;
+    public $search = '';
+    public $ticketing_provider_id = '';
+    public $shows;
 
     /**
      * @var array<string>
      */
-    protected $listeners = ['search' => 'mount'];
+    protected $listeners = ['search' => 'updateShows'];
 
     public function mount(): void
     {
-        $this->updateShows();
+        $this->updateShows(request('search', ''));
     }
 
-    public function updateShows(): void
+    public function updateShows(string $search): void
     {
-        $search = request()->query('search', '');
-        if (!is_array($search)) {
-            $this->search = (string) $search;
-        }
-        if (!isset($this->search) || $this->search == false) {
-            return;
-        }
+        $this->search = $search;
         $this->ticketing_provider_id = request('ticketing_provider_id', '');
         $this->shows = new Collection(ShowsProvider::search($this->search));
     }

@@ -2,36 +2,33 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class SearchList extends Component
 {
-    public ?string $search = null;
+    public $search = '';
     /**
      * @var Collection
      */
-    public $shows = null;
+    public $shows;
 
     /**
      * @var array<string>
      */
-    protected $listeners = ['search' => 'mount'];
+    protected $listeners = ['search' => 'updateShows'];
 
     public function mount(): void
     {
-        $search = request()->query('search', '');
-        if (! is_array($search)) {
-            $this->search = (string) $search;
-        }
-        $this->updateShows();
+        $this->updateShows(request('search', ''));
     }
 
-    public function updateShows(): void
+    public function updateShows(string $search): void
     {
-        if (! isset($this->search) || $this->search === '') {
+        $this->search = $search;
+        if ($this->search == '') {
             $this->shows = Show::latest()->with('media')->limit(30)->get();
         } else {
             $this->shows = Show::search($this->search)

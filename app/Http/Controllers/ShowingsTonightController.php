@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Showing;
+use App\Models\Showing;
 use Gordesch\CineCarbonImmutable;
 
 class ShowingsTonightController extends Controller

@@ -2,7 +2,7 @@
 
 namespace App\Services\ShowsProvider\Allocine;
 
-use App\Show;
+use App\Models\Show;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -80,11 +80,8 @@ trait CastsToShow
 
         $show->is_local_language
             = isset($allocine_show->languageList->language[0])
-            ? (
-                (string) $allocine_show->languageList->language[0] === config('app.shows_db.locale_language')
-                ? true
-                : false
-            ) : null;
+            ? (string) $allocine_show->languageList->language[0] === config('app.shows_db.locale_language')
+            : null;
 
         $show->year
             = isset($allocine_show->productionYear)

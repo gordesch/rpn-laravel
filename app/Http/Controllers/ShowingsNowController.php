@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Showing;
-use App\Week;
+use App\Models\Showing;
+use App\Models\Week;
 use Carbon\CarbonPeriod;
 use Gordesch\CineCarbon;
 use Gordesch\CineCarbonImmutable;

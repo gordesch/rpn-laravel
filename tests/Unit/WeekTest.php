@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Show;
-use App\Video;
+use App\Models\Show;
+use App\Models\Video;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;

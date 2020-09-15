@@ -2,8 +2,8 @@
 
 namespace App\Services\TicketingProvider;
 
-use App\Show;
-use App\Showing;
+use App\Models\Show;
+use App\Models\Showing;
 use Illuminate\Database\Eloquent;
 use Illuminate\Support\Collection;
 

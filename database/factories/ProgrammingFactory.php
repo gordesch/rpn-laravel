@@ -1,20 +1,39 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Programming;
-use Faker\Generator as Faker;
+use App\Models\Programming;
+use App\Models\Week;
+use App\Models\Show;
 
-$factory->define(Programming::class, function (Faker $faker) {
-    return [
-        'week_id' => factory(App\Week::class),
-        'show_id' => factory(App\Show::class),
-        /*
-        // Commented to set it in controller
-        'is_dubbed_version' => $faker->boolean,
-        'is_original_version' => $faker->boolean,
-        'is_2d' => $faker->boolean,
-        'is_3d' => $faker->boolean,
-        */
-    ];
-});
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ProgrammingFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Programming::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'week_id' => Week::factory(),
+            'show_id' => Show::factory(),
+            /*
+            // Commented to set it in controller
+            'is_dubbed_version' => $this->faker->boolean,
+            'is_original_version' => $this->faker->boolean,
+            'is_2d' => $this->faker->boolean,
+            'is_3d' => $this->faker->boolean,
+            */
+        ];
+    }
+}

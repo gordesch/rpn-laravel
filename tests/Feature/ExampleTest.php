@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

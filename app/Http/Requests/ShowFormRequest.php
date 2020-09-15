@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Services\ShowsProvider\Facade\ShowsProvider;
-use App\Show;
+use App\Models\Show;
 use Carbon\CarbonInterval;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;

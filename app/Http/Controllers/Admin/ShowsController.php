@@ -7,7 +7,7 @@ use App\Http\Requests\PosterFormRequest;
 use App\Http\Requests\ShowFormRequest;
 use App\Http\Requests\VideosFormRequest;
 use App\Jobs\Admin\Shows\StoreShowJob;
-use App\Show;
+use App\Models\Show;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Programming;
-use App\Week;
+use App\Models\Programming;
+use App\Models\Week;
 use Gordesch\CineCarbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;

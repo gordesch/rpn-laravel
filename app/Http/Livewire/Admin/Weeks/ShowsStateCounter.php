@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Weeks;
 
-use App\Week;
+use App\Models\Week;
 use Livewire\Component;
 
 class ShowsStateCounter extends Component

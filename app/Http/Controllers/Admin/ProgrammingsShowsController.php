@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Week;
+use App\Models\Week;
 use Illuminate\View\View;
 
 class ProgrammingsShowsController extends Controller

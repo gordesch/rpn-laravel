@@ -2,8 +2,8 @@
 
 namespace App\Notifications\Admin;
 
-use App\Admin;
-use App\Week;
+use App\Models\Admin;
+use App\Models\Week;
 use Gordesch\CineCarbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

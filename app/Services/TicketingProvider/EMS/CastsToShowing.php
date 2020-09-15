@@ -2,10 +2,10 @@
 
 namespace App\Services\TicketingProvider\EMS;
 
-use App\Programming;
-use App\Show;
-use App\Showing;
-use App\Week;
+use App\Models\Programming;
+use App\Models\Show;
+use App\Models\Showing;
+use App\Models\Week;
 use Gordesch\CineCarbon;
 use Illuminate\Database\Eloquent\Collection;
 

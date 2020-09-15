@@ -2,9 +2,9 @@
 
 namespace App\Services\TicketingProvider\EMS;
 
-use App\Programming;
+use App\Models\Programming;
 use App\Services\TicketingProvider\TicketingProvider;
-use App\Week;
+use App\Models\Week;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Client\RequestException;

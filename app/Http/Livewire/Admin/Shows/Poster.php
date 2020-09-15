@@ -2,14 +2,14 @@
 
 namespace App\Http\Livewire\Admin\Shows;
 
-use App\Show;
+use App\Models\Show;
 use Illuminate\View\View;
 use Livewire\Component;
 
 class Poster extends Component
 {
     public $show = null;
-    public bool $poll = false;
+    public $poll = false;
 
     public function mount(Show $show): void
     {

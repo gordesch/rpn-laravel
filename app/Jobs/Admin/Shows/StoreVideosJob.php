@@ -3,8 +3,8 @@
 namespace App\Jobs\Admin\Shows;
 
 use App\Http\Requests\VideosFormRequest;
-use App\Show;
-use App\Video;
+use App\Models\Show;
+use App\Models\Video;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

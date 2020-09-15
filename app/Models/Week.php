@@ -1,16 +1,21 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\Programming;
+use App\Models\Showing;
 use App\Relations\ShowsWithMissingDataRelation;
 use Carbon\CarbonPeriod;
 use Gordesch\CineCarbon;
 use Gordesch\CineCarbonImmutable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 class Week extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *

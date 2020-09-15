@@ -3,7 +3,7 @@
 namespace App\Services\VideosProvider\Youtube;
 
 use App\Services\VideosProvider\VideosProvider;
-use App\Show;
+use App\Models\Show;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;

@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin\Shows\Videos;
 
 use App\Services\VideosProvider\Youtube\Youtube;
-use App\Show;
+use App\Models\Show;
 use Illuminate\Http\Client\RequestException;
 use Livewire\Component;
 

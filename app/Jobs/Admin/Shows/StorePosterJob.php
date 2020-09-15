@@ -3,7 +3,7 @@
 namespace App\Jobs\Admin\Shows;
 
 use App\Http\Requests\PosterFormRequest;
-use App\Show;
+use App\Models\Show;
 use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

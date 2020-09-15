@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Showings;
 
-use App\Show;
-use App\Showing;
-use App\Week;
+use App\Models\Show;
+use App\Models\Showing;
+use App\Models\Week;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\View\View;

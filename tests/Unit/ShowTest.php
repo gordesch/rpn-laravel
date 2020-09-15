@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Programming;
-use App\Show;
-use App\Showing;
-use App\Video;
+use App\Models\Programming;
+use App\Models\Show;
+use App\Models\Showing;
+use App\Models\Video;
 use Carbon\CarbonInterval;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

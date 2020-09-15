@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Week;
+use App\Models\Week;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Gordesch\CineCarbon;

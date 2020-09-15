@@ -1,9 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Models\Programming;
 use App\Presenters\ShowPresenter;
+use App\Models\Showing;
+use App\Models\Video;
 use Carbon\CarbonInterval;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
@@ -16,6 +20,7 @@ class Show extends Model implements HasMedia
     use InteractsWithMedia;
     use Searchable;
     use ShowPresenter;
+    use HasFactory;
 
     /**
      * The attributes that should be cast.
@@ -99,7 +104,7 @@ class Show extends Model implements HasMedia
 
     public function pages()
     {
-        return $this->belongsToMany('App\Page')
+        return $this->belongsToMany('App\Models\Page')
             ->withPivot('raw_infos', 'infos', 'date');
     }
 

@@ -2,7 +2,7 @@
   @if(count(collect($shows)))
     <ul>
       @foreach($shows as $show)
-        <li @if(!$loop->first) class="border-t border-gray-200" @endif wire:key="{{ Request::get('search') . '_' . $loop->iteration }}">
+        <li @if(!$loop->first) class="border-t border-gray-200" @endif wire:key="{{ request('search') . '_' . $loop->iteration }}">
           @if ($show->exists)
           <div class="block bg-gray-50 focus:outline-none transition duration-150 ease-in-out">
           @else
@@ -10,7 +10,7 @@
           @endif
             <div class="flex items-center px-4 py-4 sm:px-6">
               <div class="min-w-0 flex-1 flex items-center">
-                <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="Request::get('search') . '_' . $loop->iteration . $show->ticketing_provider_id" />
+                <livewire:admin.shows.poster :show="$show" :poll="$show->poster_is_pending" :key="request('search') . '_' . $loop->iteration . $show->ticketing_provider_id" />
                 <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
                     <div class="flex text-sm leading-5 font-medium text-indigo-600">

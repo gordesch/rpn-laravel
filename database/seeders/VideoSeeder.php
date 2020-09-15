@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class VideoSeeder extends Seeder
@@ -11,6 +13,6 @@ class VideoSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Video::class, 20)->create();
+        factory(\App\Models\Video::class, 20)->create();
     }
 }
