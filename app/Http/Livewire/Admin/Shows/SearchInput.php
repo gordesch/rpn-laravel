@@ -25,7 +25,7 @@ class SearchInput extends Component
         $this->resultsLoading = true;
     }
 
-    public function resultsLoaded($search): void
+    public function resultsLoaded(?string $search): void
     {
         if ($search === $this->search) {
             $this->resultsLoading = false;

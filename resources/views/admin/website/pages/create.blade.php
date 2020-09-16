@@ -49,12 +49,11 @@
     <div class="mt-5">
       <div class="flex bg-white px-4 py-5 sm:p-6 shadow sm:rounded-md">
         <livewire:admin.shows.select />
-        <input
-          type="text"
+        <x-buk-pikaday
+          name="birthday"
+          :placeholder="Carbon\Carbon::now()->isoFormat('DD/MM/YYYY')"
           class="block w-full h-16 px-3 py-2 border border-gray-300 leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm transition duration-150 ease-in-out shadow-sm"
-          placeholder="{{ Carbon\Carbon::now()->isoFormat('DD/MM/YYYY') }}"
-          pattern="(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(20)\d\d"
-        >
+        />
       </div>
       <x:admin.layout.editor.quill name="show_raw_content" form="form" />
     </div>

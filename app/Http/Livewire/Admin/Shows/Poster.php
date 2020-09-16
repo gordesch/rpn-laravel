@@ -22,11 +22,4 @@ class Poster extends Component
         $this->show = $this->show->fresh();
         $this->poll = (bool) $this->show->poster_is_pending;
     }
-
-    public function render(): View
-    {
-        return view('livewire.admin.shows.poster', [
-            'show' => $this->show,
-        ]);
-    }
 }

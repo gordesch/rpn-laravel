@@ -30,20 +30,16 @@ class SearchList extends Component
         $this->search = $search;
         if ($this->search == '') {
             $this->shows = Show::latest()->with('media')->limit(30)->get();
-        } else {
-            $this->shows = Show::search($this->search)
-                ->paginate(30)
-                ->load('media');
+            return;
         }
+        $this->shows = Show::search($this->search)
+            ->paginate(30)
+            ->load('media');
     }
 
     public function render(): View
     {
         $this->emit('resultsLoaded', $this->search);
-        return view(
-            'livewire.admin.shows.search-list', [
-                'shows' => $this->shows,
-            ]
-        );
+        return view('livewire.admin.shows.search-list');
     }
 }

@@ -8,6 +8,7 @@
 
   <link rel="stylesheet" type="text/css" href="{{ mix('/css/admin/admin.css') }}">
   <livewire:styles />
+  @bukStyles
 </head>
 
 <body class="bg-gray-100">
@@ -130,6 +131,7 @@
 <script src="{{ mix('/js/admin/admin.js') }}" defer></script>
 <livewire:scripts />
 {{ $scripts ?? null }}
+@bukScripts
 
 </body>
 
